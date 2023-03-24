@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_log_activity">Aktivität aufzeichnen</string>
+    <string name="button_start_stop">Start</string>
+    <string name="_log_activity">Aktivität aufzeichnen</string>
+    <string name="_mood_record">Mood aufzeichnen</string>
+    <string name="_choose_your_activity">Wählen Sie Ihre Aktivität aus</string>
+    <string name="_start">Start</string>
+    <string name="_stop">Stop</string>
+    <string name="_record_finished_activity">um eine abgeschlossene Aktivität aufzuzeichnen</string>
+    <string name="_click_here">Nachtragen</string>
+    <string name="_how_are_you_feeling">In den letzten 24 Stunden fühlte ich mich im Durchschnitt…</string>
+    <string name="_satisfied">zufrieden</string>
+    <string name="_dissatisfied">unzufrieden</string>
+    <string name="_restless">unruhig</string>
+    <string name="_calm">ruhig</string>
+    <string name="_unwell">unwohl</string>
+    <string name="_well">wohl</string>
+    <string name="_strained">angespannt</string>
+    <string name="_relaxed">entspannt</string>
+    <string name="_no_energie">energielos</string>
+    <string name="_full_energy">energiegeladen</string>
+    <string name="_sleepy">müde</string>
+    <string name="_awake">wach</string>
+    <string name="_negative_events">haben sie seit der letzten abfrage eines oder mehrere negative ereignisse erlebt wie intensiv war das bedeutendste negative ereignis</string>
+    <string name="_no_result">kein Ereignis</string>
+    <string name="_very_intensive">sehr Intensiv</string>
+    <string name="_positive_events">haben sie seit der letzten abfrage eines oder mehrere positive ereignisse erlebt wie intensiv war das bedeutendste positive ereignis</string>
+    <string name="_no_result_positive">kein Ereignis</string>
+    <string name="_very_intensive_positive">sehr Intensiv</string>
+    <string name="_are_you_alone">Sind Sie im Moment alleine?</string>
+    <string name="_yes_alone">JA</string>
+    <string name="_no_alone">NEIN</string>
+    <string name="_like_people">Wenn Sie an die Personen denken, die Sie gerade umgeben, inwiefern trifft folgende Aussage zu? Ich mag diese Leute nicht!</string>
+    <string name="_not_at_all">trifft überhaupt nicht zu</string>
+    <string name="_completly_true">trifft völlig zu</string>
+    <string name="_people_surrounded">Von welchen Menschen sind Sie momentan umgeben?</string>
+    <string name="_done_people_eurrounded">Fertig</string>
+    <string name="_where_right_now">Wo befinden Sie sich grade?</string>
+    <string name="_self_satisfied">Gegenwärtig bin ich mit mir selbst zufrieden</string>
+    <string name="_self_dissatisfied">Im Augenblick halte ich mich für einen Versager</string>
+    <string name="_note_1">Hinweis: 0: trifft gar nicht zu; to 9 trifft voll und ganz zu</string>
+    <string name="_note_2">um 0 zu abgeben klicke einfach nur auf (abgeben).</string>
+    <string name="_submit_1">abgeben</string>
+    <string name="_submit_2">abgeben</string>
+    <string name="_handling">Seit der letzten Abfrage habe ich mich gegenüber einer anderen Person ärgerlich oder aggressiv verhalten, was mir danach leidtat</string>
+    <string name="handling_without_thinking">Seit der letzten Abfrage habe ich impulsiv gehandelt, d.h. ich habe gehandelt, ohne mir Gedanken über mögliche Konsequenzen zu machen</string>
+    <string name="_not_at_all_1">trifft gar nicht zu</string>
+    <string name="_completely_true_1">trifft voll und ganz zu</string>
+    <string name="_not_at_all_2">trifft gar nicht zu</string>
+    <string name="_completely_true_2">trifft voll und ganz zu</string>
+    <string name="_finish">Fertig</string>
+    <string name="einstellungen">Einstellungen</string>
+    <string name="_choose_language">Wählen Sie eine Sprache aus</string>
+    <string name="_go_to_home">Gehen Sie zum Homescreen</string>
+    <string name="button_log_mood">Mood aufnehmen</string>
+    <string name="button_statistics">Meine Statistiken</string>
+    <string name="text_statistics_activity_chart">Tägliche Aktivitäten in Minuten</string>
+    <string name="_language">Sprache</string>
+    <string name="_choose_language_summary">Sprache feststellen</string>
+    <string name="_general_settings">Allgemeine Verwaltung</string>
+    <string name="_notification">Benachrichtigungen</string>
+    <string name="_notification_send">Benachrichtigungen anzeiegn</string>
+    <string name="_recieve_notification_summary_on">Benachrichtigungen von MyFitnessTracker erhalten</string>
+    <string name="_recieve_notification_summary_summary_off">Benachrichtigungen von MyFitnessTracker nicht erhalten</string>
+    <string name="_extended_function">Erweiterte Funktionen</string>
+    <string name="_daily_query">Tagesabfrage</string>
+    <string name="_how_often_take_query">Feststellen wie oft die Tagesabfrage erhalten</string>
+    <string name="_daily_question_query">"Wie oft möchtest Du die Tagesabfrage erhalten?"</string>
+     <string name="set_your_own_reminder">Deine Erinnerung erstellen</string>
+    <string name="note">Hinweis: Diese Auswahl stellt die Alarme für die Erinnerungen automatisch ein </string>
+    <string name="cancel_all_alarms">Alle Alarme löschen</string>
+    <string name="cancel_reminder">Löschen</string>
+    <string name="select_time">Zeit auswählen</string>
+    <string name="button_query">Einstellen</string>
+    <string name="query_question">Wie oft möchtest Du die Tagesabfrage erhalten?</string>
+    
+    <string-array name="listActivities">
+        <item>Gehen</item>
+        <item>Laufen</item>
+        <item>Schwimmen</item>
+        <item>Ballsport</item>
+        <item>Tanzen</item>
+        <item>Kampfsport</item>
+        <item>Kraft Training</item>
+        <item>Yoga</item>
+        <item>andere</item>
+    </string-array>
+    <string-array name="answers">
+        <item>Keine</item>
+        <item>Lebenspartner*in</item>
+        <item>Familie</item>
+        <item>Freunde</item>
+        <item>Arbeitskolleg*innen</item>
+        <item>Fremde</item>
+    </string-array>
+
+    <string-array name="answers2">
+        <item>Keine</item>
+        <item>Zuhause</item>
+        <item>Arbeit</item>
+        <item>Sport</item>
+        <item>Einkaufen</item>
+        <item>Besuch</item>
+        <item>Sonstiges</item>
+    </string-array>
+
+    <string-array name="language_choices">
+        <item>Deutsch</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="answers3">
+        <item>Laufen</item>
+        <item>Schwimmen</item>
+        <item>Rennen</item>
+        <item>Ballsportarten</item>
+        <item>Tanzen</item>
+        <item>Kampfsport</item>
+        <item>Krafttraining</item>
+        <item>Yoga</item>
+        <item>Sonstiges</item>
+    </string-array>
+
+    <string-array name="language_array">
+        <item>Deutsch</item>
+        <item>English</item>
+    </string-array>
+    
+        //Array List for the Day Query
+
+    <string-array name="DayQuery">
+        <item>Null</item>
+        <item>Eins</item>
+        <item>Zwei</item>
+        <item>Drei</item>
+        <item>Vier</item>
+        <item>Fünf</item>
+        <item>Sechs</item>
+        <item>Sieben</item>
+        <item>Acht</item>
+        <item>Neun</item>
+        <item>Zehn</item>
+    </string-array>
+
+    <string name="button_7_days">7 Tage</string>
+    <string name="button_30_days">30 Tage</string>
+    <string name="button_90_days">90 Tage</string>
+    <string name="button_365_days">365 Tage</string>
+    <string name="my_dashboard">Mein Dashboard</string>
+    <string name="items">4 Objekte</string>
+    <string name="recordFinishedActivity">Ein abgeschlossenes Training nachtragen</string>
+    <string name="note2">Für den Fall, dass Du deinen eigenen Alarm einstellen möchtest, anstatt ihn automatisch einstellen zu lassen</string>
+    
+    <string name="agree">Ich stimme zu</string>
+    <string name="show_activites">Aktivitäten zeigen</string>
+    <string name="choose_activity_finished">Aktivität auswählen</string>
+    <string name="choose_date">Datum auswählen:</string>
+    <string name="from">von</string>
+    <string name="until">bis</string>
+    <string name="send">Absenden</string>
+    <string name="cance1">abbrechen</string>
+    <string name="chart_active_minutes">Aktivität in Minuten</string>
+    <string name="cancel2">abbrechen</string>
+    <string name="notes_1">Notizen:</string>
+    <string name="want_to_cancel">Warum wollen Sie abbrechen?</string>
+    <string name="because">Weil...</string>
+
+</resources>

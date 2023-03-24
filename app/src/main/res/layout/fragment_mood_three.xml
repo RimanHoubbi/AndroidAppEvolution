@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="166dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/abbrechen3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="85dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/cance1"
+            android:textSize="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/_are_you_alone"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/ja1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/teal_700"
+            android:text="@string/_yes_alone"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/nein1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/nein1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:text="@string/_no_alone"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ja1"
+            app:layout_constraintTop_toTopOf="@+id/ja1" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine3"
+            android:layout_width="283dp"
+            android:layout_height="165dp"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/notes_1"
+            android:inputType="textMultiLine"
+            android:textColorHint="#757575"
+            app:layout_constraintEnd_toEndOf="@+id/nein1"
+            app:layout_constraintStart_toStartOf="@+id/ja1"
+            app:layout_constraintTop_toBottomOf="@+id/nein1"
+            android:autofillHints="" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

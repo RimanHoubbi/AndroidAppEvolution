@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myfitnesstracker">
+
+    <uses-permission android:name="Coaandroid.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/tracker_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/tracker_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyFitnessTracker">
+        <activity
+            android:name=".view.activities.ListOfActivitiesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activities.RecordFinishedActivity"
+            android:exported="false" />
+
+        <receiver android:name=".view.activities.AlarmReceiver" />
+
+        <activity
+            android:name=".view.activities.QueryActivity"
+            android:parentActivityName=".view.activities.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".StatisticsPageActivity"
+            android:parentActivityName=".view.activities.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".view.activities.MainActivity0"
+            android:exported="false" />
+        <activity
+            android:name=".view.activities.MySettings"
+            android:exported="false" />
+        <activity
+            android:name=".view.activities.ActivitiesPageActivity"
+            android:parentActivityName=".view.activities.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".view.activities.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

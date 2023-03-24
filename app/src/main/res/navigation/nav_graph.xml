@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moodOneFragment">
+
+    <fragment
+        android:id="@+id/moodOneFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodOneFragment"
+        android:label="fragment_mood_one"
+        tools:layout="@layout/fragment_mood_one" >
+        <action
+            android:id="@+id/action_moodOneFragment_to_moodTwoFragment"
+            app:destination="@id/moodTwoFragment" />
+        <action
+            android:id="@+id/action_moodOneFragment_to_moodSixFragment"
+            app:destination="@id/moodSixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodTwoFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodTwoFragment"
+        android:label="fragment_mood_two"
+        tools:layout="@layout/fragment_mood_two" >
+        <action
+            android:id="@+id/action_moodTwoFragment_to_moodThreeFragment"
+            app:destination="@id/moodThreeFragment" />
+        <action
+            android:id="@+id/action_moodTwoFragment_to_moodSixFragment"
+            app:destination="@id/moodSixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodThreeFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodThreeFragment"
+        android:label="MoodThreeFragment"
+        tools:layout="@layout/fragment_mood_three">
+        <action
+            android:id="@+id/action_moodThreeFragment_to_moodFourFragment"
+            app:destination="@id/moodFourFragment" />
+        <action
+            android:id="@+id/action_moodThreeFragment_to_moodFiveFragment"
+            app:destination="@id/moodFiveFragment" />
+        <action
+            android:id="@+id/action_moodThreeFragment_to_moodSixFragment"
+            app:destination="@id/moodSixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodFourFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodFourFragment"
+        android:label="MoodFourFragment"
+        tools:layout="@layout/fragment_mood_four">
+        <action
+            android:id="@+id/action_moodFourFragment_to_moodSixFragment"
+            app:destination="@id/moodSixFragment" />
+        <action
+            android:id="@+id/action_moodFourFragment_to_moodFiveFragment"
+            app:destination="@id/moodFiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodFiveFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodFiveFragment"
+        android:label="MoodFiveFragment"
+        tools:layout="@layout/fragment_mood_five">
+        <action
+            android:id="@+id/action_moodFiveFragment_to_moodSixFragment"
+            app:destination="@id/moodSixFragment" />
+        <action
+            android:id="@+id/action_moodFiveFragment_to_moodSevenFragment"
+            app:destination="@id/moodSevenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodSixFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodSixFragment"
+        tools:layout="@layout/fragment_mood_six"
+        android:label="MoodSixFragment" />
+    <fragment
+        android:id="@+id/moodSevenFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodSevenFragment"
+        tools:layout="@layout/fragment_mood_seven"
+        android:label="MoodSevenFragment" >
+        <action
+            android:id="@+id/action_moodSevenFragment_to_moodEightFragment"
+            app:destination="@id/moodEightFragment" />
+        <action
+            android:id="@+id/action_moodSevenFragment_to_moodSixFragment"
+            app:destination="@id/moodSixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodEightFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.MoodEightFragment"
+        tools:layout="@layout/fragment_mood_eight"
+        android:label="MoodEightFragment" />
+</navigation>

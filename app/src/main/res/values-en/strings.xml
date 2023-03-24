@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_log_activity">Log Activity</string>
+    <string name="button_start_stop">Start</string>
+    <string name="_log_activity">Log Activity</string>
+    <string name="_mood_record">Mood Record</string>
+    <string name="_choose_your_activity">Choose Your Activity</string>
+    <string name="_start">Start</string>
+    <string name="_stop">Stop</string>
+    <string name="_record_finished_activity">In order to record an  already finished activity</string>
+    <string name="_click_here">Add</string>
+    <string name="_how_are_you_feeling">For the past 24 hours, I’ve been feeling, on average. . .</string>
+    <string name="_satisfied">Satisfied</string>
+    <string name="_dissatisfied">Dissatisfied</string>
+    <string name="_restless">Restless</string>
+    <string name="_calm">Calm</string>
+    <string name="_unwell">Unwell</string>
+    <string name="_well">Well</string>
+    <string name="_strained">Strained</string>
+    <string name="_relaxed">Relaxed</string>
+    <string name="_no_energie">No Energy</string>
+    <string name="_full_energy">Full Energy</string>
+    <string name="_sleepy">Sleepy</string>
+    <string name="_awake">Awake</string>
+    <string name="_negative_events">Have you experienced one or more negative events since the last query? How intense was the most significant negative event?</string>
+    <string name="_no_result">No result</string>
+    <string name="_very_intensive">Very Intense</string>
+    <string name="_positive_events">Have you experienced one or more positive events since the last query? How intense was the most significant positive event?</string>
+    <string name="_no_result_positive">No result</string>
+    <string name="_very_intensive_positive">Very Intense</string>
+    <string name="_are_you_alone">Are you now alone?</string>
+    <string name="_yes_alone">Yes</string>
+    <string name="_no_alone">No</string>
+    <string name="_like_people">When you think of the people around you, how does the following statement apply? I don’t like these people!</string>
+    <string name="_not_at_all">Not at all</string>
+    <string name="_completly_true">Completely true</string>
+    <string name="_people_surrounded">What people are you surrounded by right now?</string>
+    <string name="_done_people_eurrounded">Done</string>
+    <string name="_where_right_now">Where are you now?</string>
+    <string name="_self_satisfied">At present I am satisfied with myself</string>
+    <string name="_self_dissatisfied">Right now, I think I’m a failure.</string>
+    <string name="_note_1">Note: 0: not applicable at all; to 9 fully applicable</string>
+    <string name="_note_2">to submit 0 just click on (submit).</string>
+    <string name="_submit_1">Submit</string>
+    <string name="_submit_2">Submit</string>
+    <string name="_handling">Since the last query, I have been angry or aggressive towards another person, which I regret afterwards.</string>
+    <string name="handling_without_thinking">Since the last query, I have acted impulsively, that is, I have acted without worrying about the possible consequences.</string>
+    <string name="_not_at_all_1">Not at all</string>
+    <string name="_completely_true_1">Completely true</string>
+    <string name="_not_at_all_2">Not at all</string>
+    <string name="_completely_true_2">Completely true</string>
+    <string name="_finish">Finish</string>
+    <string name="einstellungen">Settings</string>
+    <string name="_choose_language">Choose your own language</string>
+    <string name="_go_to_home">Go to HomeScreen</string>
+    <string name="_daily_question_query">"How often do you want to take the quiz?"</string>
+    <string name="set_your_own_reminder">Set your own reminder</string>
+    <string name="note">Note: this will set the alarms for the reminders automatically</string>
+    <string name="cancel_all_alarms">Cancel all alarms</string>
+    <string name="cancel_reminder">Cancel</string>
+    <string name="select_time">Select Time</string>
+     <string name="button_query">Set</string>
+    <string name="query_question">How often would you like to receive the Daily Query?</string>
+
+
+    <string-array name="listActivities">
+        <item>Walking</item>
+        <item>Running</item>
+        <item>Swimming</item>
+        <item>Ballsports</item>
+        <item>Dancing</item>
+        <item>Martial Arts</item>
+        <item>Weight Training</item>
+        <item>Yoga</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="answers">
+        <item>Nobody</item>
+        <item>Partner</item>
+        <item>Family</item>
+        <item>Friend</item>
+        <item>Colleges</item>
+        <item>Strangers</item>
+    </string-array>
+
+    <string-array name="answers2">
+        <item>Nowhere</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>Sport</item>
+        <item>Shopping</item>
+        <item>Visiting</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="language_choices">
+        <item>Deutsch</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="answers3">
+        <item>Walking</item>
+        <item>Swimming</item>
+        <item>Running</item>
+        <item>Ballsport</item>
+        <item>Dancing</item>
+        <item>Martial acts</item>
+        <item>Weight sport</item>
+        <item>Yoga</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="language_array">
+        <item>Deutsch</item>
+        <item>English</item>
+    </string-array>
+    
+     <string-array name="DayQuery">
+        <item>Zero</item>
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+    </string-array>
+
+    <string name="button_log_mood">Log Mood</string>
+    <string name="button_statistics">My Statistics</string>
+    <string name="text_statistics_activity_chart">Daily Activity in minuts</string>
+    <string name="_language">Language</string>
+    <string name="_choose_language_summary">Choose language</string>
+    <string name="_general_settings">General Settings</string>
+    <string name="_notification">Notification</string>
+    <string name="_notification_send">Show Notifications</string>
+    <string name="_recieve_notification_summary_on">Receive Notification from MyFitnessTracker</string>
+    <string name="_recieve_notification_summary_summary_off">Do not receive Notification from MyFitnessTracker</string>
+    <string name="_extended_function">Extended Functions</string>
+    <string name="_daily_query">Daily Query</string>
+    <string name="_how_often_take_query">Choose how often you want to receive the Daily Query</string>
+    <string name="button_7_days">7 days</string>
+    <string name="button_30_days">30 days</string>
+    <string name="button_90_days">90 days</string>
+    <string name="button_365_days">365 days</string>
+
+    <string name="my_dashboard">My Dashboard</string>
+    <string name="items">4 items</string>
+    <string name="recordFinishedActivity">Add a finished activity</string>
+    <string name="note2">In case you would like to set your own alarm instead of having it set automatically</string>
+    <string name="show_activites">Show Activities</string>
+    
+    <string name="agree">I agree</string>
+    <string name="choose_activity_finished">Choose an activity</string>
+    <string name="choose_date">Choose a date:</string>
+    <string name="from">from</string>
+    <string name="until">until</string>
+    <string name="send">Send</string>
+    <string name="cance1">Cancel</string>
+    <string name="chart_active_minutes">Minutes of Activity</string>
+    <string name="cancel2">Cancel</string>
+    <string name="notes_1">Notes:</string>
+    <string name="want_to_cancel">Why do you want to cancel?</string>
+    <string name="because">because...</string>
+
+</resources>

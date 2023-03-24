@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="8dp"
+tools:context=".view.activities.MainActivity">
+
+    //buttons to customize time period
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button_7_days"
+            android:text="@string/button_7_days"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button_30_days"
+            android:text="@string/button_30_days"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button_90_days"
+            android:text="@string/button_90_days"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button_365_days"
+            android:text="@string/button_365_days"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+
+    //Activity Chart
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/bar_chart_activity"
+        android:layout_marginBottom="8dp"/>
+
+    //Mood Chart
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/line_chart_mood"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

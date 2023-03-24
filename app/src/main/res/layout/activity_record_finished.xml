@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".view.activities.RecordFinishedActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="373dp"
+        android:layout_height="166dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:contentPadding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="40dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutCard1"
+            android:layout_width="338dp"
+            android:layout_height="147dp"
+            android:layout_gravity="center"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chooseAnActivity"
+                android:layout_width="265dp"
+                android:layout_height="61dp"
+                android:text="@string/choose_activity_finished"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.186" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="169dp"
+                android:layout_height="29dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/chooseAnActivity"
+                app:layout_constraintVertical_bias="0.724" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="367dp"
+        android:layout_height="429dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_marginTop="72dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:contentPadding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutCard2"
+            android:layout_width="339dp"
+            android:layout_height="376dp"
+            android:layout_gravity="center"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="191dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/choose_date"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+            <Button
+                android:id="@+id/DatePicker"
+                style="?android:spinnerStyle"
+                android:layout_width="187dp"
+                android:layout_height="48dp"
+                android:onClick="openDatePicker"
+                android:text="JAN 01 2022"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Date"
+                app:layout_constraintVertical_bias="0.113" />
+
+            <Button
+                android:id="@+id/timePickerButton"
+                style="?android:spinnerStyle"
+                android:layout_width="117dp"
+                android:layout_height="52dp"
+                android:layout_marginBottom="132dp"
+                android:onClick="popTimePicker"
+                android:text="  00:00"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DatePicker"
+                app:layout_constraintHorizontal_bias="0.847"
+                app:layout_constraintStart_toStartOf="@+id/timeText" />
+
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="93dp"
+                android:layout_height="41dp"
+                android:layout_marginBottom="144dp"
+                android:text="@string/from"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DatePicker"
+                app:layout_constraintHorizontal_bias="0.115"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/timePickerButton2"
+                style="?android:spinnerStyle"
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:onClick="popTimePicker2"
+                android:text="  00:00"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.849"
+                app:layout_constraintStart_toStartOf="@+id/timeText2"
+                app:layout_constraintTop_toBottomOf="@+id/timePickerButton"
+                app:layout_constraintVertical_bias="0.137" />
+
+            <TextView
+                android:id="@+id/timeText2"
+                android:layout_width="93dp"
+                android:layout_height="41dp"
+                android:text="@string/until"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.115"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timeText"
+                app:layout_constraintVertical_bias="0.269" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="@string/send"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

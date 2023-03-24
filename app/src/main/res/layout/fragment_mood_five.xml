@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="166dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/abbrechen5"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="85dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/cance1"
+            android:textSize="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/zurück4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/zurück4"
+            app:layout_constraintTop_toBottomOf="@+id/zurück4" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_where_right_now"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+            android:layout_width="187dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="56dp"
+            android:contentDescription="@string/_where_right_now"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/zurück4"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="85dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#673FCA"
+            android:text="next>>"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine5"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine5"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine5" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine5"
+            android:layout_width="268dp"
+            android:layout_height="198dp"
+            android:layout_marginTop="184dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/notes_1"
+            android:inputType="textMultiLine"
+            android:textColorHint="#757575"
+            app:layout_constraintEnd_toEndOf="@+id/spinner2"
+            app:layout_constraintStart_toStartOf="@+id/spinner2"
+            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
