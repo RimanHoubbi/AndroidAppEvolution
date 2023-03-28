@@ -5,9 +5,11 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -18,8 +20,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.example.myfitnesstracker.R;
@@ -28,8 +34,27 @@ import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.Calendar;
+import java.util.List;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class QueryActivity extends LocalizationActivity {
+
+
+
 private ActivityQueryBinding binding;
 private MaterialTimePicker picker;
 Calendar calendar;
@@ -46,10 +71,18 @@ TextView backCard2;
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query);
+
+
+
+
+
+
         binding = ActivityQueryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         createNotificationChannel();
-        
+
+
+
         //Enable Animation for the text cards
        layout1 = findViewById(R.id.layoutCard1);
        backCard = findViewById(R.id.back_card1);
@@ -104,6 +137,20 @@ TextView backCard2;
             @Override
             public void onClick(View view) {
                 setAlarm();
+                String alarm = setAlarm();
+                if (alarm != null) {
+                    for (int i = 1; i <= 5; i++) {
+                        int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+                        TextView textView = findViewById(textViewId);
+                        if (textView.getText().toString().equals("Not set")) {
+                            textView.setText(alarm);
+                            break; // exit loop after setting the first text view
+                        }
+                    }
+                    }
+
+
+
 
             }
         });
@@ -297,13 +344,25 @@ TextView backCard2;
 
     }
 
-    private void setAlarm() {
+    private String setAlarm() {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         Toast.makeText(this, "Alarm Set", Toast.LENGTH_LONG).show();
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
+
     }
+
 //Create methods to cancel all the 10 alarms
     private void cancelAlarm() {
         Intent intent = new Intent(this, AlarmReceiver.class);
@@ -606,7 +665,7 @@ TextView backCard2;
         Toast.makeText(this, "Erinnerung um 24:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
     }
-    
+
     //Methods for cards animation
     public void expand(View view) {
         int v = (backCard.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
@@ -620,6 +679,9 @@ TextView backCard2;
         TransitionManager.beginDelayedTransition(layout2, new AutoTransition());
         backCard2.setVisibility(v);
     }
+
+    //Alarms as list
+
 
 }
 
