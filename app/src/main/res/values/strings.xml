@@ -21,6 +21,19 @@
         <item>English</item>
     </string-array>
 
+    // array list for dialog spinner
+    <string-array name="DialogSpinner">
+        <item>Nicht anstrengend</item>
+        <item>Extrem leicht</item>
+        <item>Sehr leicht</item>
+        <item>Leicht </item>
+        <item>Etwas anstrengend: noch gut weitermachen</item>
+        <item>Anstrengend : weitermachen ist möglich</item>
+        <item>Sehr anstrengend : bald erschöpft</item>
+        <item>Extrem anstrengend: die stärkste Belastung </item>
+        <item>Maximal anstrengend</item>
+    </string-array>
+    
     //Array List for the Day Query
 
     <string-array name="DayQuery">
