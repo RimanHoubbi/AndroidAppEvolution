@@ -115,6 +115,20 @@
         <item>English</item>
     </string-array>
     
+    
+    // array list for dialog spinner
+    <string-array name="DialogSpinner">
+        <item>No exertion</item>
+        <item>Extremely light </item>
+        <item>Very light</item>
+        <item>Light</item>
+        <item>Somewhat hard</item>
+        <item>Hard</item>
+        <item>Very hard</item>
+        <item>Extremely hard</item>
+        <item>Maximal exertion</item>
+    </string-array>
+    
      <string-array name="DayQuery">
         <item>Zero</item>
         <item>One</item>
@@ -165,5 +179,9 @@
     <string name="notes_1">Notes:</string>
     <string name="want_to_cancel">Why do you want to cancel?</string>
     <string name="because">because...</string>
+    <string name="TrueTimeQuestion">For how long did you really workout?</string>
+    <string name="ChooseTime">Select period</string>
+
+    
 
 </resources>
