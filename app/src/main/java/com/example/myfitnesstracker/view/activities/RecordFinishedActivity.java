@@ -41,6 +41,14 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
         setContentView(R.layout.activity_record_finished);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "Tracker_Database").build();
 
+        //dialog Spinner
+        Spinner dialogSpinner = findViewById(R.id.dialogspinner2);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.DialogSpinner, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dialogSpinner.setAdapter(adapter2);
+        dialogSpinner.setOnItemSelectedListener(this);
+        
+        //activities spinner 
         Spinner spinner = findViewById(R.id.spinner3);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.answers3, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
