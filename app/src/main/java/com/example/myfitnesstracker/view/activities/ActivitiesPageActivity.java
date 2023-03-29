@@ -299,7 +299,9 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 timer.cancel();
                 timer2.cancel();
                 dialogTimer.cancel();
-                goToMainActivity0(); //fragebatterie nach dem sport beantworten
+                //Borg skala
+                showDialogSpinner();
+                //goToMainActivity0(); //fragebatterie nach dem sport beantworten
                 break;
         }
     }
@@ -343,7 +345,32 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         startActivity(intent);
     }
 
+void showDialogSpinner() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_spinner, null);
+        mBuilder.setTitle("Wie anstrengend war das Training?");
+        final Spinner dialogSpinner = (Spinner) mView.findViewById(R.id.dialogSpinner);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+                 android.R.layout.simple_spinner_item,
+                 getResources().getStringArray(R.array.DialogSpinner));
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dialogSpinner.setAdapter(adapter2);
+        mBuilder.setPositiveButton("Absenden", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                //send data to database
+                //exitActivity();
+                goToMainActivity0();
+            }
+        });
 
+        //Create AlertDialog object
+        mBuilder.setView(mView);
+        //show the AlertDialog using show() method
+        AlertDialog alertDialog2 = mBuilder.create();
+        alertDialog2.show();
+    }
+    
     void showAlertDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
