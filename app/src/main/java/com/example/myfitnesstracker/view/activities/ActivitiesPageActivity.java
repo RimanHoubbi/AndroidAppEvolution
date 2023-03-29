@@ -111,7 +111,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoactivity();
+               goToRecordFinishedActivity();
             }
         });
 
@@ -151,10 +151,6 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
             setLanguage("de");
         }
     }
-    public void gotoactivity(){
-        Intent intent = new Intent(this, RecordFinishedActivity.class);
-        startActivity(intent);
-    }
 
 
     protected void onResume() {
@@ -188,7 +184,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
             double changedAcceleration = Math.abs(accelerationCurrentValue - accelerationPreviousValue);
             accelerationPreviousValue = accelerationCurrentValue;
 
-            if (x!=previous_x || y!=previous_y || z!=previous_z){
+         /*   if (x!=previous_x || y!=previous_y || z!=previous_z){
                 if(randomInitialHeartbeat<initialHeartValueForCheck+(150*multiplier)){
                     Log.d("Ahmad", "onSensorChanged: "+ (++ randomInitialHeartbeat)/multiplier);
                 }
@@ -201,7 +197,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 }
                 tv_bpm.setText(""+ randomInitialHeartbeat/multiplier+" bpm");
 
-            }
+            } */
 
             //txt_x.setText(String.format("Current =%s", accelerationCurrentValue));
             //txt_y.setText(String.format("prev =%s", accelerationPreviousValue));
@@ -251,8 +247,8 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 timer= new Timer();
                 timer2= new Timer();
                 isFirstTime = true;
-                tv_bpm.setVisibility(View.VISIBLE);
-                tv_Heart.setVisibility(View.VISIBLE);
+               // tv_bpm.setVisibility(View.VISIBLE);
+               // tv_Heart.setVisibility(View.VISIBLE);
                 startTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 startTimeMilli = System.currentTimeMillis();
                 currentDate = new SimpleDateFormat("MMM d yyyy",Locale.getDefault()).format(new Date());
@@ -341,20 +337,25 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         Intent intent = new Intent(this, MainActivity0.class);
         startActivity(intent);
     }
-
+    
+    void goToRecordFinishedActivity() {
+        Intent intent = new Intent(this, RecordFinishedActivity.class);
+        startActivity(intent);
+    }
 
 
     void showAlertDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Erinnerung");
-        builder.setMessage("Bist Du schon fertig?");
+        builder.setMessage("Schon fertig? Falls ja, klicke auf Weiter, um die tatsächliche Trainingsdauer anzugeben");
         //add action buttons
-        builder.setPositiveButton("JA", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Weiter", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                exitActivity();
-                goToMainActivity0(); //fragebatterie
+                //exitActivity();
+               // goToMainActivity0(); //fragebatterie
+                  goToRecordFinishedActivity();
             }
         });
         builder.setNegativeButton("NEIN", new DialogInterface.OnClickListener() {
@@ -373,7 +374,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
 
     // 10800000ms = 3 hours
 
-    final CountDownTimer dialogTimer = new CountDownTimer(10800000, 1000) {
+    final CountDownTimer dialogTimer = new CountDownTimer(120000, 1000) {
         public void onTick(long millisUntilFinished) {
         }
         public void onFinish () {
