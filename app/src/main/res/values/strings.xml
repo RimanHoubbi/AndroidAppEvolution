@@ -109,6 +109,7 @@
     <string name="cancel_all_alarms">Alle Alarme löschen</string>
     <string name="cancel_reminder">Löschen</string>
     <string name="select_time">Zeit auswählen</string>
+    <string name="add_reminder">Add</string>
 
 
     <string-array name="answers">
