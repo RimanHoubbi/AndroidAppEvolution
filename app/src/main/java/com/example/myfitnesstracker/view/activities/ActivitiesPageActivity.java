@@ -125,8 +125,8 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
-        tv_bpm=findViewById(R.id.tv_bpm);
-        tv_Heart=findViewById(R.id.tv_heart);
+        //tv_bpm=findViewById(R.id.tv_bpm);
+     //   tv_Heart=findViewById(R.id.tv_heart);
         startButton = (Button) findViewById(R.id.start);
         stopButton = (Button) findViewById(R.id.stop);
         startButton.setOnClickListener(this);
@@ -285,6 +285,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                     @Override
                     public void run() {
                         activityDataDao.insertAll(new Activity_log(
+
                                 getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
                                 currentDate,
                                 startTime,

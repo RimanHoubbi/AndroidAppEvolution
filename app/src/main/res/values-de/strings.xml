@@ -180,5 +180,6 @@
     <string name="because">Weil...</string>
     <string name="TrueTimeQuestion">Wie lange hast du wirklich Sport gemacht?</string>
     <string name="ChooseTime">Zeitraum auswählen</string>
+    <string name="add_reminder">Hinzufügen</string>
 
 </resources>
