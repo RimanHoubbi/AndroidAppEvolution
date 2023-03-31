@@ -123,7 +123,7 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
 
     private void goToActivity()
     {
-        startActivity(new Intent(this , MainActivity.class));
+        startActivity(new Intent(this , MainActivity0.class));
     }
 
     private String makeDateString(int day, int month, int year) {
