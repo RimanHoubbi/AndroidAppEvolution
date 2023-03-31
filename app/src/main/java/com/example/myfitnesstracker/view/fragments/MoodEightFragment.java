@@ -122,6 +122,7 @@ public class MoodEightFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 viewModel.setMoodEndTime(System.currentTimeMillis());
+                NavHostFragment.findNavController(MoodEightFragment.this).navigate(R.id.action_moodEightFragmen_to_NotesFragment);
 
 
                Runnable runnable = new Runnable() {
@@ -134,7 +135,6 @@ public class MoodEightFragment extends Fragment {
                 };
                 new Thread(runnable).start();
 
-               getActivity().finish();
            }
         });
 

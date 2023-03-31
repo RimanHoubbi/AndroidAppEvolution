@@ -89,5 +89,20 @@
         android:id="@+id/moodEightFragment"
         android:name="com.example.myfitnesstracker.view.fragments.MoodEightFragment"
         tools:layout="@layout/fragment_mood_eight"
-        android:label="MoodEightFragment" />
+        android:label="MoodEightFragment" >
+        <action
+            android:id="@+id/action_moodEightFragmen_to_NotesFragment"
+            app:destination="@+id/NotesFragment"
+            />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/NotesFragment"
+        android:name="com.example.myfitnesstracker.view.fragments.NotesFragment"
+        tools:layout="@layout/fragment_notes"
+        android:label="NotesFragment"
+        />
+
+
 </navigation>
