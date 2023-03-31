@@ -45,24 +45,17 @@
 
         <SeekBar
             android:id="@+id/seekBarID1"
-            style="@style/Widget.AppCompat.SeekBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
             android:max="100"
-            android:scaleX="1"
-            android:scaleY="2"
             android:scrollbarThumbHorizontal="?android:attr/listDivider"
             android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/unzufrieden"
             app:layout_constraintTop_toBottomOf="@+id/unzufrieden"
-            tools:targetApi="o" />
+            />
 
         <SeekBar
             android:id="@+id/seekBarID2"
@@ -78,8 +71,6 @@
             android:scrollbarThumbVertical="?attr/dividerVertical"
             android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/Ruhig"
             app:layout_constraintStart_toStartOf="@+id/unruhig"
             app:layout_constraintTop_toBottomOf="@+id/unruhig"
@@ -99,8 +90,7 @@
             android:scrollbarThumbVertical="?attr/dividerVertical"
             android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+
             app:layout_constraintEnd_toEndOf="@+id/wohl"
             app:layout_constraintStart_toStartOf="@+id/unwohl"
             app:layout_constraintTop_toBottomOf="@+id/unwohl"
@@ -120,8 +110,7 @@
             android:scrollbarThumbVertical="?attr/dividerVertical"
             android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+
             app:layout_constraintEnd_toEndOf="@+id/entspannt"
             app:layout_constraintStart_toStartOf="@+id/angespannt"
             app:layout_constraintTop_toBottomOf="@+id/angespannt"
@@ -141,8 +130,6 @@
             android:scrollbarThumbVertical="?attr/dividerVertical"
             android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/energiegeladen"
             app:layout_constraintStart_toStartOf="@+id/energielos"
             app:layout_constraintTop_toBottomOf="@+id/energielos"
@@ -162,8 +149,6 @@
             android:scrollbarThumbVertical="?attr/dividerVertical"
             android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/wach"
             app:layout_constraintStart_toStartOf="@+id/müde"
             app:layout_constraintTop_toBottomOf="@+id/müde"
@@ -364,29 +349,11 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="204dp"
+            android:layout_marginEnd="160dp"
             android:backgroundTint="#673FCA"
             android:text="next>>"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="296dp"
-            android:layout_height="141dp"
-            android:layout_marginTop="36dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID6"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/seekBarID6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

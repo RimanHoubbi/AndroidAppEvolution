@@ -1,6 +1,8 @@
 package com.example.myfitnesstracker.view.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,7 @@ public class MoodTwoFragment extends Fragment {
     public TextView textView;
     public TextView textView2;
     MainViewModel viewModel;
-    EditText textFragmentTwo;
+
 
 
     public MoodTwoFragment() {
@@ -57,8 +59,11 @@ public class MoodTwoFragment extends Fragment {
         seekBar2 =view.findViewById(R.id.seekBarTwo);
         textView2 = view.findViewById(R.id.progress8);
         button =view.findViewById(R.id.btn_next);
-        textFragmentTwo = view.findViewById(R.id.editTextTextMultiLine2);
+
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+
+        seekBar1.getThumb().setAlpha(0);
+        final Handler seekBarHandler = new Handler(Looper.getMainLooper());
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -68,6 +73,8 @@ public class MoodTwoFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar1.getThumb().setAlpha(255);
 
             }
 
@@ -76,6 +83,7 @@ public class MoodTwoFragment extends Fragment {
 
             }
         });
+        seekBar2.getThumb().setAlpha(0);
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
@@ -86,6 +94,8 @@ public class MoodTwoFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar2.getThumb().setAlpha(255);
 
             }
 
@@ -98,9 +108,7 @@ public class MoodTwoFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(textFragmentTwo.getText())){
-                    viewModel.setNotes(textFragmentTwo.getText().toString());
-                }
+                
                 NavHostFragment.findNavController(MoodTwoFragment.this).navigate(R.id.action_moodTwoFragment_to_moodThreeFragment);
             }
         });

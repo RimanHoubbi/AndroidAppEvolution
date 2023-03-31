@@ -164,27 +164,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="256dp"
+            android:layout_marginEnd="160dp"
             android:backgroundTint="#673FCA"
             android:text="next>>"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine2"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="277dp"
-            android:layout_height="177dp"
-            android:layout_marginTop="88dp"
-            android:ems="10"
-            android:hint="@string/notes_1"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarTwo"
-            app:layout_constraintStart_toStartOf="@+id/seekBarTwo"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarTwo"
-            android:autofillHints="" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarTwo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

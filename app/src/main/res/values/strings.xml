@@ -170,6 +170,9 @@
     <string name="notes_1">Notizen:</string>
     <string name="want_to_cancel">Warum wollen Sie abbrechen?</string>
     <string name="because">Weil...</string>
+    <string name="if_you_want_you_can_add_a_note_to_your_recrod" translatable="false">wenn Sie möchten Sie können notzien hier hinzufügen</string>
+<!-- TODO: Remove or change this placeholder text -->
+
 
 
 </resources>

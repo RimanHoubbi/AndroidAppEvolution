@@ -24,7 +24,7 @@ public class MoodThreeFragment extends Fragment {
     private Button btnNextMoodThree;
     private Button abbrechen;
     MainViewModel viewModel;
-    EditText textFragmentThree;
+
 
     public MoodThreeFragment() {
         // Required empty public constructor
@@ -51,15 +51,13 @@ public class MoodThreeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         buttonNo=view.findViewById(R.id.nein1);
         btnNextMoodThree = view.findViewById(R.id.ja1);
-        textFragmentThree = view.findViewById(R.id.editTextTextMultiLine3);
+
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
         btnNextMoodThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(textFragmentThree.getText())){
-                    viewModel.setNotes(textFragmentThree.getText().toString());
-                }
+
                 NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFiveFragment);
             }
         });
@@ -67,9 +65,7 @@ public class MoodThreeFragment extends Fragment {
         buttonNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(textFragmentThree.getText())){
-                    viewModel.setNotes(textFragmentThree.getText().toString());
-                }
+
                 viewModel.setAlone("No");
                 NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFourFragment);
             }
@@ -79,9 +75,7 @@ public class MoodThreeFragment extends Fragment {
         abbrechen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentThree.getText())){
-                    viewModel.setNotes(textFragmentThree.getText().toString());
-                }
+
                 viewModel.setAlone("Yes");
                 NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodSixFragment);
             }

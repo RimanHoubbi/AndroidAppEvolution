@@ -29,7 +29,7 @@
             android:layout_height="38dp"
             android:layout_marginTop="8dp"
             android:max="6"
-            android:progress="0"
+            android:progressTint="#00000000"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
             app:layout_constraintStart_toStartOf="@+id/textView17"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -99,13 +99,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="204dp"
+            android:layout_marginEnd="160dp"
             android:backgroundTint="#673FCA"
-            android:text="@string/_finish"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine7"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine7"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine7" />
+            android:text="Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar9" />
 
         <SeekBar
             android:id="@+id/seekBar8"
@@ -114,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:max="6"
-            android:progress="0"
+            android:progressTint="#00000000"
             app:layout_constraintEnd_toEndOf="@+id/textView13"
             app:layout_constraintStart_toStartOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -142,21 +141,6 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine7"
-            android:layout_width="320dp"
-            android:layout_height="222dp"
-            android:layout_marginTop="56dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="@+id/seekBar9"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="@+id/seekBar9"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar9" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

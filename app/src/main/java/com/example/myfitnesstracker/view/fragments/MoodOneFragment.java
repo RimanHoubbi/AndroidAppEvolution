@@ -1,6 +1,8 @@
 package com.example.myfitnesstracker.view.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +29,7 @@ public class MoodOneFragment extends Fragment {
     AppDatabase db;
     private Button button;
     private Button abbrechen;
-    private EditText textFragmentOne;
+
     MainViewModel viewModel;
 
     public MoodOneFragment() {
@@ -68,9 +70,11 @@ public class MoodOneFragment extends Fragment {
         SeekBar seekBar6 = view.findViewById(R.id.seekBarID6);
         TextView textView6 = view.findViewById(R.id.progress6);
         button = view.findViewById(R.id.btnMoodOneNext);
-        textFragmentOne = view.findViewById(R.id.editTextTextMultiLine);
+
 
         viewModel.setMoodStartTime(System.currentTimeMillis());
+        seekBar1.getThumb().setAlpha(0);
+        final Handler seekBarHandler = new Handler(Looper.getMainLooper());
 
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -81,6 +85,8 @@ public class MoodOneFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar1.getThumb().setAlpha(255);
 
             }
 
@@ -89,6 +95,7 @@ public class MoodOneFragment extends Fragment {
 
             }
         });
+        seekBar2.getThumb().setAlpha(0);
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
@@ -98,6 +105,8 @@ public class MoodOneFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar2.getThumb().setAlpha(255);
 
             }
 
@@ -106,6 +115,7 @@ public class MoodOneFragment extends Fragment {
 
             }
         });
+        seekBar3.getThumb().setAlpha(0);
         seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar3, int progress3, boolean fromUser) {
@@ -115,6 +125,8 @@ public class MoodOneFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar3.getThumb().setAlpha(255);
 
             }
 
@@ -123,6 +135,7 @@ public class MoodOneFragment extends Fragment {
 
             }
         });
+        seekBar4.getThumb().setAlpha(0);
         seekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar4, int progress4, boolean fromUser) {
@@ -132,6 +145,8 @@ public class MoodOneFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar4.getThumb().setAlpha(255);
 
             }
 
@@ -140,6 +155,7 @@ public class MoodOneFragment extends Fragment {
 
             }
         });
+        seekBar5.getThumb().setAlpha(0);
         seekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar5, int progress5, boolean fromUser) {
@@ -149,6 +165,8 @@ public class MoodOneFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar5.getThumb().setAlpha(255);
 
             }
 
@@ -157,15 +175,18 @@ public class MoodOneFragment extends Fragment {
 
             }
         });
+        seekBar6.getThumb().setAlpha(0);
         seekBar6.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar6, int progress6, boolean fromUser) {
-                textView6.setText(String.valueOf(progress6) + "%");
+                textView6.setText("{progress6 %%}");
                 viewModel.setSleepyMeter(String.valueOf(progress6));
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar6.getThumb().setAlpha(255);
 
             }
 
@@ -179,9 +200,7 @@ public class MoodOneFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(textFragmentOne.getText())){
-                    viewModel.setNotes(textFragmentOne.getText().toString());
-                }
+
                 NavHostFragment.findNavController(MoodOneFragment.this).navigate(R.id.action_moodOneFragment_to_moodTwoFragment);
             }
         });

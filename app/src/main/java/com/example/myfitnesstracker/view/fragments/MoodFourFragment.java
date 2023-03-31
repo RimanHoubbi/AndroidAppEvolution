@@ -1,6 +1,8 @@
 package com.example.myfitnesstracker.view.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ public class MoodFourFragment extends Fragment  implements AdapterView.OnItemSel
     private SeekBar seekBar;
     TextView textView;
     MainViewModel viewModel;
-    EditText textFourFragment;
+
 
     public MoodFourFragment() {
         // Required empty public constructor
@@ -53,8 +55,10 @@ public class MoodFourFragment extends Fragment  implements AdapterView.OnItemSel
         button = view.findViewById(R.id.fertig);
         seekBar = view.findViewById(R.id.seekBarID9);
         textView = view.findViewById(R.id.progress9);
-        textFourFragment = view.findViewById(R.id.editTextTextMultiLine4);
+
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+        seekBar.getThumb().setAlpha(0);
+        final Handler seekBarHandler = new Handler(Looper.getMainLooper());
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -64,6 +68,8 @@ public class MoodFourFragment extends Fragment  implements AdapterView.OnItemSel
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar.getThumb().setAlpha(255);
 
             }
 
@@ -76,15 +82,15 @@ public class MoodFourFragment extends Fragment  implements AdapterView.OnItemSel
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(textFourFragment.getText())){
-                    viewModel.setNotes(textFourFragment.getText().toString());
-                }
+
                 NavHostFragment.findNavController(MoodFourFragment.this).navigate(R.id.action_moodFourFragment_to_moodFiveFragment);
             }
         });
+
 
         abbrechen = view.findViewById(R.id.abbrechen4);
         abbrechen.setOnClickListener(new View.OnClickListener() {

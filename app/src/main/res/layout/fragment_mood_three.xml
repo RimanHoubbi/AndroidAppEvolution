@@ -20,12 +20,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="328dp"
+            android:layout_marginEnd="132dp"
             android:text="@string/cance1"
             android:textSize="9dp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+            app:layout_constraintEnd_toEndOf="@+id/nein1"
+            app:layout_constraintTop_toBottomOf="@+id/ja1" />
 
         <TextView
             android:id="@+id/textView"
@@ -66,21 +66,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/ja1"
             app:layout_constraintTop_toTopOf="@+id/ja1" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine3"
-            android:layout_width="283dp"
-            android:layout_height="165dp"
-            android:layout_marginTop="100dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="@+id/nein1"
-            app:layout_constraintStart_toStartOf="@+id/ja1"
-            app:layout_constraintTop_toBottomOf="@+id/nein1"
-            android:autofillHints="" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -24,7 +24,7 @@ public class MoodFiveFragment extends Fragment  implements AdapterView.OnItemSel
     private Button button;
     private Button abbrechen;
     MainViewModel viewModel;
-    EditText textFragmentFive;
+
 
     public MoodFiveFragment() {
         // Required empty public constructor
@@ -43,7 +43,7 @@ public class MoodFiveFragment extends Fragment  implements AdapterView.OnItemSel
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Spinner spinner = view.findViewById(R.id.spinner2);
-        textFragmentFive =view.findViewById(R.id.editTextTextMultiLine5);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(), R.array.answers2, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -54,9 +54,7 @@ public class MoodFiveFragment extends Fragment  implements AdapterView.OnItemSel
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentFive.getText())){
-                    viewModel.setNotes(textFragmentFive.getText().toString());
-                }
+
                 NavHostFragment.findNavController(MoodFiveFragment.this).navigate(R.id.action_moodFiveFragment_to_moodSevenFragment);
             }
         });

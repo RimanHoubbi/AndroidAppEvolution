@@ -26,7 +26,7 @@ public class MoodSevenFragment extends Fragment {
     private RatingBar ratingBar1;
     private RatingBar ratingBar2;
     MainViewModel viewModel;
-    EditText textFragmentSeven;
+
 
     public MoodSevenFragment() {
         // Required empty public constructor
@@ -47,14 +47,12 @@ public class MoodSevenFragment extends Fragment {
         button = (Button) view.findViewById(R.id.zurück6);
         ratingBar1 = view.findViewById(R.id.ratingBar1);
         ratingBar2 = view.findViewById(R.id.ratingBar2);
-        textFragmentSeven = view.findViewById(R.id.editTextTextMultiLine6);
+
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentSeven.getText())){
-                    viewModel.setNotes(textFragmentSeven.getText().toString());
-                }
+
                 viewModel.setSatisfiedrate(String.valueOf(ratingBar1.getRating()));
                 viewModel.setFailurerate(String.valueOf(ratingBar2.getRating()));
                 NavHostFragment.findNavController(MoodSevenFragment.this).navigate(R.id.action_moodSevenFragment_to_moodEightFragment);
@@ -68,9 +66,7 @@ public class MoodSevenFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentSeven.getText())){
-                    viewModel.setNotes(textFragmentSeven.getText().toString());
-                }
+
                 String s = String.valueOf(ratingBar1.getRating());
                 viewModel.setSatisfiedrate(s);
                 Toast.makeText(requireContext(), s+"Star", Toast.LENGTH_SHORT).show();
@@ -83,9 +79,7 @@ public class MoodSevenFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentSeven.getText())){
-                    viewModel.setNotes(textFragmentSeven.getText().toString());
-                }
+
                 String s = String.valueOf(ratingBar2.getRating());
                 viewModel.setFailurerate(s);
                 Toast.makeText(requireContext(), s+"Star", Toast.LENGTH_SHORT).show();
