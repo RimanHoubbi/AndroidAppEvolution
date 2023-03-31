@@ -79,6 +79,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
     Button stopButton;
     Spinner spinner;
     AppDatabase db;
+    Button back;
 
 
 
@@ -107,6 +108,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         dbHandler=new DBHandler(this);
 
 
+
         button = (Button) findViewById(R.id.buttonactivity);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +128,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
         tv_bpm=findViewById(R.id.tv_bpm);
-        tv_Heart=findViewById(R.id.tv_heart);
+        /*tv_Heart=findViewById(R.id.tv_heart);*/
         startButton = (Button) findViewById(R.id.start);
         stopButton = (Button) findViewById(R.id.stop);
         startButton.setOnClickListener(this);
@@ -293,12 +295,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                                 endTimeMilli));
                     }
                 };
-                new Thread(runnable).start();
-
-                flag=false;
-                timer.cancel();
-                timer2.cancel();
-                dialogTimer.cancel();
+                exitActivity();
                 //Borg skala
                 showDialogSpinner();
                 //goToMainActivity0(); //fragebatterie nach dem sport beantworten
@@ -333,6 +330,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         timer.cancel();
         timer2.cancel();
         flag=false;
+        dialogTimer.cancel();
     }
     
     void goToMainActivity0() {

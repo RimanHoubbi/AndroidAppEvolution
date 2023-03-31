@@ -5,7 +5,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -36,53 +39,100 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
     LineChart lineChartMood;
     Button button7days;
     Button button30days;
-    Button button90days;
-    Button button365days;
     Button btn_act;
-    DBHandler db;
     AppDatabase db2;
     MoodDataDao moodDataDao;
+    Spinner spinner;
+    String type;
+    ArrayList<Float> dbEntries;
+    int days;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics_page_mood);
 
+        spinner = findViewById(R.id.spinner5);
+        days=7;
+        type="all";
+
         // Assign Variabl
         lineChartMood = findViewById(R.id.line_chart_mood);
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
-        button90days = findViewById(R.id.button_90_days);
-        button365days = findViewById(R.id.button_365_days);
-        button7days.setOnClickListener(this);
-        button30days.setOnClickListener(this);
-        button90days.setOnClickListener(this);
-        button365days.setOnClickListener(this);
-        db = new DBHandler(this);
+        button7days.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                days=7;
+                makeLineChart(days, type);
+            }
+        });
+
+        button30days.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                days=30;
+                makeLineChart(days, type);
+            }
+        });
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Alles");
+        arrayList.add("Zufrieden");
+        arrayList.add("Ruhig");
+        arrayList.add("Wohl");
+        arrayList.add("Entspannt");
+        arrayList.add("Energieladen");
+        arrayList.add("Wach");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,                         android.R.layout.simple_spinner_item, arrayList);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String pos = parent.getItemAtPosition(position).toString();
+                if (pos.equals("Alles")){
+                    type="all";
+                    makeLineChart(days, type);
+                }else if(pos.equals("Zufrieden")){
+                    type="satisfied";
+                    makeLineChart(days, type);
+                }else if(pos.equals("Ruhig")){
+                    type="calm";
+                    makeLineChart(days, type);
+                }else if(pos.equals("Wohl")){
+                    type="happines";
+                    makeLineChart(days, type);
+                }else if(pos.equals("Entspannt")){
+                    type="excited";
+                    makeLineChart(days, type);
+                }else if(pos.equals("Energie")){
+                    type="energy";
+                    makeLineChart(days, type);
+                }else if(pos.equals("Wach")){
+                    type="sleepy";
+                    makeLineChart(days, type);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+                type="all";
+            }
+        });
+
         db2= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"Tracker_Database").allowMainThreadQueries().build();
         moodDataDao = db2.moodDataDao();
 
-        makeLineChart(7);
-        makeExampleDbEntries(7);
+        makeLineChart(days, type);
         btn_act = findViewById(R.id.btn_act);
-        btn_act.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StatisticsPageActivityMood.this, StatisticsPageActivity.class);
-                startActivity(intent);
-            }
-        });
+        btn_act.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v)
-    {
-        int days = 7;
-        //if(v.getId() == R.id.button_7_days){days = 7;}
-        if (v.getId() == R.id.button_30_days){days = 30;}
-        else if (v.getId() == R.id.button_90_days){days = 90;}
-        else if (v.getId() == R.id.button_365_days){days = 365;}
-        makeLineChart(days);
+    public void onClick(View v) {
+        Intent intent = new Intent(StatisticsPageActivityMood.this, StatisticsPageActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -96,7 +146,7 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
      /**
      * @param daysShown number of days which need to be shown on the chart
      */
-    private void makeLineChart(int daysShown){
+    private void makeLineChart(int daysShown, String type){
 
         ArrayList<ArrayList<Entry>> linesMoodEntries = new ArrayList<>(); // List of all Moods
         ArrayList<Entry> Mood1 = new ArrayList<>();
@@ -179,12 +229,26 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
 
         //adding all lines to the list: lineDataSetList
         ArrayList<ILineDataSet> lineDataSetList = new ArrayList<>(); // List of the sets
-        lineDataSetList.add(line1);
-        lineDataSetList.add(line2);
-        lineDataSetList.add(line3);
-        lineDataSetList.add(line4);
-        lineDataSetList.add(line5);
-        lineDataSetList.add(line6);
+        if (type.equals("all")){
+            lineDataSetList.add(line1);
+            lineDataSetList.add(line2);
+            lineDataSetList.add(line3);
+            lineDataSetList.add(line4);
+            lineDataSetList.add(line5);
+            lineDataSetList.add(line6);
+        }else if (type.equals("satisfied")){
+            lineDataSetList.add(line1);
+        }else if (type.equals("calm")){
+            lineDataSetList.add(line2);
+        }else if (type.equals("happines")){
+            lineDataSetList.add(line3);
+        }else if (type.equals("excited")){
+            lineDataSetList.add(line4);
+        }else if (type.equals("energy")){
+            lineDataSetList.add(line5);
+        }else if (type.equals("sleepy")){
+            lineDataSetList.add(line6);
+        }
 
         //Inputting the line data into the graph
         LineData data = new LineData(lineDataSetList);
@@ -193,7 +257,6 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
         lineChartMood.getDescription().setText(" ");
 
     }
-
 
     private ArrayList<ArrayList<Float>> getMoodScoresFromDB(int daysToShow){
         ArrayList<ArrayList<Float>> dbEntries= new ArrayList<>();//List where the entries of the DB are put into
@@ -207,28 +270,6 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
             dbEntries.add(entries);
         }
 
-        /*
-
-         new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-
-            }
-
-        }).start();
-
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-         */
-
-
-
         //gets the DB entry for every day, starting with the day furthest in the past
         for(int i = daysToShow-1; i >= 0; i--){
             long neededDay = timeStartOfTheDay - (i * millisecondsPerDay);
@@ -241,21 +282,9 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
         return  dbEntries;
     }
 
-
     /**
      * makes example entries in the DB for the charts
      */
-    private void makeExampleDbEntries(int daysShown){
-        Date now = new Date();
-        long millisecondsPerDay = 86400000; // a day has 86400000 milliseconds
-        db.insertActivity("Walking", now.getTime(), now.getTime() + 2700000);
-        db.insertActivity("Walking", now.getTime()-(millisecondsPerDay*2), now.getTime()-(millisecondsPerDay*2) + 1800000);
-        db.insertActivity("Walking", now.getTime()-(millisecondsPerDay*(daysShown-2)), now.getTime()-(millisecondsPerDay*(daysShown-2)) + 3600000);
-
-        db.safeMoodData(now.getTime(), 10,20,30,40,50,60);
-        db.safeMoodData(now.getTime()-(millisecondsPerDay*2), 20,30,40,50,60,70);
-        db.safeMoodData(now.getTime()-(millisecondsPerDay*(daysShown-2)), 30,40,50,60,70,80);
-    }
 
     public ArrayList<Float> getMoodData(long minTime, long maxTime){
 
