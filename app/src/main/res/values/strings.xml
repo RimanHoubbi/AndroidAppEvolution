@@ -71,10 +71,10 @@
     <string name="_full_energy">energiegeladen</string>
     <string name="_sleepy">müde</string>
     <string name="_awake">wach</string>
-    <string name="_negative_events">haben sie seit der letzten abfrage eines oder mehrere negative ereignisse erlebt wie intensiv war das bedeutendste negative ereignis</string>
+    <string name="_negative_events">Haben Sie seit der letzten Abfrage eines oder mehrere negative Ereignisse erlebt? Wie intensiv war das bedeutendste negative Ereignis?</string>
     <string name="_no_result">kein Ereignis</string>
     <string name="_very_intensive">sehr Intensiv</string>
-    <string name="_positive_events">haben sie seit der letzten abfrage eines oder mehrere positive ereignisse erlebt wie intensiv war das bedeutendste positive ereignis</string>
+    <string name="_positive_events">Haben sie seit der letzten Abfrage eines oder mehrere positive Ereignisse erlebt? Wie intensiv war das bedeutendste positive Ereignis?</string>
     <string name="_no_result_positive">kein Ereignis</string>
     <string name="_very_intensive_positive">sehr Intensiv</string>
     <string name="_are_you_alone">Sind Sie im Moment alleine?</string>
@@ -92,8 +92,8 @@
     <string name="_note_2">um 0 zu abgeben klicke einfach nur auf (abgeben).</string>
     <string name="_submit_1">abgeben</string>
     <string name="_submit_2">abgeben</string>
-    <string name="_handling">Seit der letzten Abfrage habe ich mich gegenüber einer anderen Person ärgerlich oder aggressiv verhalten, was mir danach leidtat</string>
-    <string name="handling_without_thinking">Seit der letzten Abfrage habe ich impulsiv gehandelt, d.h. ich habe gehandelt, ohne mir Gedanken über mögliche Konsequenzen zu machen</string>
+    <string name="_handling">Seit der letzten Abfrage habe ich mich gegenüber einer anderen Person ärgerlich oder aggressiv verhalten, was mir danach leidtat!</string>
+    <string name="handling_without_thinking">Seit der letzten Abfrage habe ich impulsiv gehandelt, d.h. ich habe gehandelt, ohne mir Gedanken über mögliche Konsequenzen zu machen.</string>
     <string name="_not_at_all_1">trifft gar nicht zu</string>
     <string name="_completely_true_1">trifft voll und ganz zu</string>
     <string name="_not_at_all_2">trifft gar nicht zu</string>
