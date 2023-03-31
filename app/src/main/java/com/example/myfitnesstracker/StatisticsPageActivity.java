@@ -1,6 +1,5 @@
 package com.example.myfitnesstracker;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,21 +16,19 @@ import androidx.room.Room;
 import com.example.myfitnesstracker.model.ActivityDataDao;
 import com.example.myfitnesstracker.model.Activity_log;
 import com.example.myfitnesstracker.model.AppDatabase;
-import com.example.myfitnesstracker.model.MoodData;
-import com.example.myfitnesstracker.model.MoodDataDao;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class StatisticsPageActivity extends AppCompatActivity implements View.OnClickListener{
@@ -40,10 +37,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
     BarChart barChartActivity;
     Button button7days;
     Button button30days;
-    Button button90days;
-    Button button365days;
     Button btn_mood;
-    DBHandler db;
     AppDatabase db2;
     ActivityDataDao activityDataDao;
     Spinner spinner;
@@ -63,8 +57,6 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         barChartActivity = findViewById(R.id.bar_chart_activity);
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
-        button90days = findViewById(R.id.button_90_days);
-        button365days = findViewById(R.id.button_365_days);
         type_de="alles";
         type_eng="all";
         days=7;
@@ -83,29 +75,9 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
                 makeBarChart(days, type_eng, type_de);
             }
         });
-        button90days.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                days=90;
-                makeBarChart(days, type_eng, type_de);
-            }
-        });
-        button365days.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                days=365;
-                makeBarChart(days, type_eng, type_de);
-            }
-        });
 
-
-
-
-        db = new DBHandler(this);
         db2= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"Tracker_Database").allowMainThreadQueries().build();
         activityDataDao = db2.activityDataDao();
-
-
 
         btn_mood = findViewById(R.id.btn_mood);
         btn_mood.setOnClickListener(this);
@@ -178,7 +150,6 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
             }
         });
         makeBarChart(7, type_eng, type_de);
-        makeExampleDbEntries(7);
 
     }
 
@@ -210,6 +181,17 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
             float value = dbEntries.get(i);
             BarEntry barEntry = new BarEntry(i, value);// Initialize Entry
             barActivityEntries.add(barEntry);// Add Values in Array List
+        }
+        ArrayList<String> Dates = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, -days);
+        String dateold = calendar.getTime().toString();
+        int count=0;
+        Dates.add(count, dateold);
+        for (int i=1; i<=days; i++) {
+            calendar.add(Calendar.DAY_OF_YEAR, -days);
+            String date = calendar.getTime().toString();
+            Dates.add(count, date);
         }
 
         XAxis xAxis = barChartActivity.getXAxis();
@@ -298,21 +280,4 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
     /**
      * @param daysShown number of days which need to be shown on the chart
      */
-
-    /**
-     * makes example entries in the DB for the charts
-     */
-    private void makeExampleDbEntries(int daysShown){
-        Date now = new Date();
-        long millisecondsPerDay = 86400000; // a day has 86400000 milliseconds
-        db.insertActivity("Walking", now.getTime(), now.getTime() + 2700000);
-        db.insertActivity("Walking", now.getTime()-(millisecondsPerDay*2), now.getTime()-(millisecondsPerDay*2) + 1800000);
-        db.insertActivity("Walking", now.getTime()-(millisecondsPerDay*(daysShown-2)), now.getTime()-(millisecondsPerDay*(daysShown-2)) + 3600000);
-
-        db.safeMoodData(now.getTime(), 10,20,30,40,50,60);
-        db.safeMoodData(now.getTime()-(millisecondsPerDay*2), 20,30,40,50,60,70);
-        db.safeMoodData(now.getTime()-(millisecondsPerDay*(daysShown-2)), 30,40,50,60,70,80);
-    }
-
-
 }

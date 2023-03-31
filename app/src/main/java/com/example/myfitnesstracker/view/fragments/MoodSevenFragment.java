@@ -7,7 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,10 +24,13 @@ import com.example.myfitnesstracker.viewmodel.MainViewModel;
 
 public class MoodSevenFragment extends Fragment {
 
-    private Button button;
-    private Button abbrechen;
-    private RatingBar ratingBar1;
-    private RatingBar ratingBar2;
+    private Button button20;
+    private Button abbrechen7;
+    private ProgressBar progressBar;
+    private SeekBar seekBar14;
+    private SeekBar seekBar15;
+    public TextView textView14;
+    public TextView textView15;
     MainViewModel viewModel;
     EditText textFragmentSeven;
 
@@ -44,57 +50,58 @@ public class MoodSevenFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        button = (Button) view.findViewById(R.id.zurück6);
-        ratingBar1 = view.findViewById(R.id.ratingBar1);
-        ratingBar2 = view.findViewById(R.id.ratingBar2);
-        textFragmentSeven = view.findViewById(R.id.editTextTextMultiLine6);
+        seekBar14 = view.findViewById(R.id.seekBar14);
+        textView14 = view.findViewById(R.id.textView14);
+        seekBar15 =view.findViewById(R.id.seekBar15);
+        textView15 = view.findViewById(R.id.textView15);
+        button20 =view.findViewById(R.id.next);
+        textFragmentSeven = view.findViewById(R.id.editTextTextMultiLine);
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
-        button.setOnClickListener(new View.OnClickListener() {
+        seekBar14.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentSeven.getText())){
-                    viewModel.setNotes(textFragmentSeven.getText().toString());
-                }
-                viewModel.setSatisfiedrate(String.valueOf(ratingBar1.getRating()));
-                viewModel.setFailurerate(String.valueOf(ratingBar2.getRating()));
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textView14.setText(progress + "%");
+                viewModel.setNegative_events(String.valueOf(progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        seekBar15.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
+                textView15.setText(progress2 + "%");
+                viewModel.setPositive_events(String.valueOf(progress2));
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        button20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.setMoodEndTime(System.currentTimeMillis());
                 NavHostFragment.findNavController(MoodSevenFragment.this).navigate(R.id.action_moodSevenFragment_to_moodEightFragment);
             }
         });
 
-        ratingBar1 = view.findViewById(R.id.ratingBar1);
-        ratingBar1.setNumStars(10);
-        ratingBar1.setStepSize((float) 1);
-        button = (Button) view.findViewById(R.id.abgeben1);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentSeven.getText())){
-                    viewModel.setNotes(textFragmentSeven.getText().toString());
-                }
-                String s = String.valueOf(ratingBar1.getRating());
-                viewModel.setSatisfiedrate(s);
-                Toast.makeText(requireContext(), s+"Star", Toast.LENGTH_SHORT).show();
-            }
-        });
-        ratingBar2 = view.findViewById(R.id.ratingBar2);
-        ratingBar2.setNumStars(10);
-        ratingBar2.setStepSize((float) 1);
-        button = (Button) view.findViewById(R.id.abgeben2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!TextUtils.isEmpty(textFragmentSeven.getText())){
-                    viewModel.setNotes(textFragmentSeven.getText().toString());
-                }
-                String s = String.valueOf(ratingBar2.getRating());
-                viewModel.setFailurerate(s);
-                Toast.makeText(requireContext(), s+"Star", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        abbrechen = view.findViewById(R.id.abbrechen7);
-        abbrechen.setOnClickListener(new View.OnClickListener() {
+        abbrechen7 = view.findViewById(R.id.abbrechen7);
+        abbrechen7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(MoodSevenFragment.this).navigate(R.id.action_moodSevenFragment_to_moodSixFragment);

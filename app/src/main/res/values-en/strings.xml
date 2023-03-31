@@ -9,6 +9,7 @@
     <string name="_stop">Stop</string>
     <string name="_record_finished_activity">In order to record an  already finished activity</string>
     <string name="_click_here">Add</string>
+    <string name="_click_here2">Back</string>
     <string name="_how_are_you_feeling">For the past 24 hours, I’ve been feeling, on average. . .</string>
     <string name="_satisfied">Satisfied</string>
     <string name="_dissatisfied">Dissatisfied</string>
@@ -89,6 +90,7 @@
         <item>Home</item>
         <item>Work</item>
         <item>Sport</item>
+        <item>Uni/School</item>
         <item>Shopping</item>
         <item>Visiting</item>
         <item>Others</item>
