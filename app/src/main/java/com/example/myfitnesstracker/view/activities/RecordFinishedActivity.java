@@ -6,6 +6,8 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,7 +25,10 @@ import com.example.myfitnesstracker.R;
 import com.example.myfitnesstracker.model.Activity_log;
 import com.example.myfitnesstracker.model.AppDatabase;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class RecordFinishedActivity extends LocalizationActivity implements AdapterView.OnItemSelectedListener {
@@ -34,6 +39,14 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     AppDatabase db;
+    Spinner spinner;
+    String datestart;
+    String dateend;
+    Date start;
+    Date end;
+    String dateString;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +62,7 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
         dialogSpinner.setOnItemSelectedListener(this);
         
         //activities spinner 
-        Spinner spinner = findViewById(R.id.spinner3);
+        spinner = findViewById(R.id.spinner3);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.answers3, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -59,29 +72,23 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
         initDatePicker();
         dateButton = findViewById(R.id.DatePicker);
         dateButton.setText(getTodayDate());
+        SimpleDateFormat format = new SimpleDateFormat("MMM d yyyy HH:mm");
+        format.setLenient(false);
+
 
         button = (Button) findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Long endTimeMilli = System.currentTimeMillis();
-                        Long startTimeMilli = System.currentTimeMillis();
-                        db.activityDataDao().insertAll(new Activity_log(
-                                getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
-                                dateButton.getText().toString(),
-                                timeButton.getText().toString(),
-                                timeButton2.getText().toString(),
-                                startTimeMilli, endTimeMilli));
-                        db.activityDataDao().getAll();
-                    }
-
-                }).start();
-
-
+                datestart = dateButton.getText().toString()+" "+timeButton.getText().toString();
+                dateend = dateButton.getText().toString()+" "+timeButton2.getText().toString();
+                try {
+                    start = format.parse(datestart);
+                    end = format.parse(dateend);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+                exitActivity();
                 goToActivity();
             }
         });
@@ -115,7 +122,6 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
-
         int style = AlertDialog.THEME_HOLO_LIGHT;
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
@@ -202,4 +208,25 @@ public class RecordFinishedActivity extends LocalizationActivity implements Adap
     public void openDatePicker(View view) {
         datePickerDialog.show();
     }
+
+    void exitActivity() {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Long endTimeMilli = end.getTime();
+                Long startTimeMilli = start.getTime();
+                db.activityDataDao().insertAll(new Activity_log(
+                        getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
+                        dateButton.getText().toString(),
+                        timeButton.getText().toString(),
+                        timeButton2.getText().toString(),
+                        startTimeMilli,
+                        endTimeMilli));
+                db.activityDataDao().getAll();
+            }
+        };
+        new Thread(runnable).start();
+    }
+
+
 }

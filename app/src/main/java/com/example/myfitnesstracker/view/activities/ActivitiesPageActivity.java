@@ -272,7 +272,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                             }
                         });
                     }
-                },0,60000);
+                },0,6000);
 
 
                 break;
@@ -283,18 +283,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 stopButton.setEnabled(false);
                 endTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 endTimeMilli= System.currentTimeMillis();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        activityDataDao.insertAll(new Activity_log(
-                                getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
-                                currentDate,
-                                startTime,
-                                endTime,
-                                startTimeMilli,
-                                endTimeMilli));
-                    }
-                };
+
                 exitActivity();
                 //Borg skala
                 showDialogSpinner();
