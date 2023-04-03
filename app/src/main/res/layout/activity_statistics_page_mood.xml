@@ -44,13 +44,6 @@ tools:context=".view.activities.MainActivity">
         android:layout_width="393dp"
         android:layout_height="41dp" />
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/line_chart_mood"
-        android:layout_width="390dp"
-        android:layout_height="360dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1" />
-
     <Button
         android:id="@+id/btn_act"
         android:layout_width="389dp"

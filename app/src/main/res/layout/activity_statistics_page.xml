@@ -33,6 +33,13 @@
             android:layout_weight="1"
             android:text="@string/button_30_days" />
 
+        <Button
+            android:id="@+id/button_90_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_90_days" />
+
 
     </LinearLayout>
 
@@ -43,21 +50,27 @@
         android:layout_width="394dp"
         android:layout_height="38dp" />
 
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="match_parent"
+        android:layout_height="41dp" />
+
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/bar_chart_activity"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="283dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
         android:baselineAligned="false">
 
     </com.github.mikephil.charting.charts.BarChart>
 
-    <Button
-        android:id="@+id/btn_mood"
-        android:layout_width="394dp"
-        android:layout_height="wrap_content"
-        android:text="Mood" />
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart_mood"
+        android:layout_width="match_parent"
+        android:layout_height="295dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1" />
 
     //Mood Chart
 

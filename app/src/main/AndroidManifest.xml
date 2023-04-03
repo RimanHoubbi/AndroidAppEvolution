@@ -42,15 +42,6 @@
                 android:value=".view.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".StatisticsPageActivityMood"
-            android:parentActivityName=".StatisticsPageActivity">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StatisticsPageActivity" />
-        </activity>
-        <activity
             android:name=".view.activities.MainActivity0"
             android:exported="false" />
         <activity
