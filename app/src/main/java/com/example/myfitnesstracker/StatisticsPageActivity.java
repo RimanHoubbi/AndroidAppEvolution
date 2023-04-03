@@ -111,7 +111,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         arrayList.add("Kraft Training");
         arrayList.add("Yoga");
         arrayList.add("Anderes");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,                         android.R.layout.simple_spinner_item, arrayList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinneract.setAdapter(arrayAdapter);
 
@@ -176,9 +176,9 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         arrayListMood.add("Entspannt");
         arrayListMood.add("Energieladen");
         arrayListMood.add("Wach");
-        ArrayAdapter<String> arrayAdaptermod = new ArrayAdapter<String>(this,                         android.R.layout.simple_spinner_item, arrayList);
-        arrayAdaptermod.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnermood.setAdapter(arrayAdaptermod);
+        ArrayAdapter<String> arrayAdaptermood = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayListMood);
+        arrayAdaptermood.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnermood.setAdapter(arrayAdaptermood);
 
         spinnermood.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
