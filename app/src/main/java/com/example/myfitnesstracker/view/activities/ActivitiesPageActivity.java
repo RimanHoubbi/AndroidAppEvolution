@@ -79,6 +79,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
     Button stopButton;
     Spinner spinner;
     AppDatabase db;
+    Button back;
 
 
 
@@ -107,11 +108,12 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         dbHandler=new DBHandler(this);
 
 
+
         button = (Button) findViewById(R.id.buttonactivity);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoactivity();
+               goToRecordFinishedActivity();
             }
         });
 
@@ -126,7 +128,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
         tv_bpm=findViewById(R.id.tv_bpm);
-        tv_Heart=findViewById(R.id.tv_heart);
+        /*tv_Heart=findViewById(R.id.tv_heart);*/
         startButton = (Button) findViewById(R.id.start);
         stopButton = (Button) findViewById(R.id.stop);
         startButton.setOnClickListener(this);
@@ -150,10 +152,6 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         }else{
             setLanguage("de");
         }
-    }
-    public void gotoactivity(){
-        Intent intent = new Intent(this, RecordFinishedActivity.class);
-        startActivity(intent);
     }
 
 
@@ -188,7 +186,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
             double changedAcceleration = Math.abs(accelerationCurrentValue - accelerationPreviousValue);
             accelerationPreviousValue = accelerationCurrentValue;
 
-            if (x!=previous_x || y!=previous_y || z!=previous_z){
+         /*   if (x!=previous_x || y!=previous_y || z!=previous_z){
                 if(randomInitialHeartbeat<initialHeartValueForCheck+(150*multiplier)){
                     Log.d("Ahmad", "onSensorChanged: "+ (++ randomInitialHeartbeat)/multiplier);
                 }
@@ -201,7 +199,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 }
                 tv_bpm.setText(""+ randomInitialHeartbeat/multiplier+" bpm");
 
-            }
+            } */
 
             //txt_x.setText(String.format("Current =%s", accelerationCurrentValue));
             //txt_y.setText(String.format("prev =%s", accelerationPreviousValue));
@@ -251,8 +249,8 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 timer= new Timer();
                 timer2= new Timer();
                 isFirstTime = true;
-                tv_bpm.setVisibility(View.VISIBLE);
-                tv_Heart.setVisibility(View.VISIBLE);
+               // tv_bpm.setVisibility(View.VISIBLE);
+               // tv_Heart.setVisibility(View.VISIBLE);
                 startTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 startTimeMilli = System.currentTimeMillis();
                 currentDate = new SimpleDateFormat("MMM d yyyy",Locale.getDefault()).format(new Date());
@@ -274,7 +272,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                             }
                         });
                     }
-                },0,60000);
+                },0,6000);
 
 
                 break;
@@ -285,25 +283,11 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 stopButton.setEnabled(false);
                 endTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 endTimeMilli= System.currentTimeMillis();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        activityDataDao.insertAll(new Activity_log(
-                                getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
-                                currentDate,
-                                startTime,
-                                endTime,
-                                startTimeMilli,
-                                endTimeMilli));
-                    }
-                };
-                new Thread(runnable).start();
 
-                flag=false;
-                timer.cancel();
-                timer2.cancel();
-                dialogTimer.cancel();
-                goToMainActivity0(); //fragebatterie nach dem sport beantworten
+                exitActivity();
+                //Borg skala
+                showDialogSpinner();
+                //goToMainActivity0(); //fragebatterie nach dem sport beantworten
                 break;
         }
     }
@@ -335,26 +319,57 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         timer.cancel();
         timer2.cancel();
         flag=false;
+        dialogTimer.cancel();
     }
     
     void goToMainActivity0() {
         Intent intent = new Intent(this, MainActivity0.class);
         startActivity(intent);
     }
+    
+    void goToRecordFinishedActivity() {
+        Intent intent = new Intent(this, RecordFinishedActivity.class);
+        startActivity(intent);
+    }
 
+void showDialogSpinner() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_spinner, null);
+        mBuilder.setTitle("Wie anstrengend war das Training?");
+        final Spinner dialogSpinner = (Spinner) mView.findViewById(R.id.dialogSpinner);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+                 android.R.layout.simple_spinner_item,
+                 getResources().getStringArray(R.array.DialogSpinner));
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dialogSpinner.setAdapter(adapter2);
+        mBuilder.setPositiveButton("Absenden", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                //send data to database
+                //exitActivity();
+                goToMainActivity0();
+            }
+        });
 
-
+        //Create AlertDialog object
+        mBuilder.setView(mView);
+        //show the AlertDialog using show() method
+        AlertDialog alertDialog2 = mBuilder.create();
+        alertDialog2.show();
+    }
+    
     void showAlertDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Erinnerung");
-        builder.setMessage("Bist Du schon fertig?");
+        builder.setMessage("Schon fertig? Falls ja, klicke auf Weiter, um die tatsächliche Trainingsdauer anzugeben");
         //add action buttons
-        builder.setPositiveButton("JA", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Weiter", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                exitActivity();
-                goToMainActivity0(); //fragebatterie
+                //exitActivity();
+               // goToMainActivity0(); //fragebatterie
+                  goToRecordFinishedActivity();
             }
         });
         builder.setNegativeButton("NEIN", new DialogInterface.OnClickListener() {
@@ -373,7 +388,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
 
     // 10800000ms = 3 hours
 
-    final CountDownTimer dialogTimer = new CountDownTimer(10800000, 1000) {
+    final CountDownTimer dialogTimer = new CountDownTimer(120000, 1000) {
         public void onTick(long millisUntilFinished) {
         }
         public void onFinish () {

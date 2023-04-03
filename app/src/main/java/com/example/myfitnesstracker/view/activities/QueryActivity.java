@@ -5,9 +5,12 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -18,8 +21,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.example.myfitnesstracker.R;
@@ -28,8 +35,29 @@ import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.Calendar;
+import java.util.List;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class QueryActivity extends LocalizationActivity {
+
+
+
 private ActivityQueryBinding binding;
 private MaterialTimePicker picker;
 Calendar calendar;
@@ -46,10 +74,18 @@ TextView backCard2;
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query);
+
+
+
+
+
+
         binding = ActivityQueryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         createNotificationChannel();
-        
+
+
+
         //Enable Animation for the text cards
        layout1 = findViewById(R.id.layoutCard1);
        backCard = findViewById(R.id.back_card1);
@@ -104,32 +140,132 @@ TextView backCard2;
             @Override
             public void onClick(View view) {
                 setAlarm();
+                String alarm = setAlarm();
+                if (alarm != null) {
+                    boolean isAlarmAlreadySet = false;
+                    // boolean isAlarmWithin30Min = false;
+                    for (int i = 1; i <= 10; i++) {
+                        int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+                        TextView textView = findViewById(textViewId);
+                        if (textView.getText().toString().equals(alarm)) {
+                            isAlarmAlreadySet = true;
+                            break;
+                        }
+                        if (textView.getText().toString().equals("Not set")) {
+                            textView.setText(alarm);
+                            isAlarmAlreadySet = true;
+                            break;
+                        }
+                    }
+                    if (!isAlarmAlreadySet) {
+                        Toast.makeText(QueryActivity.this, "Alarm already set", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+
 
             }
         });
 
-        binding.CancelReminderbtn.setOnClickListener(new View.OnClickListener() {
+        binding.AddReminderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cancelAlarm();
+                boolean isAlarmTableFull = true;
+                for (int i = 1; i <= 10; i++) {
+                    int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+                    TextView textView = findViewById(textViewId);
 
+                    if (textView.getText().toString().equals("Not set")) {
+                        isAlarmTableFull = false;
+                    }
+                }
+
+                if (isAlarmTableFull) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("You cannot add any more alarms");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
+                } else {
+                    // Call the timepicker method here
+                    showTimePicker();
+                }
             }
+
 
         });
 
         binding.SelectTimebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                spinner.setSelection(0);
+                alarmCancelAll();
+                Toast.makeText(QueryActivity.this, "Alarms Cancelled", Toast.LENGTH_SHORT).show();
+                cancelAlarm1();
+                cancelAlarm2();
+                cancelAlarm3();
+                cancelAlarm4();
+                cancelAlarm5();
+                cancelAlarm6();
+                cancelAlarm7();
+                cancelAlarm8();
+                cancelAlarm9();
+                cancelAlarm10();
                 showTimePicker();
 
             }
         });
 
+        // Loop through each TableRow in the TableLayout
+        TableLayout tableLayout = findViewById(R.id.tabla_cuerpo);
+        for (int i = 1; i <= 10; i++) {
+            // Generate the ID strings for the TextView and Cancel button
+            String textViewId = "id_cad_details_dialog_key" + i;
+            String cancelButtonId = "CancelReminderbtn" + i;
+
+            // Get a reference to the TableRow containing the TextView and Cancel button
+            int tableRowId = getResources().getIdentifier("tableRow" + i, "id", getPackageName());
+            TableRow tableRow = findViewById(tableRowId);
+
+            // Get references to the TextView and Cancel button
+            TextView textView = tableRow.findViewById(getResources().getIdentifier(textViewId, "id", getPackageName()));
+            Button cancelButton = tableRow.findViewById(getResources().getIdentifier(cancelButtonId, "id", getPackageName()));
+
+            // Set the OnClickListener for the Cancel button to set the TextView to "Not set" and cancel the alarm
+            final int requestCode = i;
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Set the TextView to "Not set"
+                    textView.setText("Not set");
+
+                    // Cancel the corresponding PendingIntent from AlarmManager
+                    Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    alarmManager.cancel(pendingIntent);
+                    Toast.makeText(QueryActivity.this, "Alarm deleted", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
+
         Button cancelAll = findViewById(R.id.CancelAll);
+
         cancelAll.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(QueryActivity.this, "Alarms Cancelled", Toast.LENGTH_LONG).show();
+                spinner.setSelection(0);
+                Toast.makeText(QueryActivity.this, "All alarms deleted", Toast.LENGTH_SHORT).show();
+                alarmCancelAll();
                 cancelAlarm1();
                 cancelAlarm2();
                 cancelAlarm3();
@@ -157,85 +293,250 @@ TextView backCard2;
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int item, long l) {
                 if ( item ==1){
+                    alarmCancelAll();
                     CreateAlarm8();
+                    addAlarm8();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("1 alarm is automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
                 if (item == 2 ) {
+                    alarmCancelAll();
                     CreateAlarm2(); //8 am
+                    addAlarm2();
                     CreateAlarm8(); //8 pm
+                    addAlarm8();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("2 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
                 if (item == 3) {
+                    alarmCancelAll();
                     CreateAlarm2(); // 8 am
+                    addAlarm2();
                     CreateAlarm5(); // 2 pm
+                    addAlarm5();
                     CreateAlarm8(); // 8 pm
+                    addAlarm8();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("3 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
                 if (item == 4) {
+                    alarmCancelAll();
                     CreateAlarm2(); // 8 am
+                    addAlarm2();
                     CreateAlarm4(); // 12 pm
+                    addAlarm4();
                     CreateAlarm6(); // 16 pm
+                    addAlarm6();
                     CreateAlarm9(); //10 pm
+                    addAlarm9();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("4 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
                 if (item == 5) {
-                    CreateAlarm1();
+                    alarmCancelAll();
+                    CreateAlarm1(); //6 am
+                    addAlarm1();
                     CreateAlarm2();
+                    addAlarm2();
                     CreateAlarm3();
+                    addAlarm3();
                     CreateAlarm4();
+                    addAlarm4();
                     CreateAlarm5();
+                    addAlarm5();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("5 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
                 if (item == 6) {
+                    alarmCancelAll();
                     CreateAlarm1();
+                    addAlarm1();
                     CreateAlarm2();
+                    addAlarm2();
                     CreateAlarm3();
+                    addAlarm3();
                     CreateAlarm4();
+                    addAlarm4();
                     CreateAlarm5();
+                    addAlarm5();
                     CreateAlarm6();
+                    addAlarm6();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("6 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
                 if (item == 7) {
+                    alarmCancelAll();
                     CreateAlarm1();
+                    addAlarm1();
                     CreateAlarm2();
+                    addAlarm2();
                     CreateAlarm3();
+                    addAlarm3();
                     CreateAlarm4();
+                    addAlarm4();
                     CreateAlarm5();
+                    addAlarm5();
                     CreateAlarm6();
+                    addAlarm6();
                     CreateAlarm7();
+                    addAlarm7();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("7 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
                 if (item == 8) {
+                    alarmCancelAll();
                     CreateAlarm1();
+                    addAlarm1();
                     CreateAlarm2();
+                    addAlarm2();
                     CreateAlarm3();
+                    addAlarm3();
                     CreateAlarm4();
+                    addAlarm4();
                     CreateAlarm5();
+                    addAlarm5();
                     CreateAlarm6();
+                    addAlarm6();
                     CreateAlarm7();
+                    addAlarm7();
                     CreateAlarm8();
+                    addAlarm8();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("8 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
                 if (item == 9) {
+                    alarmCancelAll();
                     CreateAlarm1();
+                    addAlarm1();
                     CreateAlarm2();
+                    addAlarm2();
                     CreateAlarm3();
+                    addAlarm3();
                     CreateAlarm4();
+                    addAlarm4();
                     CreateAlarm5();
+                    addAlarm5();
                     CreateAlarm6();
+                    addAlarm6();
                     CreateAlarm7();
+                    addAlarm7();
                     CreateAlarm8();
+                    addAlarm8();
                     CreateAlarm9();
+                    addAlarm9();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("9 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
                 if (item == 10) {
+                    alarmCancelAll();
                     CreateAlarm1();
+                    addAlarm1();
                     CreateAlarm2();
+                    addAlarm2();
                     CreateAlarm3();
+                    addAlarm3();
                     CreateAlarm4();
+                    addAlarm4();
                     CreateAlarm5();
+                    addAlarm5();
                     CreateAlarm6();
+                    addAlarm6();
                     CreateAlarm7();
+                    addAlarm7();
                     CreateAlarm8();
+                    addAlarm8();
                     CreateAlarm9();
+                    addAlarm9();
                     CreateAlarm10();
+                    addAlarm10();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Alert");
+                    builder.setMessage("10 alarms are automatically set");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
                 }
 
             }
@@ -268,10 +569,11 @@ TextView backCard2;
     }
 //Create time picker
     private void showTimePicker() {
+
         picker = new MaterialTimePicker.Builder()
         .setTimeFormat(TimeFormat.CLOCK_12H)
                 .setHour(12)
-                .setMinute(0)
+                .setMinute(00)
                 .setTitleText("Select Alarm Time")
                 .build();
         picker.show(getSupportFragmentManager(), "android");
@@ -279,11 +581,23 @@ TextView backCard2;
 
             @Override
             public void onClick(View v) {
-                if(picker.getHour() > 12) {
-                    binding.selectedTime.setText(picker.getHour()%12 + " : " + picker.getMinute() + " PM");
-                } else{
-                    binding.selectedTime.setText(picker.getHour() + " : " + picker.getMinute() + " AM");
-                }
+                if (picker.getHour() >= 0 && picker.getHour() < 6) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("Please do not choose the time between 00 AM and 06 AM");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing
+                        }
+                    });
+                    builder.create().show();
+                } else {
+                    if (picker.getHour() > 12) {
+                        binding.selectedTime.setText(picker.getHour() % 12 + " : " + String.format("%02d", picker.getMinute()) + " PM");
+                    } else {
+                        binding.selectedTime.setText(picker.getHour() + " : " + String.format("%02d", picker.getMinute()) + " AM");
+                    }
 
                 calendar = Calendar.getInstance();
                 calendar.set(Calendar.HOUR_OF_DAY, picker.getHour());
@@ -292,18 +606,30 @@ TextView backCard2;
                 calendar.set(Calendar.MILLISECOND, 0);
 
 
-            }
+            }}
         });
 
     }
 
-    private void setAlarm() {
+    private String setAlarm() {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-        Toast.makeText(this, "Alarm Set", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
+
     }
+
 //Create methods to cancel all the 10 alarms
     private void cancelAlarm() {
         Intent intent = new Intent(this, AlarmReceiver.class);
@@ -312,7 +638,7 @@ TextView backCard2;
             alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         }
         alarmManager.cancel(pendingIntent);
-        Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -324,6 +650,8 @@ TextView backCard2;
             alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         }
         alarmManager.cancel(alarmIntent);
+
+
     }
 
     private void cancelAlarm2(){
@@ -417,30 +745,44 @@ TextView backCard2;
     }
 
     //Create 10 alarms to distribute over the day
-    public void CreateAlarm1() {
+    public String CreateAlarm1() {
         // set alarm at approx. 06:00 pm
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 6);
         calendar.set(Calendar.MINUTE, 0);
-        Intent intent = new Intent(this , AlarmReceiver.class);
+        Intent intent = new Intent(this, AlarmReceiver.class);
         AlarmManager alarmMgr;
         alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         final int id1 = (int) System.currentTimeMillis(); //make the pending intent unique
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, id1, intent,0);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, id1, intent, 0);
 
         // With setInexactRepeating(), you have to use one of the AlarmManager interval
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 06:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
+
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm2() {
+
+
+
+    public String CreateAlarm2() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE,22 );
+        calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.set(Calendar.MINUTE, 0);
         Intent intent = new Intent(this , AlarmReceiver.class);
         AlarmManager alarmMgr;
         alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -451,11 +793,21 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 08:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm3() {
+    public String CreateAlarm3() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 10);
@@ -470,15 +822,25 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 10:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm4() {
+    public String CreateAlarm4() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 5);
+        calendar.set(Calendar.MINUTE, 0);
         Intent intent = new Intent(this , AlarmReceiver.class);
         AlarmManager alarmMgr;
         alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -489,11 +851,21 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 12:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm5() {
+    public String CreateAlarm5() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 14);
@@ -508,11 +880,21 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 14:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm6() {
+    public String CreateAlarm6() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 16);
@@ -527,11 +909,21 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 16:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm7() {
+    public String CreateAlarm7() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY,18 );
@@ -546,11 +938,21 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 18:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm8() {
+    public String CreateAlarm8() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 20);
@@ -565,11 +967,21 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 20:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm9() {
+    public String CreateAlarm9() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 22);
@@ -584,15 +996,25 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 22:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
 
-    public void CreateAlarm10() {
+    public String CreateAlarm10() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 48);
+        calendar.set(Calendar.MINUTE, 59);
         Intent intent = new Intent(this , AlarmReceiver.class);
         AlarmManager alarmMgr;
         alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -603,10 +1025,133 @@ TextView backCard2;
         // constants--in this case, AlarmManager.INTERVAL_DAY.
         alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmIntent);
-        Toast.makeText(this, "Erinnerung um 24:00 Uhr zeigen!", Toast.LENGTH_LONG).show();
 
+
+        // Create a Calendar object to represent the time you set for the alarm
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTimeInMillis(calendar.getTimeInMillis());
+
+        // Format the Calendar object to a String using a SimpleDateFormat object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String formattedTime = dateFormat.format(alarmTime.getTime());
+
+        // Return the formatted String
+        return formattedTime;
     }
-    
+
+    //Methods to add the alarms to the list
+    private void addAlarm1() {
+        String alarm = CreateAlarm1();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm2() {
+        String alarm = CreateAlarm2();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm3() {
+        String alarm = CreateAlarm3();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm4() {
+        String alarm = CreateAlarm4();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm5() {
+        String alarm = CreateAlarm5();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm6() {
+        String alarm = CreateAlarm6();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm7() {
+        String alarm = CreateAlarm7();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm8() {
+        String alarm = CreateAlarm8();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm9() {
+        String alarm = CreateAlarm9();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+    private void addAlarm10() {
+        String alarm = CreateAlarm10();
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (textView.getText().toString().equals("Not set")) {
+                textView.setText(alarm);
+                break; // exit loop after setting the first text view
+            }
+        }
+    }
+
+
     //Methods for cards animation
     public void expand(View view) {
         int v = (backCard.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
@@ -620,6 +1165,33 @@ TextView backCard2;
         TransitionManager.beginDelayedTransition(layout2, new AutoTransition());
         backCard2.setVisibility(v);
     }
+
+    //Alarms as list
+    private void alarmCancelAll() {
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (!textView.getText().toString().equals("Not set")) {
+                textView.setText("Not set");
+
+            }
+        }
+
+        cancelAlarm1();
+        cancelAlarm2();
+        cancelAlarm3();
+        cancelAlarm4();
+        cancelAlarm5();
+        cancelAlarm6();
+        cancelAlarm7();
+        cancelAlarm8();
+        cancelAlarm9();
+        cancelAlarm10();
+    }
+
+
+
+
 
 }
 
