@@ -65,14 +65,14 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_statistics_page);
 
         spinneract = findViewById(R.id.spinner4);
-        spinnermood = findViewById(R.id.spinner6);
+
 
         // Assign Variables
         lineChartMood = findViewById(R.id.line_chart_mood);
         barChartActivity = findViewById(R.id.bar_chart_activity);
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
-        button90days = findViewById(R.id.button_90_days);
+
         type_de="alles";
         type_eng="all";
         type="all";

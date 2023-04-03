@@ -21,6 +21,8 @@ import com.example.myfitnesstracker.viewmodel.MainViewModel;
 public class MoodThreeFragment extends Fragment {
 
     private Button buttonNo;
+    private Button buttonBack;
+    private Button buttonNext;
     private Button btnNextMoodThree;
     private Button abbrechen;
     MainViewModel viewModel;
@@ -78,6 +80,20 @@ public class MoodThreeFragment extends Fragment {
 
                 viewModel.setAlone("Yes");
                 NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodSixFragment);
+            }
+        });
+        buttonNext = view.findViewById(R.id.button_appraisal_next);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFourFragment);
+            }
+        });
+        buttonBack = view.findViewById(R.id.button_appraisal_back);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodTwoFragment);
             }
         });
 

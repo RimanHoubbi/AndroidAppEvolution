@@ -94,18 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/zurück7"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#673FCA"
-            android:text="@string/_finish"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine7"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine7"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine7" />
+
 
         <SeekBar
             android:id="@+id/seekBar8"
@@ -143,20 +132,38 @@
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <EditText
-            android:id="@+id/editTextTextMultiLine7"
-            android:layout_width="320dp"
-            android:layout_height="222dp"
-            android:layout_marginTop="56dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="@+id/seekBar9"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="@+id/seekBar9"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar9" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="556dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Button
+                android:id="@+id/button_appraisal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="back"
+                android:layout_marginLeft="5dp"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/zurück7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="next"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

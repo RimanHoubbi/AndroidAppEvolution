@@ -19,13 +19,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="192dp"
             android:text="@string/cance1"
             android:textSize="9dp"
-            app:layout_constraintEnd_toEndOf="@+id/zurück4"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/zurück4"
-            app:layout_constraintTop_toBottomOf="@+id/zurück4" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
         <TextView
             android:id="@+id/textView5"
@@ -52,17 +51,43 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
-        <Button
-            android:id="@+id/zurück4"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="264dp"
-            android:layout_marginEnd="84dp"
-            android:backgroundTint="#673FCA"
-            android:text="next>>"
-            app:layout_constraintEnd_toEndOf="@+id/spinner2"
-            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="556dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp">
+
+            <Button
+                android:id="@+id/button_appraisal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:text="back" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/zurück4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="next"
+                android:layout_marginRight="5dp"/>
+
+
+
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

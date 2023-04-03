@@ -31,6 +31,7 @@ import com.example.myfitnesstracker.viewmodel.MainViewModel;
 public class MoodEightFragment extends Fragment {
 
     private Button button;
+    private Button buttonBack;
     private SeekBar seekBar;
     private SeekBar seekBar2;
     private TextView textView;
@@ -137,6 +138,17 @@ public class MoodEightFragment extends Fragment {
 
            }
         });
+        buttonBack = view.findViewById(R.id.button_appraisal_back);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.setMoodEndTime(System.currentTimeMillis());
+                NavHostFragment.findNavController(MoodEightFragment.this).navigate(R.id.action_moodEightFragment_to_moodSevenFragment);
+            }
+        });
+
+
 
     }
 

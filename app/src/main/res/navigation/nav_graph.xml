@@ -16,6 +16,7 @@
         <action
             android:id="@+id/action_moodOneFragment_to_moodSixFragment"
             app:destination="@id/moodSixFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/moodTwoFragment"
@@ -28,6 +29,9 @@
         <action
             android:id="@+id/action_moodTwoFragment_to_moodSixFragment"
             app:destination="@id/moodSixFragment" />
+        <action
+            android:id="@+id/action_moodTwoFragment_to_moodOneFragment"
+            app:destination="@id/moodOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/moodThreeFragment"
@@ -43,6 +47,9 @@
         <action
             android:id="@+id/action_moodThreeFragment_to_moodSixFragment"
             app:destination="@id/moodSixFragment" />
+        <action
+            android:id="@+id/action_moodThreeFragment_to_moodTwoFragment"
+            app:destination="@id/moodTwoFragment" />
     </fragment>
     <fragment
         android:id="@+id/moodFourFragment"
@@ -55,6 +62,9 @@
         <action
             android:id="@+id/action_moodFourFragment_to_moodFiveFragment"
             app:destination="@id/moodFiveFragment" />
+        <action
+            android:id="@+id/action_moodFourFragment_to_moodThreeFragment"
+            app:destination="@id/moodThreeFragment" />
     </fragment>
     <fragment
         android:id="@+id/moodFiveFragment"
@@ -95,14 +105,24 @@
             app:destination="@+id/NotesFragment"
             />
 
+        <action
+            android:id="@+id/action_moodEightFragment_to_moodSevenFragment"
+            app:destination="@id/moodSevenFragment" />
 
     </fragment>
+
     <fragment
         android:id="@+id/NotesFragment"
         android:name="com.example.myfitnesstracker.view.fragments.NotesFragment"
         tools:layout="@layout/fragment_notes"
-        android:label="NotesFragment"
-        />
+        android:label="NotesFragment">
+
+
+        <action
+            android:id="@+id/action_NotesFragment_to_moodEightFragment"
+            app:destination="@id/moodEightFragment" />
+    </fragment>
+
 
 
 </navigation>

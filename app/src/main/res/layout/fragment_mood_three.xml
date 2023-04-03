@@ -20,8 +20,8 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="328dp"
-            android:layout_marginEnd="132dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="92dp"
             android:text="@string/cance1"
             android:textSize="9dp"
             app:layout_constraintEnd_toEndOf="@+id/nein1"
@@ -66,6 +66,40 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/ja1"
             app:layout_constraintTop_toTopOf="@+id/ja1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="557dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Button
+                android:id="@+id/button_appraisal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:text="back" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button_appraisal_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="5dp"
+                android:text="next" />
+
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

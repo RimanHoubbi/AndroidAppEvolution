@@ -1,6 +1,8 @@
 package com.example.myfitnesstracker.view.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,15 +59,23 @@ public class MoodSevenFragment extends Fragment {
         button20 =view.findViewById(R.id.next);
         textFragmentSeven = view.findViewById(R.id.editTextTextMultiLine);
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+
+        seekBar14.getThumb().setAlpha(0);
+        final Handler seekBarHandler = new Handler(Looper.getMainLooper());
         seekBar14.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textView14.setText(progress + "%");
                 viewModel.setNegative_events(String.valueOf(progress));
+                int val = (progress * (seekBar14.getWidth() - 2 * seekBar14.getThumbOffset())) / seekBar14.getMax();
+                textView14.setText("" + progress);
+                textView14.setX(seekBar14.getX() + val + seekBar14.getThumbOffset() / 2);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar14.getThumb().setAlpha(255);
 
             }
 
@@ -74,16 +84,22 @@ public class MoodSevenFragment extends Fragment {
 
             }
         });
+        seekBar15.getThumb().setAlpha(0);
         seekBar15.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
                 textView15.setText(progress2 + "%");
                 viewModel.setPositive_events(String.valueOf(progress2));
+                int val = (progress2 * (seekBar15.getWidth() - 2 * seekBar15.getThumbOffset())) / seekBar15.getMax();
+                textView15.setText("" + progress2);
+                textView15.setX(seekBar2.getX() + val + seekBar15.getThumbOffset() / 2);
 
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekBarHandler.removeCallbacksAndMessages(null);
+                seekBar15.getThumb().setAlpha(255);
 
             }
 

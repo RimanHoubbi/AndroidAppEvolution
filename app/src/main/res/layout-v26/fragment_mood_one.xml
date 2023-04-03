@@ -19,13 +19,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="160dp"
             android:text="@string/cance1"
             android:textSize="9dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnMoodOneNext"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btnMoodOneNext"
-            app:layout_constraintTop_toBottomOf="@+id/btnMoodOneNext" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID6" />
 
         <TextView
             android:id="@+id/textView5"
@@ -50,14 +49,9 @@
             android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
+
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/unzufrieden"
             app:layout_constraintTop_toBottomOf="@+id/unzufrieden"
@@ -72,13 +66,7 @@
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+            android:progressTint="#00000000"
             app:layout_constraintEnd_toEndOf="@+id/Ruhig"
             app:layout_constraintStart_toStartOf="@+id/unruhig"
             app:layout_constraintTop_toBottomOf="@+id/unruhig"
@@ -93,13 +81,8 @@
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+            android:progressTint="#00000000"
+
             app:layout_constraintEnd_toEndOf="@+id/wohl"
             app:layout_constraintStart_toStartOf="@+id/unwohl"
             app:layout_constraintTop_toBottomOf="@+id/unwohl"
@@ -113,14 +96,8 @@
             android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/entspannt"
             app:layout_constraintStart_toStartOf="@+id/angespannt"
             app:layout_constraintTop_toBottomOf="@+id/angespannt"
@@ -134,14 +111,8 @@
             android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/energiegeladen"
             app:layout_constraintStart_toStartOf="@+id/energielos"
             app:layout_constraintTop_toBottomOf="@+id/energielos"
@@ -156,13 +127,7 @@
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+            android:progressTint="#00000000"
             app:layout_constraintEnd_toEndOf="@+id/wach"
             app:layout_constraintStart_toStartOf="@+id/müde"
             app:layout_constraintTop_toBottomOf="@+id/müde"
@@ -294,7 +259,7 @@
             android:id="@+id/progress1"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
+            tools:text="0%"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
@@ -360,35 +325,32 @@
             app:layout_constraintTop_toTopOf="@+id/müde" />
 
 
-        <Button
-            android:id="@+id/btnMoodOneNext"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#673FCA"
-            android:text="next>>"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
 
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="296dp"
-            android:layout_height="141dp"
-            android:layout_marginTop="36dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID6"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="556dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMoodOneNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="next"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

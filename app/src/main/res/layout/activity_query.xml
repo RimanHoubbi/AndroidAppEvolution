@@ -85,7 +85,7 @@
                     app:layout_constraintHorizontal_bias="0.077"
                     app:layout_constraintLeft_toLeftOf="@id/CancelAll"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints"
+                    tools:ignore="MissingConstraints,SpeakableTextPresentCheck,SpeakableTextPresentCheck"
                     tools:layout_editor_absoluteY="21dp" />
 
                 <Button
@@ -194,7 +194,7 @@
                 <Button
                     android:id="@+id/SetReminderbtn"
                     android:layout_width="134dp"
-                    android:layout_height="44dp"
+                    android:layout_height="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="70dp"
                     android:text="@string/button_query"
@@ -206,7 +206,7 @@
                 <Button
                     android:id="@+id/AddReminderbtn"
                     android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="120dp"
                     android:text="@string/add_reminder"
@@ -248,13 +248,14 @@
                     android:layout_width="138dp"
                     android:layout_height="35dp"
 
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginStart="120dp"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn"
+                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
             </TableRow>
             <TableRow
                 android:id="@+id/tableRow2"
@@ -500,7 +501,7 @@
                     android:layout_width="138dp"
                     android:layout_height="35dp"
 
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginStart="120dp"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
                     app:layout_constraintEnd_toEndOf="parent"

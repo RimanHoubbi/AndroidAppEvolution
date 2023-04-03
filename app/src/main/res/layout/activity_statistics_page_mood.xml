@@ -42,7 +42,8 @@ tools:context=".view.activities.MainActivity">
     <Spinner
         android:id="@+id/spinner5"
         android:layout_width="393dp"
-        android:layout_height="41dp" />
+        android:layout_height="41dp"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/line_chart_mood"

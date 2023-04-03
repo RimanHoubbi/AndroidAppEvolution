@@ -52,8 +52,8 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
         lineChartMood = findViewById(R.id.line_chart_mood);
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
-        button90days = findViewById(R.id.button_90_days);
-        button365days = findViewById(R.id.button_365_days);
+       // button90days = findViewById(R.id.button_90_days);
+       // button365days = findViewById(R.id.button_365_days);
         button7days.setOnClickListener(this);
         button30days.setOnClickListener(this);
         button90days.setOnClickListener(this);
@@ -80,8 +80,8 @@ public class StatisticsPageActivityMood extends AppCompatActivity implements Vie
         int days = 7;
         //if(v.getId() == R.id.button_7_days){days = 7;}
         if (v.getId() == R.id.button_30_days){days = 30;}
-        else if (v.getId() == R.id.button_90_days){days = 90;}
-        else if (v.getId() == R.id.button_365_days){days = 365;}
+        //else if (v.getId() == R.id.button_90_days){days = 90;}
+        //else if (v.getId() == R.id.button_365_days){days = 365;}
         makeLineChart(days);
     }
 

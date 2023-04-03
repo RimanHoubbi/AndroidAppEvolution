@@ -81,6 +81,9 @@ public class MoodOneFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar1, int progress1, boolean fromUser) {
                 textView1.setText(String.valueOf(progress1) + "%");
                 viewModel.setSatisfiedMeter(String.valueOf(progress1));
+                int val = (progress1 * (seekBar1.getWidth() - 2 * seekBar1.getThumbOffset())) / seekBar1.getMax();
+                textView1.setText("" + progress1);
+                textView1.setX(seekBar1.getX() + val + seekBar1.getThumbOffset() / 2);
             }
 
             @Override

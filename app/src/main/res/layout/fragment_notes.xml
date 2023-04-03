@@ -1,44 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_margin="16dp"
-android:orientation="vertical"
-tools:context=".view.fragments.NotesFragment">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".view.fragments.NotesFragment">
+
+   <com.google.android.material.button.MaterialButton
+       android:id="@+id/buttonSurveyNoteClear"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="15dp"
+       android:text="Clear"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+
+   <com.google.android.material.textfield.TextInputLayout
+       android:id="@+id/textInputLayout2"
+       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="16dp"
+       android:hint="Note"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+       app:startIconDrawable="@drawable/ic_baseline_sticky_note_2_24">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/editTextSurveyNote"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="84dp" />
+   </com.google.android.material.textfield.TextInputLayout>
+
    <com.google.android.material.textview.MaterialTextView
+       android:id="@+id/materialTextView2"
        style="@style/TextAppearance.MaterialComponents.Subtitle1"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="16dp"
+       android:layout_marginTop="24dp"
        android:gravity="center"
-       android:text="@string/if_you_want_you_can_add_a_note_to_your_recrod" />
+       android:text="@string/if_you_want_you_can_add_a_note_to_your_recrod"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 
-   <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Note"
-        app:startIconDrawable="@drawable/ic_baseline_sticky_note_2_24">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextSurveyNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="64dp" />
-   </com.google.android.material.textfield.TextInputLayout>
-
-   <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonSurveyNoteClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear" />
-   <com.google.android.material.button.MaterialButton
-       android:id="@+id/Finish"
-       android:layout_width="wrap_content"
+   <LinearLayout
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Finish" />
+       android:layout_marginTop="556dp"
 
-</LinearLayout>
+       android:orientation="horizontal"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:layout_editor_absoluteX="0dp">
+
+      <Button
+          android:id="@+id/button_appraisal_back"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentBottom="true"
+          android:text="back"
+          android:layout_marginLeft="5dp"/>
+      <Space
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1" />
+
+      <Button
+          android:id="@+id/Finish"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentBottom="true"
+          android:text="SAVE"
+          android:layout_marginRight="5dp"/>
+
+
+
+
+   </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

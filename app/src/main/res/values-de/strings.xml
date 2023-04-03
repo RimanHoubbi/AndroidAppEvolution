@@ -9,7 +9,6 @@
     <string name="_stop">Stop</string>
     <string name="_record_finished_activity">um eine abgeschlossene Aktivität aufzuzeichnen</string>
     <string name="_click_here">Nachtragen</string>
-    <string name="_click_here2">Zurück</string>
     <string name="_how_are_you_feeling">In den letzten 24 Stunden fühlte ich mich im Durchschnitt…</string>
     <string name="_satisfied">zufrieden</string>
     <string name="_dissatisfied">unzufrieden</string>
@@ -130,17 +129,7 @@
     </string-array>
     
     // array list for dialog spinner
-    <string-array name="DialogSpinner">
-        <item>Nicht anstrengend</item>
-        <item>Extrem leicht</item>
-        <item>Sehr leicht</item>
-        <item>Leicht </item>
-        <item>Etwas anstrengend: noch gut weitermachen</item>
-        <item>Anstrengend : weitermachen ist möglich</item>
-        <item>Sehr anstrengend : bald erschöpft</item>
-        <item>Extrem anstrengend: die stärkste Belastung </item>
-        <item>Maximal anstrengend</item>
-    </string-array>
+
     
         //Array List for the Day Query
 
@@ -180,8 +169,5 @@
     <string name="notes_1">Notizen:</string>
     <string name="want_to_cancel">Warum wollen Sie abbrechen?</string>
     <string name="because">Weil...</string>
-    <string name="TrueTimeQuestion">Wie lange hast du wirklich Sport gemacht?</string>
-    <string name="ChooseTime">Zeitraum auswählen</string>
-    <string name="add_reminder">Hinzufügen</string>
 
 </resources>

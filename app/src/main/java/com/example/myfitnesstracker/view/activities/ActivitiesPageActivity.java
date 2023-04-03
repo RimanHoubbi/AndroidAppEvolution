@@ -126,7 +126,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
         tv_bpm=findViewById(R.id.tv_bpm);
-        tv_Heart=findViewById(R.id.tv_heart);
+        //tv_Heart=findViewById(R.id.tv_heart);
         startButton = (Button) findViewById(R.id.start);
         stopButton = (Button) findViewById(R.id.stop);
         startButton.setOnClickListener(this);

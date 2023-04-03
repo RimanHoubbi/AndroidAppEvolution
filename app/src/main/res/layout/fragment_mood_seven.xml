@@ -14,19 +14,6 @@
         android:layout_height="wrap_content"
         tools:context=".view.fragments.MoodSevenFragment">
 
-        <Button
-            android:id="@+id/abbrechen7"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/cance1"
-            android:textSize="9sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.885" />
 
         <TextView
             android:id="@+id/textView7"
@@ -46,7 +33,7 @@
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="391dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:layout_marginTop="196dp"
             android:text="@string/_self_dissatisfied"
@@ -59,48 +46,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <Button
-            android:id="@+id/next"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#673FCA"
-            android:text="next"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine6"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine6"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine6" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine6"
-            android:layout_width="291dp"
-            android:layout_height="186dp"
-            android:layout_marginBottom="188dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            android:textColorHint="#757575"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar15" />
-
         <SeekBar
             android:id="@+id/seekBar14"
-            android:layout_width="283dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="80dp"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="44dp"
+            android:max="100"
+            android:progressTint="#00000000"
+            android:scaleX="1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.468"
+            app:layout_constraintHorizontal_bias="0.366"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <SeekBar
             android:id="@+id/seekBar15"
-            android:layout_width="295dp"
-            android:layout_height="45dp"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:progressTint="#00000000"
+            android:scaleX="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
@@ -112,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="0"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,11 +89,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="0"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="680dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="26dp">
+
+            <Button
+                android:id="@+id/button_appraisal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:text="back" />
+
+
+            <Button
+                android:id="@+id/abbrechen7"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cance1"
+                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteY="451dp" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="next"
+                tools:layout_editor_absoluteX="221dp"
+                tools:layout_editor_absoluteY="560dp" />
+
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

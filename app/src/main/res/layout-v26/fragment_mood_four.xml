@@ -19,13 +19,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="85dp"
             android:layout_height="48dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="132dp"
             android:text="@string/cance1"
             android:textSize="9sp"
-            app:layout_constraintEnd_toEndOf="@+id/fertig"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/fertig"
-            app:layout_constraintTop_toBottomOf="@+id/fertig" />
+            app:layout_constraintEnd_toEndOf="@+id/seekBarID9"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID9" />
 
         <TextView
             android:id="@+id/textView3"
@@ -67,17 +66,6 @@
             app:layout_constraintStart_toEndOf="@+id/trifftüberhauptnichtzu"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <Button
-            android:id="@+id/fertig"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="128dp"
-            android:backgroundTint="#673FCA"
-            android:text="@string/_done_people_eurrounded"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID9"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID9"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID9" />
 
         <TextView
             android:id="@+id/trifftüberhauptnichtzu"
@@ -129,6 +117,41 @@
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="556dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp">
+
+            <Button
+                android:id="@+id/button_appraisal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="back"
+                android:layout_marginLeft="5dp"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/fertig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="next"
+                android:layout_marginRight="5dp"/>
+
+
+
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
