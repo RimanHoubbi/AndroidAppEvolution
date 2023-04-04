@@ -17,8 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessTracker">
         
-         <service android:name=".view.activities.MyForegroundService"
-            tools:ignore="MissingClass" />
+         <service android:name=".view.activities.MyForegroundService"/>
 
         <receiver
             android:name=".view.activities.MyBroadcastReceiver"
