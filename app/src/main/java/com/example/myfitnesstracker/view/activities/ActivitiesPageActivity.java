@@ -326,6 +326,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         timer.cancel();
         timer2.cancel();
         flag=false;
+        dbHandler.saveData();
     }
     
     void goToMainActivity0() {
