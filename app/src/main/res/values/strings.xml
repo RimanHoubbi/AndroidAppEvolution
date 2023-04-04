@@ -173,6 +173,7 @@
     <string name="because">Weil...</string>
     <string name="if_you_want_you_can_add_a_note_to_your_recrod" translatable="false">wenn Sie möchten Sie können notzien hier hinzufügen</string>
     <string name="add_reminder">add_reminder</string>
+        <string name="choose_intensity">Intensität auswählen</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 
