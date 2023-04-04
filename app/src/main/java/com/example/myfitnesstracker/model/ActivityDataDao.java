@@ -22,4 +22,6 @@ public interface ActivityDataDao {
 
     @Query("SELECT * FROM activity_log WHERE (type=:Type OR type=:Type2) AND startTimeMilli>=:startTime AND endTimeMilli<=:endTIme")
     abstract List<Activity_log> getTypeOfAct(String Type, String Type2, long startTime, long endTIme);
+
+
 }

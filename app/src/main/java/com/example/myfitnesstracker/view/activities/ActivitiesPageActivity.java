@@ -22,6 +22,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.room.Room;
+import android.os.Build;
+import android.app.ActivityManager;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.example.myfitnesstracker.DBHandler;
@@ -103,8 +105,14 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"Tracker_Database").build();
         sensorDataDao=db.sensorDataDao();
         activityDataDao =db.activityDataDao();
-
         dbHandler=new DBHandler(this);
+        
+          Intent serviceIntent = new Intent(this, MyForegroundService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        }
+
+        foregroundServiceRunning();
         
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -154,6 +162,16 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         }else{
             setLanguage("de");
         }
+    }
+    
+    public boolean foregroundServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for(ActivityManager.RunningServiceInfo service: activityManager.getRunningServices(Integer.MAX_VALUE)) {
+            if(MyForegroundService.class.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -248,6 +266,10 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.start:
+                sensorDataDao=db.sensorDataDao();
+                activityDataDao =db.activityDataDao();
+
+                dbHandler=new DBHandler(this);
                 timer= new Timer();
                 timer2= new Timer();
                 isFirstTime = true;
@@ -285,24 +307,8 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 stopButton.setEnabled(false);
                 endTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 endTimeMilli= System.currentTimeMillis();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        activityDataDao.insertAll(new Activity_log(
-                                getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
-                                currentDate,
-                                startTime,
-                                endTime,
-                                startTimeMilli,
-                                endTimeMilli));
-                    }
-                };
-                new Thread(runnable).start();
 
-                flag=false;
-                timer.cancel();
-                timer2.cancel();
-                dialogTimer.cancel();
+                exitActivity();
                 //Borg skala
                 showDialogSpinner();
                 //goToMainActivity0(); //fragebatterie nach dem sport beantworten
@@ -333,10 +339,12 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 ));
             }
         };
+
         new Thread(runnable).start();
         timer.cancel();
         timer2.cancel();
         flag=false;
+        dbHandler.saveData();
     }
     
     void goToMainActivity0() {

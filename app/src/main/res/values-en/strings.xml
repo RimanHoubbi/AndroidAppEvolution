@@ -118,21 +118,34 @@
     </string-array>
     
     
-    // array list for dialog spinner
+ 
 
     
      <string-array name="DayQuery">
-        <item>Zero</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+      // array list for dialog spinner
+    <string-array name="DialogSpinner">
+        <item>No exertion</item>
+        <item>Extremely light </item>
+        <item>Very light</item>
+        <item>Light</item>
+        <item>Somewhat hard</item>
+        <item>Hard</item>
+        <item>Very hard</item>
+        <item>Extremely hard</item>
+        <item>Maximal exertion</item>
     </string-array>
 
     <string name="button_log_mood">Log Mood</string>
@@ -171,6 +184,7 @@
     <string name="notes_1">Notes:</string>
     <string name="want_to_cancel">Why do you want to cancel?</string>
     <string name="because">because...</string>
+     <string name="choose_intensity">Choose intensity</string>
 
     
 
