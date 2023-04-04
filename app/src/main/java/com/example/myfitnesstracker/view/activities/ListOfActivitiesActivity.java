@@ -31,6 +31,10 @@ public class ListOfActivitiesActivity extends AppCompatActivity {
         activityDataDao =db.activityDataDao();
         rv_activity_list = findViewById(R.id.rv_list_of_activities);
         rv_activity_list.setLayoutManager(new LinearLayoutManager(this));
+        
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar3);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Runnable runnable = new Runnable() {
             @Override
