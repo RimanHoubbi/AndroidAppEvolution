@@ -60,7 +60,7 @@ public class MoodThreeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFiveFragment);
+                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFourFragment);
             }
         });
 
@@ -69,7 +69,7 @@ public class MoodThreeFragment extends Fragment {
             public void onClick(View view) {
 
                 viewModel.setAlone("No");
-                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFourFragment);
+                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFiveFragment);
             }
         });
 
@@ -86,7 +86,7 @@ public class MoodThreeFragment extends Fragment {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFourFragment);
+                NavHostFragment.findNavController(MoodThreeFragment.this).navigate(R.id.action_moodThreeFragment_to_moodFiveFragment);
             }
         });
         buttonBack = view.findViewById(R.id.button_appraisal_back);

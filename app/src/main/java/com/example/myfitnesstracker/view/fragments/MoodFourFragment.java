@@ -65,6 +65,9 @@ public class MoodFourFragment extends Fragment  implements AdapterView.OnItemSel
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textView.setText(String.valueOf(progress) + "%");
                 viewModel.setPeopleLikeability(String.valueOf(progress));
+                int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
+                textView.setText("" + progress);
+                textView.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
             }
 
             @Override

@@ -26,6 +26,7 @@ public class NotesFragment extends Fragment {
     private Button Finish;
     private Button buttonBack;
     MainViewModel viewModel;
+    private Button abbrechen;
 
     private TextInputEditText editTextSurveyNote;
 
@@ -58,6 +59,16 @@ public class NotesFragment extends Fragment {
             public void onClick(View v) {
                 viewModel.setMoodEndTime(System.currentTimeMillis());
                 NavHostFragment.findNavController(NotesFragment.this).navigate(R.id.action_NotesFragment_to_moodEightFragment);
+            }
+        });
+
+        buttonBack = view.findViewById(R.id.abbrechen2);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.setMoodEndTime(System.currentTimeMillis());
+                NavHostFragment.findNavController(NotesFragment.this).navigate(R.id.action_NotesFragment_to_moodSixFragment);
             }
         });
 

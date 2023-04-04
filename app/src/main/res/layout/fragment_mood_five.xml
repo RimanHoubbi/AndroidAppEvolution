@@ -14,36 +14,27 @@
         android:layout_height="wrap_content">
 
 
-        <Button
-            android:id="@+id/abbrechen5"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="192dp"
-            android:text="@string/cance1"
-            android:textSize="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
-
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:text="@string/_where_right_now"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner2"
-            style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
-            android:layout_width="187dp"
-            android:layout_height="48dp"
+            android:layout_width="224dp"
+
+            android:layout_height="52dp"
             android:layout_marginTop="56dp"
+            android:background="@android:drawable/btn_dropdown"
             android:contentDescription="@string/_where_right_now"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintHorizontal_bias="0.503"
@@ -69,6 +60,20 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="5dp"
                 android:text="back" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+            <Button
+                android:id="@+id/abbrechen5"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cance1"
+                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteY="451dp" />
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

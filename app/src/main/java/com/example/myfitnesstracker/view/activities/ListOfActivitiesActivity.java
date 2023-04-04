@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.myfitnesstracker.R;
 import com.example.myfitnesstracker.model.ActivityDataDao;
@@ -31,6 +32,10 @@ public class ListOfActivitiesActivity extends AppCompatActivity {
         activityDataDao =db.activityDataDao();
         rv_activity_list = findViewById(R.id.rv_list_of_activities);
         rv_activity_list.setLayoutManager(new LinearLayoutManager(this));
+        
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar3);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Runnable runnable = new Runnable() {
             @Override

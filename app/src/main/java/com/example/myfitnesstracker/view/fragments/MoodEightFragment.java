@@ -37,6 +37,7 @@ public class MoodEightFragment extends Fragment {
     private TextView textView;
     private TextView textView2;
     MainViewModel viewModel;
+    private Button abbrechen;
 
     AppDatabase db;
     MoodDataDao moodDataDao;
@@ -82,6 +83,9 @@ public class MoodEightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textView.setText(String.valueOf(progress));
                 viewModel.setImpulsively(String.valueOf(progress));
+                int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
+                textView.setText("" + progress);
+                textView.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
             }
 
             @Override
@@ -102,6 +106,9 @@ public class MoodEightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
                 textView2.setText(String.valueOf(progress2));
                 viewModel.setAggressive(String.valueOf(progress2));
+                int val = (progress2 * (seekBar2.getWidth() - 2 * seekBar2.getThumbOffset())) / seekBar2.getMax();
+                textView2.setText("" + progress2);
+                textView2.setX(seekBar2.getX() + val + seekBar2.getThumbOffset() / 2);
             }
 
             @Override
@@ -149,6 +156,15 @@ public class MoodEightFragment extends Fragment {
         });
 
 
+        buttonBack = view.findViewById(R.id.abbrechen2);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.setMoodEndTime(System.currentTimeMillis());
+                NavHostFragment.findNavController(MoodEightFragment.this).navigate(R.id.action_moodEightFragment_to_moodSixFragment);
+            }
+        });
 
     }
 

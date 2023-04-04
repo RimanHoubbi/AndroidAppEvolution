@@ -19,7 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.room.Room;
 
@@ -105,6 +105,10 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         activityDataDao =db.activityDataDao();
 
         dbHandler=new DBHandler(this);
+        
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         button = (Button) findViewById(R.id.buttonactivity);
