@@ -103,8 +103,14 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"Tracker_Database").build();
         sensorDataDao=db.sensorDataDao();
         activityDataDao =db.activityDataDao();
-
         dbHandler=new DBHandler(this);
+        
+          Intent serviceIntent = new Intent(this, MyForegroundService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        }
+
+        foregroundServiceRunning();
         
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -154,6 +160,16 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         }else{
             setLanguage("de");
         }
+    }
+    
+    public boolean foregroundServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for(ActivityManager.RunningServiceInfo service: activityManager.getRunningServices(Integer.MAX_VALUE)) {
+            if(MyForegroundService.class.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
