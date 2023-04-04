@@ -105,6 +105,10 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         activityDataDao =db.activityDataDao();
 
         dbHandler=new DBHandler(this);
+        
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         button = (Button) findViewById(R.id.buttonactivity);
