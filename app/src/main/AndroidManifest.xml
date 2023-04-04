@@ -16,10 +16,12 @@
         android:theme="@style/Theme.MyFitnessTracker">
         <activity
             android:name=".view.activities.ListOfActivitiesActivity"
-            android:exported="false" />
+            android:exported="false" 
+            android:parentActivityName=".view.activities.MainActivity"/>
         <activity
             android:name=".view.activities.RecordFinishedActivity"
-            android:exported="false" />
+            android:exported="false" 
+                  />
 
         <receiver android:name=".view.activities.AlarmReceiver" />
 
@@ -52,9 +54,7 @@
             android:parentActivityName=".view.activities.MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.activities.MainActivity" />
+            <meta-data/>
         </activity>
         <activity
             android:name=".view.activities.MainActivity"
