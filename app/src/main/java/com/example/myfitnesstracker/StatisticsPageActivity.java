@@ -72,6 +72,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         barChartActivity = findViewById(R.id.bar_chart_activity);
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
+        button90days = findViewById(R.id.button_90_days);
 
         type_de="alles";
         type_eng="all";
@@ -168,6 +169,8 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
             }
         });
 
+        spinnermood = findViewById(R.id.spinner6);
+
         ArrayList<String> arrayListMood = new ArrayList<>();
         arrayListMood.add("Alles");
         arrayListMood.add("Zufrieden");
@@ -176,7 +179,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         arrayListMood.add("Entspannt");
         arrayListMood.add("Energieladen");
         arrayListMood.add("Wach");
-        ArrayAdapter<String> arrayAdaptermod = new ArrayAdapter<String>(this,                         android.R.layout.simple_spinner_item, arrayList);
+        ArrayAdapter<String> arrayAdaptermod = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayListMood);
         arrayAdaptermod.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnermood.setAdapter(arrayAdaptermod);
 

@@ -248,6 +248,10 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.start:
+                sensorDataDao=db.sensorDataDao();
+                activityDataDao =db.activityDataDao();
+
+                dbHandler=new DBHandler(this);
                 timer= new Timer();
                 timer2= new Timer();
                 isFirstTime = true;
@@ -285,24 +289,8 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 stopButton.setEnabled(false);
                 endTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 endTimeMilli= System.currentTimeMillis();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        activityDataDao.insertAll(new Activity_log(
-                                getResources().getStringArray(R.array.listActivities)[spinner.getSelectedItemPosition()],
-                                currentDate,
-                                startTime,
-                                endTime,
-                                startTimeMilli,
-                                endTimeMilli));
-                    }
-                };
-                new Thread(runnable).start();
 
-                flag=false;
-                timer.cancel();
-                timer2.cancel();
-                dialogTimer.cancel();
+                exitActivity();
                 //Borg skala
                 showDialogSpinner();
                 //goToMainActivity0(); //fragebatterie nach dem sport beantworten
@@ -333,6 +321,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 ));
             }
         };
+
         new Thread(runnable).start();
         timer.cancel();
         timer2.cancel();
