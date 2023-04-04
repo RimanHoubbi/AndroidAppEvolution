@@ -22,6 +22,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.room.Room;
+import android.os.Build;
+import android.app.ActivityManager;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.example.myfitnesstracker.DBHandler;
