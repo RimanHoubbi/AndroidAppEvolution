@@ -99,10 +99,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="680dp"
+            android:layout_marginTop="556dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="26dp">
+
 
             <Button
                 android:id="@+id/button_appraisal_back"
@@ -112,16 +113,24 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="5dp"
                 android:text="back" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
 
             <Button
                 android:id="@+id/abbrechen7"
-                style="@style/Widget.AppCompat.Button.Colored"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cance1"
                 tools:layout_editor_absoluteX="206dp"
                 tools:layout_editor_absoluteY="451dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/next"

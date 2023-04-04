@@ -22,6 +22,7 @@ import com.example.myfitnesstracker.viewmodel.MainViewModel;
 
 public class MoodFiveFragment extends Fragment  implements AdapterView.OnItemSelectedListener{
     private Button button;
+    private Button buttonBack;
     private Button abbrechen;
     MainViewModel viewModel;
 
@@ -67,6 +68,15 @@ public class MoodFiveFragment extends Fragment  implements AdapterView.OnItemSel
                 NavHostFragment.findNavController(MoodFiveFragment.this).navigate(R.id.action_moodFiveFragment_to_moodSixFragment);
             }
         });
+        buttonBack = view.findViewById(R.id.button_appraisal_back);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(MoodFiveFragment.this).navigate(R.id.action_moodFiveFragment_to_moodThreeFragment);
+            }
+        });
+
+
     }
 
     @Override

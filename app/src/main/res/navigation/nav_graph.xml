@@ -77,6 +77,9 @@
         <action
             android:id="@+id/action_moodFiveFragment_to_moodSevenFragment"
             app:destination="@id/moodSevenFragment" />
+        <action
+            android:id="@+id/action_moodFiveFragment_to_moodThreeFragment"
+            app:destination="@id/moodThreeFragment" />
     </fragment>
     <fragment
         android:id="@+id/moodSixFragment"
@@ -94,6 +97,10 @@
         <action
             android:id="@+id/action_moodSevenFragment_to_moodSixFragment"
             app:destination="@id/moodSixFragment" />
+        <action
+            android:id="@+id/action_moodSevenFragment_to_moodFiveFragment"
+            app:destination="@id/moodFiveFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/moodEightFragment"
@@ -108,6 +115,9 @@
         <action
             android:id="@+id/action_moodEightFragment_to_moodSevenFragment"
             app:destination="@id/moodSevenFragment" />
+        <action
+            android:id="@+id/action_moodEightFragment_to_moodSixFragment"
+            app:destination="@+id/moodSixFragment" />
 
     </fragment>
 
@@ -121,6 +131,9 @@
         <action
             android:id="@+id/action_NotesFragment_to_moodEightFragment"
             app:destination="@id/moodEightFragment" />
+        <action
+            android:id="@+id/action_NotesFragment_to_moodSixFragment"
+            app:destination="@+id/moodSixFragment" />
     </fragment>
 
 

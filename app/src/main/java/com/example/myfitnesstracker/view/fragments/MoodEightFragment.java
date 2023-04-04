@@ -37,6 +37,7 @@ public class MoodEightFragment extends Fragment {
     private TextView textView;
     private TextView textView2;
     MainViewModel viewModel;
+    private Button abbrechen;
 
     AppDatabase db;
     MoodDataDao moodDataDao;
@@ -149,6 +150,15 @@ public class MoodEightFragment extends Fragment {
         });
 
 
+        buttonBack = view.findViewById(R.id.abbrechen2);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.setMoodEndTime(System.currentTimeMillis());
+                NavHostFragment.findNavController(MoodEightFragment.this).navigate(R.id.action_moodEightFragment_to_moodSixFragment);
+            }
+        });
 
     }
 

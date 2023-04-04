@@ -14,17 +14,6 @@
         android:layout_height="wrap_content">
 
 
-        <Button
-            android:id="@+id/abbrechen4"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="132dp"
-            android:text="@string/cance1"
-            android:textSize="9sp"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID9"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID9" />
 
         <TextView
             android:id="@+id/textView3"
@@ -134,6 +123,20 @@
                 android:layout_alignParentBottom="true"
                 android:text="back"
                 android:layout_marginLeft="5dp"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+            <Button
+                android:id="@+id/abbrechen4"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cance1"
+                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteY="451dp" />
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
