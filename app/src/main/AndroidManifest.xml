@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -14,6 +16,19 @@
         android:roundIcon="@mipmap/tracker_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessTracker">
+        
+         <service android:name=".view.activities.MyForegroundService"
+            tools:ignore="MissingClass" />
+
+        <receiver
+            android:name=".view.activities.MyBroadcastReceiver"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+        
         <activity
             android:name=".view.activities.ListOfActivitiesActivity"
             android:exported="false" 
