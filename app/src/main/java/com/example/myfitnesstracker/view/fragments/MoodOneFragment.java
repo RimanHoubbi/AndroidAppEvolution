@@ -104,6 +104,9 @@ public class MoodOneFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
                 textView2.setText(String.valueOf(progress2) + "%");
                 viewModel.setCalmMeter(String.valueOf(progress2));
+                int val = (progress2 * (seekBar2.getWidth() - 2 * seekBar2.getThumbOffset())) / seekBar2.getMax();
+                textView2.setText("" + progress2);
+                textView2.setX(seekBar2.getX() + val + seekBar2.getThumbOffset() / 2);
             }
 
             @Override
@@ -124,6 +127,9 @@ public class MoodOneFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar3, int progress3, boolean fromUser) {
                 textView3.setText(String.valueOf(progress3) + "%");
                 viewModel.setHappinessMeter(String.valueOf(progress3));
+                int val = (progress3 * (seekBar3.getWidth() - 2 * seekBar3.getThumbOffset())) / seekBar3.getMax();
+                textView3.setText("" + progress3);
+                textView3.setX(seekBar3.getX() + val + seekBar3.getThumbOffset() / 2);
             }
 
             @Override
@@ -144,6 +150,9 @@ public class MoodOneFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar4, int progress4, boolean fromUser) {
                 textView4.setText(String.valueOf(progress4) + "%");
                 viewModel.setExcitedMeter(String.valueOf(progress4));
+                int val = (progress4 * (seekBar4.getWidth() - 2 * seekBar4.getThumbOffset())) / seekBar4.getMax();
+                textView4.setText("" + progress4);
+                textView4.setX(seekBar4.getX() + val + seekBar4.getThumbOffset() / 2);
             }
 
             @Override
@@ -164,6 +173,9 @@ public class MoodOneFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar5, int progress5, boolean fromUser) {
                 textView5.setText(String.valueOf(progress5) + "%");
                 viewModel.setEnergyMeter(String.valueOf(progress5));
+                int val = (progress5 * (seekBar5.getWidth() - 2 * seekBar5.getThumbOffset())) / seekBar5.getMax();
+                textView5.setText("" + progress5);
+                textView5.setX(seekBar5.getX() + val + seekBar5.getThumbOffset() / 2);
             }
 
             @Override
@@ -184,6 +196,9 @@ public class MoodOneFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar6, int progress6, boolean fromUser) {
                 textView6.setText("{progress6 %%}");
                 viewModel.setSleepyMeter(String.valueOf(progress6));
+                int val = (progress6 * (seekBar6.getWidth() - 2 * seekBar6.getThumbOffset())) / seekBar6.getMax();
+                textView6.setText("" + progress6);
+                textView6.setX(seekBar6.getX() + val + seekBar6.getThumbOffset() / 2);
             }
 
             @Override

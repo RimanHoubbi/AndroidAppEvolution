@@ -258,10 +258,8 @@
         <TextView
             android:id="@+id/progress1"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
+            android:layout_height="wrap_content"
             tools:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID1"
             app:layout_constraintStart_toStartOf="@+id/seekBarID1"
@@ -270,10 +268,9 @@
         <TextView
             android:id="@+id/progress2"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            tools:text="0%"
+
             app:layout_constraintBottom_toBottomOf="@+id/unruhig"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID2"
             app:layout_constraintStart_toStartOf="@+id/seekBarID2"
@@ -282,10 +279,8 @@
         <TextView
             android:id="@+id/progress3"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            tools:text="0%"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
             app:layout_constraintStart_toStartOf="@+id/seekBarID3"
             app:layout_constraintTop_toTopOf="@+id/unwohl" />
@@ -294,9 +289,7 @@
             android:id="@+id/progress4"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0%"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID4"
             app:layout_constraintStart_toStartOf="@+id/seekBarID4"
             app:layout_constraintTop_toTopOf="@+id/angespannt" />
@@ -305,9 +298,8 @@
             android:id="@+id/progress5"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0%"
+
             app:layout_constraintEnd_toEndOf="@+id/seekBarID5"
             app:layout_constraintStart_toStartOf="@+id/seekBarID5"
             app:layout_constraintTop_toTopOf="@+id/energielos" />
@@ -316,9 +308,8 @@
             android:id="@+id/progress6"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0%"
+
             app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="@+id/seekBarID6"

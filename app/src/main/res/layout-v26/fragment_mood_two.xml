@@ -127,9 +127,7 @@
             android:id="@+id/progress7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0%"
             app:layout_constraintEnd_toEndOf="@+id/seekBarOne"
             app:layout_constraintStart_toStartOf="@+id/seekBarOne"
             app:layout_constraintTop_toTopOf="@+id/keinEreignis" />
@@ -138,9 +136,8 @@
             android:id="@+id/progress8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0%"
+
             app:layout_constraintEnd_toEndOf="@+id/seekBarTwo"
             app:layout_constraintStart_toStartOf="@+id/seekBarTwo"
             app:layout_constraintTop_toTopOf="@+id/keinEreignis2" />
