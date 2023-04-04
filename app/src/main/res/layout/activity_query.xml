@@ -247,16 +247,32 @@
                     android:id="@+id/CancelReminderbtn1"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
-                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn"
-                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn1"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+
             </TableRow>
+
+
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
@@ -276,10 +292,23 @@
                     android:id="@+id/CancelReminderbtn2"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn2"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -304,10 +333,23 @@
                     android:id="@+id/CancelReminderbtn3"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn3"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -332,10 +374,23 @@
                     android:id="@+id/CancelReminderbtn4"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn4"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -360,10 +415,23 @@
                     android:id="@+id/CancelReminderbtn5"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn5"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -388,10 +456,23 @@
                     android:id="@+id/CancelReminderbtn6"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn6"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -416,10 +497,23 @@
                     android:id="@+id/CancelReminderbtn7"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn7"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -444,10 +538,23 @@
                     android:id="@+id/CancelReminderbtn8"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn8"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -472,10 +579,23 @@
                     android:id="@+id/CancelReminderbtn9"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
                     android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn9"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"
@@ -500,10 +620,23 @@
                     android:id="@+id/CancelReminderbtn10"
                     android:layout_width="138dp"
                     android:layout_height="35dp"
-
-                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="120dp"
+                    android:visibility="invisible"
                     android:baselineAligned="false"
                     android:text="@string/cancel_reminder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SetReminderbtn" />
+
+                <Button
+                    android:id="@+id/AddReminderbtn10"
+                    android:layout_width="138dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="120dp"
+                    android:baselineAligned="false"
+                    android:text="@string/add_reminder"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.205"
                     app:layout_constraintStart_toStartOf="parent"

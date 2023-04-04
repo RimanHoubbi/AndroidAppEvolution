@@ -74,6 +74,7 @@
     <string name="select_time">Zeit auswählen</string>
     <string name="button_query">Einstellen</string>
     <string name="query_question">Wie oft möchtest Du die Tagesabfrage erhalten?</string>
+    <string name="add_reminder">Hinzufügen</string>
     
     <string-array name="listActivities">
         <item>Gehen</item>

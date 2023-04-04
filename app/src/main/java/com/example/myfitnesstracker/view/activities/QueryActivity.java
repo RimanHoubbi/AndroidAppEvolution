@@ -14,6 +14,7 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -59,6 +60,7 @@ public class QueryActivity extends LocalizationActivity {
 
 
 private ActivityQueryBinding binding;
+private int addButtonClicked = 0; // default value
 private MaterialTimePicker picker;
 Calendar calendar;
 AlarmManager alarmManager;
@@ -74,6 +76,7 @@ TextView backCard2;
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query);
+
 
 
 
@@ -139,12 +142,42 @@ TextView backCard2;
         binding.SetReminderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 setAlarm();
                 String alarm = setAlarm();
-                if (alarm != null) {
-                    boolean isAlarmAlreadySet = false;
+
+
+
+
+
+
+                if (addButtonClicked == 0){
+
+                    for (int i = 1; i <= 10; i++) {
+
+                        int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+                        TextView textView = findViewById(textViewId);
+
+                        if (textView.getText().toString().equals("Not set")) {
+
+                            addButtonClicked = i;
+                            break;
+
+                        }
+                    }
+
+
+
+
+
+                    if (alarm != null) {
+                        boolean isAlarmAlreadySet = false;
+
+
                     // boolean isAlarmWithin30Min = false;
                     for (int i = 1; i <= 10; i++) {
+                        isAlarmAlreadySet = false;
                         int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
                         TextView textView = findViewById(textViewId);
                         if (textView.getText().toString().equals(alarm)) {
@@ -160,7 +193,70 @@ TextView backCard2;
                     if (!isAlarmAlreadySet) {
                         Toast.makeText(QueryActivity.this, "Alarm already set", Toast.LENGTH_SHORT).show();
                     }
+                        // Get references to the Cancel/Add buttons
+                        String cancelButtonId = "CancelReminderbtn" + addButtonClicked;
+                        String addButtonId = "AddReminderbtn" + addButtonClicked;
+                        Button cancelButton = findViewById(getResources().getIdentifier(cancelButtonId, "id", getPackageName()));
+                        Button addButton = findViewById(getResources().getIdentifier(addButtonId, "id", getPackageName()));
+                    // Toggle the visibility of the Cancel/Add buttons
+                        if (isAlarmAlreadySet) {
+                            cancelButton.setVisibility(View.VISIBLE);
+                            addButton.setVisibility(View.GONE);
+                        } else {
+                            cancelButton.setVisibility(View.GONE);
+                            addButton.setVisibility(View.VISIBLE);
+                        }
+                    }
                 }
+                if (addButtonClicked != 0){
+                    Log.d("QueryActivity", "addButtonClicked before: " + addButtonClicked);
+
+                    if (alarm != null) {
+                        boolean isAlarmAlreadySet = false;
+
+
+                        // boolean isAlarmWithin30Min = false;
+
+
+                            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + addButtonClicked, "id", getPackageName());
+                            TextView textView = findViewById(textViewId);
+                            if (textView.getText().toString().equals(alarm)) {
+                                isAlarmAlreadySet = true;
+
+                            }
+                            if (textView.getText().toString().equals("Not set")) {
+                                textView.setText(alarm);
+                                isAlarmAlreadySet = true;
+
+                            }
+
+                        if (!isAlarmAlreadySet) {
+                            Toast.makeText(QueryActivity.this, "Alarm already set", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+
+                        // Get references to the Cancel/Add buttons
+                        String cancelButtonId = "CancelReminderbtn" + addButtonClicked;
+                        String addButtonId = "AddReminderbtn" + addButtonClicked;
+                        Button cancelButton = findViewById(getResources().getIdentifier(cancelButtonId, "id", getPackageName()));
+                        Button addButton = findViewById(getResources().getIdentifier(addButtonId, "id", getPackageName()));
+
+                        // Toggle the visibility of the Cancel/Add buttons
+                        if (isAlarmAlreadySet) {
+                            cancelButton.setVisibility(View.VISIBLE);
+                            addButton.setVisibility(View.GONE);
+                        } else {
+                            cancelButton.setVisibility(View.GONE);
+                            addButton.setVisibility(View.VISIBLE);
+                        }
+
+
+                        // Reset the addButtonClicked variable
+                        addButtonClicked = 0;
+                    }}
+
+
 
 
 
@@ -171,6 +267,7 @@ TextView backCard2;
         binding.AddReminderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addButtonClicked = 0;
                 boolean isAlarmTableFull = true;
                 for (int i = 1; i <= 10; i++) {
                     int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
@@ -223,7 +320,102 @@ TextView backCard2;
         });
 
         // Loop through each TableRow in the TableLayout
+
         TableLayout tableLayout = findViewById(R.id.tabla_cuerpo);
+        for (int i = 1; i <= 10; i++) {
+
+            // Generate the ID strings for the TextView and Cancel/Add button
+            String textViewId = "id_cad_details_dialog_key" + i;
+            String cancelButtonId = "CancelReminderbtn" + i;
+            String addButtonId = "AddReminderbtn" + i;
+
+            // Get a reference to the TableRow containing the TextView and Cancel/Add button
+            int tableRowId = getResources().getIdentifier("tableRow" + i, "id", getPackageName());
+            TableRow tableRow = findViewById(tableRowId);
+
+            // Get references to the TextView, Cancel button, and Add button
+            TextView textView = tableRow.findViewById(getResources().getIdentifier(textViewId, "id", getPackageName()));
+            Button cancelButton = tableRow.findViewById(getResources().getIdentifier(cancelButtonId, "id", getPackageName()));
+            Button addButton = tableRow.findViewById(getResources().getIdentifier(addButtonId, "id", getPackageName()));
+
+            // Check if the first column is not set, and toggle the Cancel/Add button accordingly
+            if (textView.getText().toString().equals("Not set")) {
+                cancelButton.setVisibility(View.GONE);
+                addButton.setVisibility(View.VISIBLE);
+            } else {
+                cancelButton.setVisibility(View.VISIBLE);
+                addButton.setVisibility(View.GONE);
+            }
+
+            // Set the OnClickListener for the Cancel/Add button to set the TextView to "Not set" and cancel the alarm or start the reminder activity
+            final int requestCode = i;
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Set the TextView to "Not set"
+                    textView.setText("Not set");
+
+                    // Cancel the corresponding PendingIntent from AlarmManager
+                    Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    alarmManager.cancel(pendingIntent);
+                    Toast.makeText(QueryActivity.this, "Alarm deleted", Toast.LENGTH_SHORT).show();
+
+                    // Toggle the Cancel/Add button
+                    cancelButton.setVisibility(View.GONE);
+                    addButton.setVisibility(View.VISIBLE);
+                }
+            });
+
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Set addButtonClicked to the row number of the button clicked
+                    addButtonClicked = requestCode;
+                    boolean isAlarmTableFull = true;
+                    for (int i = 1; i <= 10; i++) {
+                        int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+                        TextView textView = findViewById(textViewId);
+
+
+                        if (textView.getText().toString().equals("Not set")) {
+                            isAlarmTableFull = false;
+                        }
+                    }
+
+                    if (isAlarmTableFull) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(QueryActivity.this);
+                        builder.setTitle("Error");
+                        builder.setMessage("You cannot add any more alarms");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // Do nothing
+                            }
+                        });
+                        builder.create().show();
+                    } else {
+                        // Call the timepicker method here
+                        showTimePicker();
+
+                    }
+
+
+
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+        /*TableLayout tableLayout = findViewById(R.id.tabla_cuerpo);
         for (int i = 1; i <= 10; i++) {
             // Generate the ID strings for the TextView and Cancel button
             String textViewId = "id_cad_details_dialog_key" + i;
@@ -254,7 +446,7 @@ TextView backCard2;
                     Toast.makeText(QueryActivity.this, "Alarm deleted", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
+        }*/
 
 
 
@@ -1166,7 +1358,7 @@ TextView backCard2;
         backCard2.setVisibility(v);
     }
 
-    //Alarms as list
+    //Cancel all alarms and update the alarm list
     private void alarmCancelAll() {
         for (int i = 1; i <= 10; i++) {
             int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
