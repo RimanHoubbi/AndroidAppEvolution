@@ -43,20 +43,20 @@
         <SeekBar
             android:id="@+id/seekBarID9"
             style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="379dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="72dp"
+            android:layout_width="384dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="68dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
             android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
+
             android:thumb="?attr/dividerVertical"
             android:thumbOffset="0dp"
             android:thumbTint="#00ED0909"
             android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -64,14 +64,12 @@
             android:id="@+id/progress9"
             android:layout_width="33dp"
             android:layout_height="30dp"
-            android:layout_marginTop="44dp"
-            tools:text="0"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_marginTop="52dp"
             app:layout_constraintEnd_toStartOf="@+id/trifftvölligzu"
-            app:layout_constraintHorizontal_bias="0.257"
+            app:layout_constraintHorizontal_bias="0.372"
             app:layout_constraintStart_toEndOf="@+id/trifftüberhauptnichtzu"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:text="0" />
 
         <Button
             android:id="@+id/fertig"
@@ -89,45 +87,45 @@
             android:id="@+id/trifftüberhauptnichtzu"
             android:layout_width="172dp"
             android:layout_height="29dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/_not_at_all"
+
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/seekBarID9"
             app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/trifftvölligzu"
             android:layout_width="104dp"
             android:layout_height="31dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginStart="264dp"
+            android:layout_marginTop="16dp"
             android:text="@string/_completly_true"
+
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/seekBarID9"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID9"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/trifftüberhauptnichtzu"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.733" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
             android:text="@string/_people_surrounded"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner1"
-            style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+            android:background="@android:drawable/btn_dropdown"
             android:layout_width="187dp"
             android:layout_height="48dp"
             android:layout_marginTop="28dp"
