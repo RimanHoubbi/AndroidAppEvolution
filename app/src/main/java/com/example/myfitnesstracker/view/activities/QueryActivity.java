@@ -207,6 +207,7 @@ TextView backCard2;
                             addButton.setVisibility(View.VISIBLE);
                         }
                     }
+                    toggleAddCancel();
                 }
                 if (addButtonClicked != 0){
                     Log.d("QueryActivity", "addButtonClicked before: " + addButtonClicked);
@@ -254,7 +255,9 @@ TextView backCard2;
 
                         // Reset the addButtonClicked variable
                         addButtonClicked = 0;
-                    }}
+                    }
+                    toggleAddCancel();
+                }
 
 
 
@@ -468,6 +471,7 @@ TextView backCard2;
                 cancelAlarm8();
                 cancelAlarm9();
                 cancelAlarm10();
+                toggleAddCancel();
             }
 
         });
@@ -498,6 +502,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
                 if (item == 2 ) {
@@ -516,6 +521,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
                 if (item == 3) {
@@ -536,6 +542,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
                 if (item == 4) {
@@ -558,6 +565,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
                 if (item == 5) {
@@ -582,6 +590,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
                 if (item == 6) {
@@ -608,6 +617,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
                 if (item == 7) {
@@ -636,6 +646,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
                 if (item == 8) {
                     alarmCancelAll();
@@ -665,6 +676,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
                 if (item == 9) {
                     alarmCancelAll();
@@ -696,6 +708,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
                 if (item == 10) {
                     alarmCancelAll();
@@ -729,6 +742,7 @@ TextView backCard2;
                         }
                     });
                     builder.create().show();
+                    toggleAddCancel();
                 }
 
             }
@@ -1380,6 +1394,43 @@ TextView backCard2;
         cancelAlarm9();
         cancelAlarm10();
     }
+
+    private void toggleAddCancel() {
+
+        boolean isAnyAlarmSet = false;
+        for (int i = 1; i <= 10; i++) {
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+            if (!textView.getText().toString().equals("Not set")) {
+                isAnyAlarmSet = true;
+                break;
+            }
+        }
+
+        for (int i = 1; i <= 10; i++) {
+            String cancelButtonId = "CancelReminderbtn" + i;
+            String addButtonId = "AddReminderbtn" + i;
+            Button cancelButton = findViewById(getResources().getIdentifier(cancelButtonId, "id", getPackageName()));
+            Button addButton = findViewById(getResources().getIdentifier(addButtonId, "id", getPackageName()));
+
+            int textViewId = getResources().getIdentifier("id_cad_details_dialog_key" + i, "id", getPackageName());
+            TextView textView = findViewById(textViewId);
+
+            // Toggle the visibility of the Cancel/Add buttons
+            if (!textView.getText().toString().equals("Not set")) {
+                cancelButton.setVisibility(View.VISIBLE);
+                addButton.setVisibility(View.GONE);
+            } else {
+                if (isAnyAlarmSet) {
+                    cancelButton.setVisibility(View.GONE);
+                } else {
+                    cancelButton.setVisibility(View.VISIBLE);
+                }
+                addButton.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
 
 
 
