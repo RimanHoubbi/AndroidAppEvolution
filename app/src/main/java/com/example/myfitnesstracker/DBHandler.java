@@ -87,6 +87,23 @@ public class DBHandler extends SQLiteOpenHelper {
         //TODO: think about upgrade procedures and implement them
     }
 
+    public void saveData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "pragma wal_checkpoint(full)";
+
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            int a = cursor.getInt(0);
+            int b = cursor.getInt(1);
+            int c = cursor.getInt(2);
+
+        }
+        if (cursor != null) {
+            cursor.close();
+        }
+        db.close();
+    }
+
 
     /**
      * @param data Sensor data as SensorData object
