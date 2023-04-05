@@ -31,16 +31,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/ja2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/ja_neg_Ereignisse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+        <Button
+            android:id="@+id/abbrechen8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:text="@string/nein_neg_Ereignisse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
         <SeekBar
             android:id="@+id/seekBarOne"
             android:layout_width="370dp"
             android:layout_height="60dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:progressTint="#00000000"
             android:scaleX="1"
             app:layout_constraintEnd_toEndOf="@+id/sehrIntensiv"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="@+id/keinEreignis"
             app:layout_constraintTop_toBottomOf="@+id/keinEreignis" />
 
@@ -48,12 +69,12 @@
             android:id="@+id/keinEreignis"
             android:layout_width="90dp"
             android:layout_height="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
             android:text="@string/_no_result"
-
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView1"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ja2" />
 
 
         <TextView
@@ -61,36 +82,56 @@
             android:layout_width="90dp"
             android:layout_height="18dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
             android:text="@string/_very_intensive"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textView1"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ja2" />
 
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="400dp"
+            android:layout_height="95dp"
+            android:layout_marginTop="288dp"
             android:text="@string/_positive_events"
             android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarOne"
-            app:layout_constraintStart_toStartOf="@+id/seekBarOne"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarOne" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/ja3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/ja_Pos_Ereignisse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <Button
+            android:id="@+id/abbrechen9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:text="@string/nein_pos_Ereignisse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <SeekBar
             android:id="@+id/seekBarTwo"
             android:layout_width="386dp"
             android:layout_height="63dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:progressTint="#00000000"
             android:scaleX="1"
             app:layout_constraintEnd_toEndOf="@+id/sehrIntensiv2"
-            app:layout_constraintHorizontal_bias="0.312"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toStartOf="@+id/keinEreignis2"
             app:layout_constraintTop_toBottomOf="@+id/keinEreignis2" />
 
@@ -98,45 +139,44 @@
             android:id="@+id/keinEreignis2"
             android:layout_width="90dp"
             android:layout_height="18dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
             android:text="@string/_no_result_positive"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ja3" />
 
         <TextView
             android:id="@+id/sehrIntensiv2"
             android:layout_width="90dp"
             android:layout_height="18dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
             android:text="@string/_very_intensive_positive"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ja3" />
 
 
         <TextView
             android:id="@+id/progress7"
-            android:layout_width="29dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="0"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/seekBarOne"
-            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="@+id/seekBarOne"
-            app:layout_constraintTop_toTopOf="@+id/keinEreignis"
-            tools:text="0%" />
+            app:layout_constraintTop_toTopOf="@+id/keinEreignis" />
 
         <TextView
             android:id="@+id/progress8"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="32dp"
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="0"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/seekBarTwo"
-            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="@+id/seekBarTwo"
-            app:layout_constraintTop_toTopOf="@+id/keinEreignis2"
-            tools:text="0%" />
+            app:layout_constraintTop_toTopOf="@+id/keinEreignis2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -187,7 +227,6 @@
 
 
         </LinearLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

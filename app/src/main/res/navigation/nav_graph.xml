@@ -99,7 +99,9 @@
             app:destination="@id/moodSixFragment" />
         <action
             android:id="@+id/action_moodSevenFragment_to_moodFiveFragment"
-            app:destination="@id/moodFiveFragment" />
+            app:destination="@+id/moodFiveFragment"/>
+
+
 
     </fragment>
     <fragment

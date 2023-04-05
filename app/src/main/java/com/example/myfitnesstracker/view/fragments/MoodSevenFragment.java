@@ -35,7 +35,6 @@ public class MoodSevenFragment extends Fragment {
     public TextView textView14;
     public TextView textView15;
     MainViewModel viewModel;
-    EditText textFragmentSeven;
 
     public MoodSevenFragment() {
         // Required empty public constructor
@@ -58,7 +57,7 @@ public class MoodSevenFragment extends Fragment {
         seekBar15 =view.findViewById(R.id.seekBar15);
         textView15 = view.findViewById(R.id.textView15);
         button20 =view.findViewById(R.id.next);
-        textFragmentSeven = view.findViewById(R.id.editTextTextMultiLine);
+
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
         seekBar14.getThumb().setAlpha(0);
