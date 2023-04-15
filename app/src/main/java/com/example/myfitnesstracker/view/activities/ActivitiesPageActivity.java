@@ -70,6 +70,11 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
     String endTime;
     String currentDate;
 
+    TextView timerText;
+    Double time = 0.0;
+    boolean timerStarted = false;
+    Timer upTimer;
+    TimerTask timerTask;
 
     private double accelerationCurrentValue;
     private double accelerationPreviousValue;
@@ -106,6 +111,9 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         sensorDataDao=db.sensorDataDao();
         activityDataDao =db.activityDataDao();
         dbHandler=new DBHandler(this);
+        
+        timerText = (TextView) findViewById(R.id.timerText);
+        upTimer = new Timer();
         
           Intent serviceIntent = new Intent(this, MyForegroundService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -283,6 +291,11 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 startButton.setEnabled(false);
                 flag=true;
                 dialogTimer.start();
+                  if(timerStarted == false) {
+                    timerStarted = true;
+                    startTimer();
+                }
+
 
                 timer2.schedule(new TimerTask() {
                     @Override
@@ -307,13 +320,56 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 stopButton.setEnabled(false);
                 endTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 endTimeMilli= System.currentTimeMillis();
-
+                
+                 if(timerStarted == true) {
+                    timerStarted = false;
+                    timerTask.cancel();
+                }
+              
                 exitActivity();
                 //Borg skala
                 showDialogSpinner();
                 //goToMainActivity0(); //fragebatterie nach dem sport beantworten
                 break;
         }
+    }
+    
+    private void startTimer()
+    {
+        timerTask = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        time++;
+                        timerText.setText(getTimerText());
+                    }
+                });
+            }
+
+        };
+        timer.scheduleAtFixedRate(timerTask, 0 ,1000);
+    }
+
+
+    private String getTimerText()
+    {
+        int rounded = (int) Math.round(time);
+        int seconds = ((rounded % 86400) % 3600) % 60;
+        int minutes = ((rounded % 86400) % 3600) / 60;
+        int hours = ((rounded % 86400) / 3600);
+
+        return formatTime(seconds, minutes, hours);
+    }
+
+    private String formatTime(int seconds, int minutes, int hours)
+    {
+        return String.format("%02d",hours) + " : " + String.format("%02d",minutes) + " : " + String.format("%02d",seconds);
     }
     
      /*Ask user after three hours if they are done with sport
