@@ -1,5 +1,6 @@
 package com.example.myfitnesstracker;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,21 +19,26 @@ import com.example.myfitnesstracker.model.AppDatabase;
 import com.example.myfitnesstracker.model.MoodData;
 import com.example.myfitnesstracker.model.MoodDataDao;
 import com.github.mikephil.charting.charts.BarChart;
+
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.components.Legend;
+
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+
 import com.github.mikephil.charting.data.CombinedData;
+
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
-
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -71,6 +77,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
 
 
         // Assign Variables
+
         data = new CombinedData();
 
         mChart = (CombinedChart) findViewById(R.id.bar_chart_activity);
@@ -107,6 +114,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         xAxis.setGranularity(1f);
 
 
+
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
         button90days = findViewById(R.id.button_90_days);
@@ -116,14 +124,13 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         type="all";
         days=7;
 
-
-
         button7days.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 days=7;
                 makeBarChart(days, type_eng, type_de);
                 makeLineChart(days, type);
+
                 mChart.setData(data);
                 mChart.invalidate();
             }
@@ -292,12 +299,10 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
                 type="all";
             }
         });
-
         makeLineChart(days, type);
         makeBarChart(7, type_eng, type_de);
         mChart.setData(data);
         mChart.invalidate();
-
     }
 
     @Override
@@ -344,11 +349,9 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
             String date = calendar.getTime().toString();
             Dates.add(count, date);
         }
-
         BarDataSet barDataSet = new BarDataSet(barActivityEntries, getResources().getString(R.string.chart_active_minutes));// Initialize Bar Data Set
         barDataSet.setColors(Color.parseColor("#4cc9f0"));// Set Bar Color
         data.setData(new BarData(barDataSet));// Set Bar Data
-
     }
 
     /**
@@ -435,18 +438,6 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         linesMoodEntries.add(Mood5);
         linesMoodEntries.add(Mood6);
 
-        //Set Graphs Axis
-        //YAxis yAxisL = lineChartMood.getAxisLeft();
-        //YAxis yAxisR = lineChartMood.getAxisRight();
-        //yAxisL.setAxisMinimum(0);
-        //yAxisL.setAxisMaximum(100);
-        //yAxisR.setAxisMinimum(0);
-        //yAxisR.setAxisMaximum(100);
-        //XAxis xAxis = lineChartMood.getXAxis();
-        //xAxis.setDrawGridLines(false);
-        //xAxis.setAxisMinimum(0);
-        //xAxis.setAxisMaximum(daysShown-1);
-
         //get database data
         ArrayList<ArrayList<Float>> dbEntries = getMoodScoresFromDB(daysShown);
 
@@ -526,8 +517,6 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         //Inputting the line data into the graph
         LineData ldata = new LineData(lineDataSetList);
         data.setData(ldata);
-        //lineChartMood.animateX(3000);
-        //lineChartMood.getDescription().setText(" ");
 
     }
 

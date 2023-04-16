@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,19 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".view.fragments.MoodOneFragment">
-
-        <Button
-            android:id="@+id/abbrechen1"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/cance1"
-            android:textSize="9dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnMoodOneNext"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btnMoodOneNext"
-            app:layout_constraintTop_toBottomOf="@+id/btnMoodOneNext" />
 
         <TextView
             android:id="@+id/textView5"
@@ -51,17 +37,12 @@
             android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
+
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/unzufrieden"
-            app:layout_constraintTop_toBottomOf="@+id/unzufrieden"
+            app:layout_constraintStart_toStartOf="@+id/zufrieden"
+            app:layout_constraintTop_toBottomOf="@+id/zufrieden"
             tools:targetApi="o" />
 
         <SeekBar
@@ -73,13 +54,7 @@
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+            android:progressTint="#00000000"
             app:layout_constraintEnd_toEndOf="@+id/Ruhig"
             app:layout_constraintStart_toStartOf="@+id/unruhig"
             app:layout_constraintTop_toBottomOf="@+id/unruhig"
@@ -94,13 +69,8 @@
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+            android:progressTint="#00000000"
+
             app:layout_constraintEnd_toEndOf="@+id/wohl"
             app:layout_constraintStart_toStartOf="@+id/unwohl"
             app:layout_constraintTop_toBottomOf="@+id/unwohl"
@@ -114,17 +84,11 @@
             android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
-            app:layout_constraintEnd_toEndOf="@+id/entspannt"
-            app:layout_constraintStart_toStartOf="@+id/angespannt"
-            app:layout_constraintTop_toBottomOf="@+id/angespannt"
+            app:layout_constraintEnd_toEndOf="@+id/angespannt"
+            app:layout_constraintStart_toStartOf="@+id/entspannt"
+            app:layout_constraintTop_toBottomOf="@+id/entspannt"
             tools:targetApi="o" />
 
         <SeekBar
@@ -135,17 +99,11 @@
             android:layout_marginTop="8dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
-            app:layout_constraintEnd_toEndOf="@+id/energiegeladen"
-            app:layout_constraintStart_toStartOf="@+id/energielos"
-            app:layout_constraintTop_toBottomOf="@+id/energielos"
+            app:layout_constraintEnd_toEndOf="@+id/energielos"
+            app:layout_constraintStart_toStartOf="@+id/energiegeladen"
+            app:layout_constraintTop_toBottomOf="@+id/energiegeladen"
             tools:targetApi="o" />
 
         <SeekBar
@@ -157,42 +115,38 @@
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
             android:scaleX="1"
-            android:scaleY="2"
-            android:scrollbarThumbHorizontal="?android:attr/listDivider"
-            android:scrollbarThumbVertical="?attr/dividerVertical"
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
+            android:progressTint="#00000000"
             app:layout_constraintEnd_toEndOf="@+id/wach"
             app:layout_constraintStart_toStartOf="@+id/müde"
             app:layout_constraintTop_toBottomOf="@+id/müde"
             tools:targetApi="o" />
 
         <TextView
-            android:id="@+id/unzufrieden"
+            android:id="@+id/zufrieden"
             android:layout_width="78dp"
             android:layout_height="18dp"
             android:layout_marginTop="32dp"
-            android:text="@string/_dissatisfied"
+            android:text="@string/_satisfied"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
-            android:id="@+id/zufrieden"
+            android:id="@+id/unzufrieden"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:text="@string/_satisfied"
+            android:text="@string/_dissatisfied"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
+            app:layout_constraintBottom_toBottomOf="@+id/zufrieden"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/unzufrieden"
+            app:layout_constraintTop_toTopOf="@+id/zufrieden"
             app:layout_constraintVertical_bias="1.0" />
+
+
         <TextView
             android:id="@+id/unruhig"
             android:layout_width="wrap_content"
@@ -233,42 +187,42 @@
             app:layout_constraintTop_toTopOf="@+id/unwohl" />
 
         <TextView
-            android:id="@+id/angespannt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/_strained"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID3"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID3" />
-
-        <TextView
             android:id="@+id/entspannt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/_relaxed"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
-            app:layout_constraintTop_toTopOf="@+id/angespannt" />
+            app:layout_constraintStart_toStartOf="@+id/seekBarID3"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID3"/>
 
         <TextView
-            android:id="@+id/energielos"
+            android:id="@+id/angespannt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/_no_energie"
+            android:text="@string/_strained"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID4"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID4" />
+            app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
+            app:layout_constraintTop_toTopOf="@+id/entspannt"/>
 
         <TextView
             android:id="@+id/energiegeladen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/_full_energy"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/seekBarID4"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID4" />
+
+        <TextView
+            android:id="@+id/energielos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_no_energie"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID4"
-            app:layout_constraintTop_toTopOf="@+id/energielos" />
+            app:layout_constraintTop_toTopOf="@+id/energiegeladen" />
 
         <TextView
             android:id="@+id/müde"
@@ -292,10 +246,8 @@
         <TextView
             android:id="@+id/progress1"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            tools:text="0"
             app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID1"
             app:layout_constraintStart_toStartOf="@+id/seekBarID1"
@@ -304,10 +256,8 @@
         <TextView
             android:id="@+id/progress2"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            tools:text="0"
             app:layout_constraintBottom_toBottomOf="@+id/unruhig"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID2"
             app:layout_constraintStart_toStartOf="@+id/seekBarID2"
@@ -316,10 +266,8 @@
         <TextView
             android:id="@+id/progress3"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
             app:layout_constraintStart_toStartOf="@+id/seekBarID3"
             app:layout_constraintTop_toTopOf="@+id/unwohl" />
@@ -328,9 +276,7 @@
             android:id="@+id/progress4"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID4"
             app:layout_constraintStart_toStartOf="@+id/seekBarID4"
             app:layout_constraintTop_toTopOf="@+id/angespannt" />
@@ -339,9 +285,7 @@
             android:id="@+id/progress5"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID5"
             app:layout_constraintStart_toStartOf="@+id/seekBarID5"
             app:layout_constraintTop_toTopOf="@+id/energielos" />
@@ -350,44 +294,53 @@
             android:id="@+id/progress6"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:text="0%"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="@+id/seekBarID6"
             app:layout_constraintTop_toTopOf="@+id/müde" />
 
 
-        <Button
-            android:id="@+id/btnMoodOneNext"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#673FCA"
-            android:text="next>>"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
 
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="296dp"
-            android:layout_height="141dp"
-            android:layout_marginTop="36dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/notes_1"
-            android:inputType="textMultiLine"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID6"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="556dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+            <Button
+                android:id="@+id/abbrechen1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cance1"
+                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteY="451dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMoodOneNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="next"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -134,20 +134,32 @@
     
         //Array List for the Day Query
 
-    <string-array name="DayQuery">
-        <item>Null</item>
-        <item>Eins</item>
-        <item>Zwei</item>
-        <item>Drei</item>
-        <item>Vier</item>
-        <item>Fünf</item>
-        <item>Sechs</item>
-        <item>Sieben</item>
-        <item>Acht</item>
-        <item>Neun</item>
-        <item>Zehn</item>
+     <string-array name="DayQuery">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
-
+    
+    <string-array name="DialogSpinner">
+        <item>Nicht anstrengend</item>
+        <item>Extrem leicht</item>
+        <item>Sehr leicht</item>
+        <item>Leicht </item>
+        <item>Etwas anstrengend: noch gut weitermachen</item>
+        <item>Anstrengend : weitermachen ist möglich</item>
+        <item>Sehr anstrengend : bald erschöpft</item>
+        <item>Extrem anstrengend: die stärkste Belastung </item>
+        <item>Maximal anstrengend</item>
+    </string-array>
+    
     <string name="button_7_days">7 Tage</string>
     <string name="button_30_days">30 Tage</string>
     <string name="button_90_days">90 Tage</string>
@@ -170,5 +182,6 @@
     <string name="notes_1">Notizen:</string>
     <string name="want_to_cancel">Warum wollen Sie abbrechen?</string>
     <string name="because">Weil...</string>
+    <string name="choose_intensity">Intensität auswählen</string>
 
 </resources>

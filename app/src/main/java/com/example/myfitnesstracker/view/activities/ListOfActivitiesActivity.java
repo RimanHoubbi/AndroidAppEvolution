@@ -1,7 +1,9 @@
 package com.example.myfitnesstracker.view.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,20 +49,40 @@ public class ListOfActivitiesActivity extends AppCompatActivity {
                        activitiesAdapter = new ActivitiesAdapter(activityList, new ActivitiesAdapter.OnItemClickListener() {
                            @Override
                            public void onItemClick(Activity_log activityLog) {
-                               Runnable runnable1 = new Runnable() {
+                               AlertDialog.Builder builder = new AlertDialog.Builder(ListOfActivitiesActivity.this);
+                               builder.setTitle("Aktivität löschen");
+                               builder.setMessage("Bist Du sicher?");
+                               //add action buttons
+                               builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                                    @Override
-                                   public void run() {
-                                       activityDataDao.deleteByUniqueId(activityLog.getUid());
-                                        runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                finish();
-                                                startActivity(getIntent());
-                                            }
-                                        });
+                                   public void onClick(DialogInterface dialog, int i) {
+                                       Runnable runnable1 = new Runnable() {
+                                           @Override
+                                           public void run() {
+                                               activityDataDao.deleteByUniqueId(activityLog.getUid());
+                                               runOnUiThread(new Runnable() {
+                                                   @Override
+                                                   public void run() {
+                                                       finish();
+                                                       startActivity(getIntent());
+                                                   }
+                                               });
+                                           }
+                                       };
+                                       new Thread(runnable1).start();
                                    }
-                               };
-                               new Thread(runnable1).start();
+                               });
+                               builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+                                   @Override
+                                   public void onClick(DialogInterface dialog, int i) {
+                                       dialog.dismiss();
+
+                                   }
+                               });
+                               //Create AlertDialog object
+                               AlertDialog alertDialog = builder.create();
+                               //show the AlertDialog using show() method
+                               alertDialog.show();
                            }
                        });
                        rv_activity_list.setAdapter(activitiesAdapter);

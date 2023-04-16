@@ -84,7 +84,24 @@ public class MoodEightFragment extends Fragment {
                 textView.setText(String.valueOf(progress));
                 viewModel.setImpulsively(String.valueOf(progress));
                 int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
-                textView.setText("" + progress);
+                if(progress == 0 ){
+                    textView.setText("trifft gar nicht zu ");
+                }
+                else if(progress == 1 ){
+                    textView.setText("trifft nicht zu  ");
+                }
+                else if(progress == 2 ){
+                    textView.setText("trifft  zu  ");
+
+                }
+                else if(progress == 3 ){
+                    textView.setText("trifft voll zu  ");
+
+                }
+                else {
+                    textView.setText("trifft voll und ganz zu  ");
+
+                }
                 textView.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
             }
 
@@ -107,7 +124,25 @@ public class MoodEightFragment extends Fragment {
                 textView2.setText(String.valueOf(progress2));
                 viewModel.setAggressive(String.valueOf(progress2));
                 int val = (progress2 * (seekBar2.getWidth() - 2 * seekBar2.getThumbOffset())) / seekBar2.getMax();
-                textView2.setText("" + progress2);
+                if(progress2 == 0 ){
+                    textView2.setText("trifft gar nicht zu ");
+                }
+                else if(progress2 == 1 ){
+                    textView2.setText("trifft nicht zu  ");
+                }
+                else if(progress2 == 2 ){
+                    textView2.setText("trifft  zu  ");
+
+                }
+                else if(progress2 == 3 ){
+                    textView2.setText("trifft ganz zu  ");
+
+                }
+                else {
+                    textView2.setText("trifft voll und ganz zu  ");
+
+                }
+
                 textView2.setX(seekBar2.getX() + val + seekBar2.getThumbOffset() / 2);
             }
 

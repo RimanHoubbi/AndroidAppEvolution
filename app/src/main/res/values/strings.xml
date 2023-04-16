@@ -58,10 +58,10 @@
     <string name="_full_energy">energiegeladen</string>
     <string name="_sleepy">müde</string>
     <string name="_awake">wach</string>
-    <string name="_negative_events">haben sie seit der letzten abfrage eines oder mehrere negative ereignisse erlebt wie intensiv war das bedeutendste negative ereignis</string>
+    <string name="_negative_events">Haben Sie seit der letzten Abfrage eines oder mehrere negative Ereignisse erlebt? Wie intensiv war das bedeutendste negative Ereignis?</string>
     <string name="_no_result">kein Ereignis</string>
     <string name="_very_intensive">sehr Intensiv</string>
-    <string name="_positive_events">haben sie seit der letzten abfrage eines oder mehrere positive ereignisse erlebt wie intensiv war das bedeutendste positive ereignis</string>
+    <string name="_positive_events">Haben Sie seit der letzten Abfrage eines oder mehrere positive Ereignisse erlebt? Wie intensiv war das bedeutendste positive Ereignis?</string>
     <string name="_no_result_positive">kein Ereignis</string>
     <string name="_very_intensive_positive">sehr Intensiv</string>
     <string name="_are_you_alone">Sind Sie im Moment alleine?</string>
@@ -173,6 +173,11 @@
     <string name="because">Weil...</string>
     <string name="if_you_want_you_can_add_a_note_to_your_recrod" translatable="false">wenn Sie möchten Sie können notzien hier hinzufügen</string>
     <string name="add_reminder">add_reminder</string>
+        <string name="choose_intensity">Intensität auswählen</string>
+    <string name="ja_Pos_Ereignisse">JA</string>
+    <string name="nein_pos_Ereignisse">NEIN</string>
+    <string name="ja_neg_Ereignisse">Ja</string>
+    <string name="nein_neg_Ereignisse">NEIN</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 

@@ -41,8 +41,8 @@
 
             android:scaleX="1"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/unzufrieden"
-            app:layout_constraintTop_toBottomOf="@+id/unzufrieden"
+            app:layout_constraintStart_toStartOf="@+id/zufrieden"
+            app:layout_constraintTop_toBottomOf="@+id/zufrieden"
             tools:targetApi="o" />
 
         <SeekBar
@@ -86,9 +86,9 @@
             android:max="100"
             android:progressTint="#00000000"
             android:scaleX="1"
-            app:layout_constraintEnd_toEndOf="@+id/entspannt"
-            app:layout_constraintStart_toStartOf="@+id/angespannt"
-            app:layout_constraintTop_toBottomOf="@+id/angespannt"
+            app:layout_constraintEnd_toEndOf="@+id/angespannt"
+            app:layout_constraintStart_toStartOf="@+id/entspannt"
+            app:layout_constraintTop_toBottomOf="@+id/entspannt"
             tools:targetApi="o" />
 
         <SeekBar
@@ -101,9 +101,9 @@
             android:max="100"
             android:progressTint="#00000000"
             android:scaleX="1"
-            app:layout_constraintEnd_toEndOf="@+id/energiegeladen"
-            app:layout_constraintStart_toStartOf="@+id/energielos"
-            app:layout_constraintTop_toBottomOf="@+id/energielos"
+            app:layout_constraintEnd_toEndOf="@+id/energielos"
+            app:layout_constraintStart_toStartOf="@+id/energiegeladen"
+            app:layout_constraintTop_toBottomOf="@+id/energiegeladen"
             tools:targetApi="o" />
 
         <SeekBar
@@ -122,28 +122,28 @@
             tools:targetApi="o" />
 
         <TextView
-            android:id="@+id/unzufrieden"
+            android:id="@+id/zufrieden"
             android:layout_width="78dp"
             android:layout_height="18dp"
             android:layout_marginTop="32dp"
-            android:text="@string/_dissatisfied"
+            android:text="@string/_satisfied"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
-            android:id="@+id/zufrieden"
+            android:id="@+id/unzufrieden"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:text="@string/_satisfied"
+            android:text="@string/_dissatisfied"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
+            app:layout_constraintBottom_toBottomOf="@+id/zufrieden"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/unzufrieden"
+            app:layout_constraintTop_toTopOf="@+id/zufrieden"
             app:layout_constraintVertical_bias="1.0" />
 
 
@@ -187,42 +187,42 @@
             app:layout_constraintTop_toTopOf="@+id/unwohl" />
 
         <TextView
-            android:id="@+id/angespannt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/_strained"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID3"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID3" />
-
-        <TextView
             android:id="@+id/entspannt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/_relaxed"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
-            app:layout_constraintTop_toTopOf="@+id/angespannt" />
+            app:layout_constraintStart_toStartOf="@+id/seekBarID3"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID3"/>
 
         <TextView
-            android:id="@+id/energielos"
+            android:id="@+id/angespannt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/_no_energie"
+            android:text="@string/_strained"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID4"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID4" />
+            app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
+            app:layout_constraintTop_toTopOf="@+id/entspannt"/>
 
         <TextView
             android:id="@+id/energiegeladen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/_full_energy"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/seekBarID4"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID4" />
+
+        <TextView
+            android:id="@+id/energielos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_no_energie"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID4"
-            app:layout_constraintTop_toTopOf="@+id/energielos" />
+            app:layout_constraintTop_toTopOf="@+id/energiegeladen" />
 
         <TextView
             android:id="@+id/müde"
@@ -247,7 +247,7 @@
             android:id="@+id/progress1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="0%"
+            tools:text="0"
             app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID1"
             app:layout_constraintStart_toStartOf="@+id/seekBarID1"
@@ -257,8 +257,7 @@
             android:id="@+id/progress2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="0%"
-
+            tools:text="0"
             app:layout_constraintBottom_toBottomOf="@+id/unruhig"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID2"
             app:layout_constraintStart_toStartOf="@+id/seekBarID2"
@@ -268,7 +267,7 @@
             android:id="@+id/progress3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="0%"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
             app:layout_constraintStart_toStartOf="@+id/seekBarID3"
             app:layout_constraintTop_toTopOf="@+id/unwohl" />
@@ -277,7 +276,7 @@
             android:id="@+id/progress4"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            tools:text="0%"
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID4"
             app:layout_constraintStart_toStartOf="@+id/seekBarID4"
             app:layout_constraintTop_toTopOf="@+id/angespannt" />
@@ -286,8 +285,7 @@
             android:id="@+id/progress5"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            tools:text="0%"
-
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID5"
             app:layout_constraintStart_toStartOf="@+id/seekBarID5"
             app:layout_constraintTop_toTopOf="@+id/energielos" />
@@ -296,8 +294,7 @@
             android:id="@+id/progress6"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            tools:text="0%"
-
+            tools:text="0"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="@+id/seekBarID6"

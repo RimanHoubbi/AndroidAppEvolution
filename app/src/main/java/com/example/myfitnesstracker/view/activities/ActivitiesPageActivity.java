@@ -22,6 +22,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.room.Room;
+import android.os.Build;
+import android.app.ActivityManager;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.example.myfitnesstracker.DBHandler;
@@ -68,6 +70,11 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
     String endTime;
     String currentDate;
 
+    TextView timerText;
+    Double time = 0.0;
+    boolean timerStarted = false;
+    Timer upTimer;
+    TimerTask timerTask;
 
     private double accelerationCurrentValue;
     private double accelerationPreviousValue;
@@ -103,8 +110,17 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         db= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"Tracker_Database").build();
         sensorDataDao=db.sensorDataDao();
         activityDataDao =db.activityDataDao();
-
         dbHandler=new DBHandler(this);
+        
+        timerText = (TextView) findViewById(R.id.timerText);
+        upTimer = new Timer();
+        
+          Intent serviceIntent = new Intent(this, MyForegroundService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        }
+
+        foregroundServiceRunning();
         
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -129,8 +145,7 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
-        tv_bpm=findViewById(R.id.tv_bpm);
-        //tv_Heart=findViewById(R.id.tv_heart);
+      
         startButton = (Button) findViewById(R.id.start);
         stopButton = (Button) findViewById(R.id.stop);
         startButton.setOnClickListener(this);
@@ -154,6 +169,16 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
         }else{
             setLanguage("de");
         }
+    }
+    
+    public boolean foregroundServiceRunning(){
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for(ActivityManager.RunningServiceInfo service: activityManager.getRunningServices(Integer.MAX_VALUE)) {
+            if(MyForegroundService.class.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -265,6 +290,11 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 startButton.setEnabled(false);
                 flag=true;
                 dialogTimer.start();
+                  if(timerStarted == false) {
+                    timerStarted = true;
+                    startTimer();
+                }
+
 
                 timer2.schedule(new TimerTask() {
                     @Override
@@ -289,13 +319,56 @@ public class ActivitiesPageActivity extends LocalizationActivity implements Sens
                 stopButton.setEnabled(false);
                 endTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 endTimeMilli= System.currentTimeMillis();
-
+                
+                 if(timerStarted == true) {
+                    timerStarted = false;
+                    timerTask.cancel();
+                }
+              
                 exitActivity();
                 //Borg skala
                 showDialogSpinner();
                 //goToMainActivity0(); //fragebatterie nach dem sport beantworten
                 break;
         }
+    }
+    
+    private void startTimer()
+    {
+        timerTask = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        time++;
+                        timerText.setText(getTimerText());
+                    }
+                });
+            }
+
+        };
+        timer.scheduleAtFixedRate(timerTask, 0 ,1000);
+    }
+
+
+    private String getTimerText()
+    {
+        int rounded = (int) Math.round(time);
+        int seconds = ((rounded % 86400) % 3600) % 60;
+        int minutes = ((rounded % 86400) % 3600) / 60;
+        int hours = ((rounded % 86400) / 3600);
+
+        return formatTime(seconds, minutes, hours);
+    }
+
+    private String formatTime(int seconds, int minutes, int hours)
+    {
+        return String.format("%02d",hours) + " : " + String.format("%02d",minutes) + " : " + String.format("%02d",seconds);
     }
     
      /*Ask user after three hours if they are done with sport

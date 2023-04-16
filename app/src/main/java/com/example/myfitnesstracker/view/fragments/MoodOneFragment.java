@@ -79,7 +79,7 @@ public class MoodOneFragment extends Fragment {
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar1, int progress1, boolean fromUser) {
-                textView1.setText(String.valueOf(progress1) + "%");
+                textView1.setText(String.valueOf(progress1));
                 viewModel.setSatisfiedMeter(String.valueOf(progress1));
                 int val = (progress1 * (seekBar1.getWidth() - 2 * seekBar1.getThumbOffset())) / seekBar1.getMax();
                 textView1.setText("" + progress1);
@@ -102,7 +102,7 @@ public class MoodOneFragment extends Fragment {
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar2, int progress2, boolean fromUser) {
-                textView2.setText(String.valueOf(progress2) + "%");
+                textView2.setText(String.valueOf(progress2));
                 viewModel.setCalmMeter(String.valueOf(progress2));
                 int val = (progress2 * (seekBar2.getWidth() - 2 * seekBar2.getThumbOffset())) / seekBar2.getMax();
                 textView2.setText("" + progress2);
@@ -125,7 +125,7 @@ public class MoodOneFragment extends Fragment {
         seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar3, int progress3, boolean fromUser) {
-                textView3.setText(String.valueOf(progress3) + "%");
+                textView3.setText(String.valueOf(progress3));
                 viewModel.setHappinessMeter(String.valueOf(progress3));
                 int val = (progress3 * (seekBar3.getWidth() - 2 * seekBar3.getThumbOffset())) / seekBar3.getMax();
                 textView3.setText("" + progress3);
@@ -148,7 +148,7 @@ public class MoodOneFragment extends Fragment {
         seekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar4, int progress4, boolean fromUser) {
-                textView4.setText(String.valueOf(progress4) + "%");
+                textView4.setText(String.valueOf(progress4));
                 viewModel.setExcitedMeter(String.valueOf(progress4));
                 int val = (progress4 * (seekBar4.getWidth() - 2 * seekBar4.getThumbOffset())) / seekBar4.getMax();
                 textView4.setText("" + progress4);
@@ -171,7 +171,7 @@ public class MoodOneFragment extends Fragment {
         seekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar5, int progress5, boolean fromUser) {
-                textView5.setText(String.valueOf(progress5) + "%");
+                textView5.setText(String.valueOf(progress5));
                 viewModel.setEnergyMeter(String.valueOf(progress5));
                 int val = (progress5 * (seekBar5.getWidth() - 2 * seekBar5.getThumbOffset())) / seekBar5.getMax();
                 textView5.setText("" + progress5);
