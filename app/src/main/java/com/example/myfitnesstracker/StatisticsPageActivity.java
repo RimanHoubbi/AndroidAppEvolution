@@ -1,6 +1,5 @@
 package com.example.myfitnesstracker;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,26 +18,30 @@ import com.example.myfitnesstracker.model.AppDatabase;
 import com.example.myfitnesstracker.model.MoodData;
 import com.example.myfitnesstracker.model.MoodDataDao;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.charts.CombinedChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.CombinedData;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class StatisticsPageActivity extends AppCompatActivity implements View.OnClickListener{
+
+    CombinedData data;
+
+    CombinedChart mChart;
 
     // Initialize Variables
     BarChart barChartActivity;
@@ -68,8 +71,42 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
 
 
         // Assign Variables
-        lineChartMood = findViewById(R.id.line_chart_mood);
-        barChartActivity = findViewById(R.id.bar_chart_activity);
+        data = new CombinedData();
+
+        mChart = (CombinedChart) findViewById(R.id.bar_chart_activity);
+        mChart.getDescription().setEnabled(false);
+        mChart.setBackgroundColor(Color.WHITE);
+        mChart.setDrawGridBackground(false);
+        mChart.setDrawBarShadow(false);
+        mChart.setHighlightFullBarEnabled(false);
+
+        mChart.setDrawOrder(new CombinedChart.DrawOrder[]{
+                CombinedChart.DrawOrder.BAR, CombinedChart.DrawOrder.LINE
+        });
+
+        Legend l = mChart.getLegend();
+        l.setWordWrapEnabled(true);
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        l.setDrawInside(false);
+
+        YAxis rightAxis = mChart.getAxisRight();
+        rightAxis.setDrawGridLines(false);
+        rightAxis.setGranularity(20f);
+        rightAxis.setAxisMinimum(0);
+
+        YAxis leftAxis = mChart.getAxisLeft();
+        leftAxis.setDrawGridLines(false);
+        leftAxis.setGranularity(10);
+        leftAxis.setAxisMinimum(0f);
+
+        XAxis xAxis = mChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
+        xAxis.setAxisMinimum(0f);
+        xAxis.setGranularity(1f);
+
+
         button7days = findViewById(R.id.button_7_days);
         button30days = findViewById(R.id.button_30_days);
         button90days = findViewById(R.id.button_90_days);
@@ -79,12 +116,16 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         type="all";
         days=7;
 
+
+
         button7days.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 days=7;
                 makeBarChart(days, type_eng, type_de);
                 makeLineChart(days, type);
+                mChart.setData(data);
+                mChart.invalidate();
             }
         });
         button30days.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +134,8 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
                 days=30;
                 makeBarChart(days, type_eng, type_de);
                 makeLineChart(days, type);
+                mChart.setData(data);
+                mChart.invalidate();
             }
         });
         button90days.setOnClickListener(this);
@@ -124,42 +167,62 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
                     type_de="alles";
                     type_eng="all";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Gehen")){
                     type_de="Gehen";
                     type_eng="Walking";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Laufen")){
                     type_de="Laufen";
                     type_eng="Running";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Schwimmen")){
                     type_de="Schwimmen";
                     type_eng="Swimming";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Ballsport")){
                     type_de="Ballsport";
                     type_eng="Ballsports";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Tanzen")){
                     type_de="Tanzen";
                     type_eng="Dancing";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Kampfsport")){
                     type_de="Kampfsport";
                     type_eng="Martial Arts";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Kraft Training")){
                     type_de="Kraft Training";
                     type_eng="Weight Training";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Yoga")){
                     type_de="Yoga";
                     type_eng="Yoga";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Anderes")){
                     type_de="Anderes";
                     type_eng="Other";
                     makeBarChart(days, type_eng, type_de);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }
             }
             @Override
@@ -190,24 +253,38 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
                 if (pos.equals("Alles")){
                     type="all";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Zufrieden")){
                     type="satisfied";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Ruhig")){
                     type="calm";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Wohl")){
                     type="happines";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Entspannt")){
                     type="excited";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Energie")){
                     type="energy";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }else if(pos.equals("Wach")){
                     type="sleepy";
                     makeLineChart(days, type);
+                    mChart.setData(data);
+                    mChart.invalidate();
                 }
             }
             @Override
@@ -216,8 +293,10 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
             }
         });
 
-        makeBarChart(7, type_eng, type_de);
         makeLineChart(days, type);
+        makeBarChart(7, type_eng, type_de);
+        mChart.setData(data);
+        mChart.invalidate();
 
     }
 
@@ -227,6 +306,8 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         days=90;
         makeBarChart(days, type_eng, type_de);
         makeLineChart(days, type);
+        mChart.setData(data);
+        mChart.invalidate();
     }
 
 
@@ -234,6 +315,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
 
     /**
      * @param daysShown number of days which need to be shown on the chart
+     * @return
      */
     private void makeBarChart(int daysShown, String type_eng, String type_de){
         ArrayList<BarEntry> barActivityEntries = new ArrayList<>();// Initialize Array List
@@ -263,19 +345,10 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
             Dates.add(count, date);
         }
 
-        XAxis xAxis = barChartActivity.getXAxis();
-        xAxis.setDrawGridLines(false);
-
         BarDataSet barDataSet = new BarDataSet(barActivityEntries, getResources().getString(R.string.chart_active_minutes));// Initialize Bar Data Set
         barDataSet.setColors(Color.parseColor("#4cc9f0"));// Set Bar Color
-        barChartActivity.setData(new BarData(barDataSet));// Set Bar Data
-        barChartActivity.animateY(3000);// Set Animations
-        barChartActivity.getDescription().setText(" ");// Removing Description text
-        //barChartActivity.getDescription().setTextColor(Color.WHITE);
-        YAxis yAxisL = barChartActivity.getAxisLeft();
-        YAxis yAxisR = barChartActivity.getAxisRight();
-        yAxisL.setAxisMinimum(0);
-        yAxisR.setAxisMinimum(0);
+        data.setData(new BarData(barDataSet));// Set Bar Data
+
     }
 
     /**
@@ -363,16 +436,16 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         linesMoodEntries.add(Mood6);
 
         //Set Graphs Axis
-        YAxis yAxisL = lineChartMood.getAxisLeft();
-        YAxis yAxisR = lineChartMood.getAxisRight();
-        yAxisL.setAxisMinimum(0);
-        yAxisL.setAxisMaximum(100);
-        yAxisR.setAxisMinimum(0);
-        yAxisR.setAxisMaximum(100);
-        XAxis xAxis = lineChartMood.getXAxis();
-        xAxis.setDrawGridLines(false);
-        xAxis.setAxisMinimum(0);
-        xAxis.setAxisMaximum(daysShown-1);
+        //YAxis yAxisL = lineChartMood.getAxisLeft();
+        //YAxis yAxisR = lineChartMood.getAxisRight();
+        //yAxisL.setAxisMinimum(0);
+        //yAxisL.setAxisMaximum(100);
+        //yAxisR.setAxisMinimum(0);
+        //yAxisR.setAxisMaximum(100);
+        //XAxis xAxis = lineChartMood.getXAxis();
+        //xAxis.setDrawGridLines(false);
+        //xAxis.setAxisMinimum(0);
+        //xAxis.setAxisMaximum(daysShown-1);
 
         //get database data
         ArrayList<ArrayList<Float>> dbEntries = getMoodScoresFromDB(daysShown);
@@ -451,10 +524,10 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         }
 
         //Inputting the line data into the graph
-        LineData data = new LineData(lineDataSetList);
-        lineChartMood.setData(data);
-        lineChartMood.animateX(3000);
-        lineChartMood.getDescription().setText(" ");
+        LineData ldata = new LineData(lineDataSetList);
+        data.setData(ldata);
+        //lineChartMood.animateX(3000);
+        //lineChartMood.getDescription().setText(" ");
 
     }
 

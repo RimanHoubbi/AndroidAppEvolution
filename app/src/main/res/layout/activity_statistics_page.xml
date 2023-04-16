@@ -57,22 +57,14 @@
         android:layout_width="match_parent"
         android:layout_height="38dp" />
 
-    <com.github.mikephil.charting.charts.BarChart
+    <com.github.mikephil.charting.charts.CombinedChart
         android:id="@+id/bar_chart_activity"
         android:layout_width="match_parent"
         android:layout_height="691dp"
         android:layout_marginBottom="8dp"
-        android:layout_weight="1"
-        android:baselineAligned="false">
+        android:layout_weight="1">
 
-    </com.github.mikephil.charting.charts.BarChart>
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/line_chart_mood"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1" />
+    </com.github.mikephil.charting.charts.CombinedChart>
 
     //Mood Chart
 
