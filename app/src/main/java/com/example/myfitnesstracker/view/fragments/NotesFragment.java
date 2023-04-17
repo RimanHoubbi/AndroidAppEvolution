@@ -78,6 +78,12 @@ public class NotesFragment extends Fragment {
         Finish = activity.findViewById(R.id.Finish);
 
         buttonSurveyNoteClear.setOnClickListener(v -> editTextSurveyNote.setText(""));
+        Finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+            }
+        });
 
 
     }

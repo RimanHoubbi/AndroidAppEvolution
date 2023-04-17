@@ -191,9 +191,9 @@ public class MoodEightFragment extends Fragment {
         });
 
 
-        buttonBack = view.findViewById(R.id.abbrechen2);
+        abbrechen = view.findViewById(R.id.abbrechen2);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        abbrechen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewModel.setMoodEndTime(System.currentTimeMillis());
