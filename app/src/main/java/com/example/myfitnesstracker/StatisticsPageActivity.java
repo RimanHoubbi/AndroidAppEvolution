@@ -1,6 +1,7 @@
 package com.example.myfitnesstracker;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,8 @@ import com.example.myfitnesstracker.model.Activity_log;
 import com.example.myfitnesstracker.model.AppDatabase;
 import com.example.myfitnesstracker.model.MoodData;
 import com.example.myfitnesstracker.model.MoodDataDao;
+import com.example.myfitnesstracker.view.activities.MainActivity;
+import com.example.myfitnesstracker.view.activities.MySettings;
 import com.github.mikephil.charting.charts.BarChart;
 
 import com.github.mikephil.charting.charts.CombinedChart;
@@ -65,7 +68,7 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
     String type;
     ArrayList<Float> dbEntries;
     int days;
-    LineChart lineChartMood;
+    Button export;
 
 
     @Override
@@ -123,6 +126,14 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
         type_eng="all";
         type="all";
         days=7;
+
+        export = findViewById(R.id.button_db);
+        export.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StatisticsPageActivity.this, db.class));
+            }
+        });
 
         button7days.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -299,6 +310,8 @@ public class StatisticsPageActivity extends AppCompatActivity implements View.On
                 type="all";
             }
         });
+
+
         makeLineChart(days, type);
         makeBarChart(7, type_eng, type_de);
         mChart.setData(data);

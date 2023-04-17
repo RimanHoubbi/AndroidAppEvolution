@@ -59,9 +59,15 @@
     <com.github.mikephil.charting.charts.CombinedChart
         android:id="@+id/bar_chart_activity"
         android:layout_width="match_parent"
-        android:layout_height="691dp"
+        android:layout_height="495dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1">
 
     </com.github.mikephil.charting.charts.CombinedChart>
+
+    <Button
+        android:id="@+id/button_db"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export Database" />
 </LinearLayout>
