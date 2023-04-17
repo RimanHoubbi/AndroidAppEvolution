@@ -25,9 +25,7 @@
             app:title="@string/_notification_send" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        app:icon="@drawable/ic_baseline_control_point_24"
-        app:title="@string/_extended_function">
+    <PreferenceCategory app:title="@string/_extended_function">
 
         <Preference
             app:key="query"
