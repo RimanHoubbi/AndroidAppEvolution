@@ -9,7 +9,7 @@
     <string name="_stop">Stop</string>
     <string name="_record_finished_activity">In order to record an  already finished activity</string>
     <string name="_click_here">Add</string>
-    <string name="_how_are_you_feeling">For the past 24 hours, I’ve been feeling, on average. . .</string>
+    <string name="_how_are_you_feeling">Over the last 24 hours I\'ve felt on average...</string>
     <string name="_satisfied">Satisfied</string>
     <string name="_dissatisfied">Dissatisfied</string>
     <string name="_restless">Restless</string>
@@ -18,8 +18,8 @@
     <string name="_well">Well</string>
     <string name="_strained">Strained</string>
     <string name="_relaxed">Relaxed</string>
-    <string name="_no_energie">No Energy</string>
-    <string name="_full_energy">Full Energy</string>
+    <string name="_no_energie">Powerless</string>
+    <string name="_full_energy">Energetic</string>
     <string name="_sleepy">Sleepy</string>
     <string name="_awake">Awake</string>
     <string name="_negative_events">Have you experienced one or more negative events since the last query? How intense was the most significant negative event?</string>
@@ -31,20 +31,20 @@
     <string name="_are_you_alone">Are you now alone?</string>
     <string name="_yes_alone">Yes</string>
     <string name="_no_alone">No</string>
-    <string name="_like_people">When you think of the people around you, how does the following statement apply? I don’t like these people!</string>
+    <string name="_like_people">When you think of the people you are surrounded, how does the following statement apply? I don’t like these people!</string>
     <string name="_not_at_all">Not at all</string>
     <string name="_completly_true">Completely true</string>
-    <string name="_people_surrounded">What people are you surrounded by right now?</string>
+    <string name="_people_surrounded">Who are you surrounded by at the moment?</string>
     <string name="_done_people_eurrounded">Done</string>
     <string name="_where_right_now">Where are you now?</string>
-    <string name="_self_satisfied">At present I am satisfied with myself</string>
-    <string name="_self_dissatisfied">Right now, I think I’m a failure.</string>
+    <string name="_self_satisfied">For now I\'m happy with myself</string>
+    <string name="_self_dissatisfied">At the moment I consider myself a failure.</string>
     <string name="_note_1">Note: 0: not applicable at all; to 9 fully applicable</string>
     <string name="_note_2">to submit 0 just click on (submit).</string>
     <string name="_submit_1">Submit</string>
     <string name="_submit_2">Submit</string>
-    <string name="_handling">Since the last query, I have been angry or aggressive towards another person, which I regret afterwards!</string>
-    <string name="handling_without_thinking">Since the last query, I have acted impulsively, that is, I have acted without worrying about the possible consequences.</string>
+    <string name="_handling">Since the last query, I have been angry or aggressive towards another person, which I regretted afterwards!</string>
+    <string name="handling_without_thinking">Since the last query, I have acted impulsively, i.e. I have acted without thinking about the possible consequences.</string>
     <string name="_not_at_all_1">Not at all</string>
     <string name="_completely_true_1">Completely true</string>
     <string name="_not_at_all_2">Not at all</string>
@@ -68,7 +68,7 @@
         <item>Walking</item>
         <item>Running</item>
         <item>Swimming</item>
-        <item>Ballsports</item>
+        <item>Ball sports</item>
         <item>Dancing</item>
         <item>Martial Arts</item>
         <item>Weight Training</item>
@@ -80,7 +80,7 @@
         <item></item>
         <item>Partner</item>
         <item>Family</item>
-        <item>Friend</item>
+        <item>Friends</item>
         <item>Colleges</item>
         <item>Strangers</item>
     </string-array>
@@ -92,7 +92,7 @@
         <item>Sport</item>
         <item>Uni/School</item>
         <item>Shopping</item>
-        <item>Visiting</item>
+        <item>Visit</item>
         <item>Others</item>
     </string-array>
     <string-array name="language_choices">
@@ -104,10 +104,10 @@
         <item>Walking</item>
         <item>Swimming</item>
         <item>Running</item>
-        <item>Ballsport</item>
+        <item>Ball sports</item>
         <item>Dancing</item>
         <item>Martial acts</item>
-        <item>Weight sport</item>
+        <item>Weight Training</item>
         <item>Yoga</item>
         <item>Others</item>
     </string-array>
@@ -207,6 +207,6 @@
     <string name="clear">Clear</string>
     <string name="note1">Note</string>
     <string name="fertig">finish</string>
-    <string name="if_you_want_you_can_add_a_note_to_your_recrod"> Do you have any thing to add ?</string>
+    <string name="if_you_want_you_can_add_a_note_to_your_recrod"> Do you have anything to add ?</string>
 
 </resources>
