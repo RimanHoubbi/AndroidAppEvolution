@@ -337,7 +337,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:text="next"
+                android:text="@string/next"
                 android:layout_marginRight="5dp"/>
 
         </LinearLayout>

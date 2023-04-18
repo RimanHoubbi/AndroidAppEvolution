@@ -185,7 +185,27 @@
     <string name="want_to_cancel">Why do you want to cancel?</string>
     <string name="because">because...</string>
      <string name="choose_intensity">Choose intensity</string>
-
-    
+    <string name="next">NEXT</string>
+    <string name="next2">NEXT</string>
+    <string name="next3">NEXT</string>
+    <string name="next4">NEXT</string>
+    <string name="next5">NEXT</string>
+    <string name="next7">NEXT</string>
+    <string name="next8">NEXT</string>
+    <string name="backNote">BACK</string>
+    <string name="back">BACK</string>
+    <string name="back2">BACK</string>
+    <string name="back3">BACK</string>
+    <string name="back4">BACK</string>
+    <string name="back7">BACK</string>
+    <string name="back6">BACK</string>
+    <string name="save">SAVE</string>
+    <string name="ja_Pos_Ereignisse">YES</string>
+    <string name="nein_pos_Ereignisse">NO</string>
+    <string name="ja_neg_Ereignisse">YES</string>
+    <string name="nein_neg_Ereignisse">NO</string>
+    <string name="clear">Clear</string>
+    <string name="note1">Note</string>
+    <string name="fertig">finish</string>
 
 </resources>

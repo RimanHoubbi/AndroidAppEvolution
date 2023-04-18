@@ -13,7 +13,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginTop="15dp"
-       android:text="Clear"
+       android:text="@string/clear"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
@@ -25,7 +25,7 @@
        android:layout_width="0dp"
        android:layout_height="wrap_content"
        android:layout_marginTop="16dp"
-       android:hint="Note"
+       android:hint="@string/note1"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
@@ -66,7 +66,7 @@
           android:layout_height="wrap_content"
           android:layout_alignParentEnd="true"
           android:layout_alignParentBottom="true"
-          android:text="back"
+          android:text="@string/backNote"
           android:layout_marginLeft="5dp"/>
       <Space
           android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
           android:layout_height="wrap_content"
           android:layout_alignParentEnd="true"
           android:layout_alignParentBottom="true"
-          android:text="SAVE"
+          android:text="@string/save"
           android:layout_marginRight="5dp"/>
 
 

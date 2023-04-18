@@ -178,6 +178,25 @@
     <string name="nein_pos_Ereignisse">NEIN</string>
     <string name="ja_neg_Ereignisse">Ja</string>
     <string name="nein_neg_Ereignisse">NEIN</string>
+    <string name="next">next</string>
+    <string name="next2">next</string>
+    <string name="save">SAVE</string>
+    <string name="next3">next</string>
+    <string name="back2">back</string>
+    <string name="next7">next</string>
+    <string name="back6">back</string>
+    <string name="next4">next</string>
+    <string name="back3">back</string>
+    <string name="next5">next</string>
+    <string name="back4">back</string>
+    <string name="next8">next</string>
+    <string name="back7">back</string>
+    <string name="back">back</string>
+    <string name="backNote">back</string>
+    <string name="clear">Clear</string>
+    <string name="note1">Note</string>
+    <string name="fertig">Fertig</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 
 

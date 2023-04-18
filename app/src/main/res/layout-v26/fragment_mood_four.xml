@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:text="back"
+                android:text="@string/back3"
                 android:layout_marginLeft="5dp"/>
             <Space
                 android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:text="next"
+                android:text="@string/next4"
                 android:layout_marginRight="5dp"/>
 
 

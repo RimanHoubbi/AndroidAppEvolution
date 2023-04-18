@@ -183,5 +183,28 @@
     <string name="want_to_cancel">Warum wollen Sie abbrechen?</string>
     <string name="because">Weil...</string>
     <string name="choose_intensity">Intensität auswählen</string>
+    <string name="next">Nächst</string>
+    <string name="next2">Nächst</string>
+    <string name="next3">Nächst</string>
+    <string name="next4">Nächst</string>
+    <string name="next5">Nächst</string>
+    <string name="next7">Nächst</string>
+    <string name="next8">Nächst</string>
+    <string name="backNote">Nächst</string>
+    <string name="back">Zurück</string>
+    <string name="back2">Zurück</string>
+    <string name="back3">Zurück</string>
+    <string name="back4">Zurück</string>
+    <string name="back7">Zurück</string>
+    <string name="back6">Zurück</string>
+    <string name="save">Speichern </string>
+    <string name="ja_Pos_Ereignisse">JA</string>
+    <string name="nein_pos_Ereignisse">NEIN</string>
+    <string name="ja_neg_Ereignisse">Ja</string>
+    <string name="nein_neg_Ereignisse">NEIN</string>
+    <string name="clear">Löschen</string>
+    <string name="note1">Notiz</string>
+    <string name="fertig">Fertig</string>
+
 
 </resources>
