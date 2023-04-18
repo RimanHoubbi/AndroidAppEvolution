@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/back4" />
             <Space
                 android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:text="@string/next5"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="16dp"/>
 
 
 

@@ -19,12 +19,12 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/_self_satisfied"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -35,10 +35,12 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginTop="196dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/_self_dissatisfied"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintHorizontal_bias="0.0"
@@ -111,8 +113,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="5dp"
-                android:text="@string/back6" />
+                android:layout_marginLeft="16dp"
+                android:text="@string/back4" />
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,9 +140,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:text="@string/next7"
-                tools:layout_editor_absoluteX="221dp"
-                tools:layout_editor_absoluteY="560dp" />
+                android:text="@string/next5"
+                android:layout_marginRight="16dp"/>
 
 
         </LinearLayout>

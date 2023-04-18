@@ -337,8 +337,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:text="next"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="16dp"
+                android:text="next" />
 
         </LinearLayout>
 

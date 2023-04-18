@@ -14,95 +14,65 @@
         android:layout_height="wrap_content">
 
 
-        <Button
-            android:id="@+id/abbrechen4"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/cance1"
-            android:textSize="9sp"
-            app:layout_constraintEnd_toEndOf="@+id/fertig"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/fertig"
-            app:layout_constraintTop_toBottomOf="@+id/fertig" />
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="40dp"
             android:text="@string/_like_people"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/spinner1"
-            tools:layout_editor_absoluteX="25dp" />
+            tools:layout_editor_absoluteX="16dp" />
 
         <SeekBar
             android:id="@+id/seekBarID9"
             style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="384dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="68dp"
+            android:layout_width="349dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="96dp"
             android:defaultFocusHighlightEnabled="false"
             android:max="100"
+            android:progressTint="#00000000"
             android:scaleX="1"
-            android:scaleY="2"
-
-            android:thumb="?attr/dividerVertical"
-            android:thumbOffset="0dp"
-            android:thumbTint="#00ED0909"
-            android:thumbTintMode="multiply"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
 
         <TextView
             android:id="@+id/progress9"
             android:layout_width="33dp"
             android:layout_height="30dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="80dp"
+
             app:layout_constraintEnd_toStartOf="@+id/trifftvölligzu"
-            app:layout_constraintHorizontal_bias="0.372"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toEndOf="@+id/trifftüberhauptnichtzu"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:text="0" />
-
-        <Button
-            android:id="@+id/fertig"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="85dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="172dp"
-            android:layout_marginEnd="144dp"
-            android:backgroundTint="#673FCA"
-            android:text="@string/_done_people_eurrounded"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID9"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID9" />
 
         <TextView
             android:id="@+id/trifftüberhauptnichtzu"
             android:layout_width="172dp"
             android:layout_height="29dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="44dp"
             android:text="@string/_not_at_all"
-
             android:textStyle="bold"
+
             app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/trifftvölligzu"
             android:layout_width="104dp"
             android:layout_height="31dp"
-            android:layout_marginStart="264dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="40dp"
             android:text="@string/_completly_true"
-
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/trifftüberhauptnichtzu"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -133,6 +103,55 @@
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="556dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp">
+
+            <Button
+                android:id="@+id/button_appraisal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/back3"
+                android:layout_marginLeft="16dp"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+            <Button
+                android:id="@+id/abbrechen4"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cance1"
+                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteY="451dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/fertig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/next4"
+                android:layout_marginRight="16dp"/>
+
+
+
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
