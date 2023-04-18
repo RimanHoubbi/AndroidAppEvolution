@@ -67,7 +67,7 @@
           android:layout_alignParentEnd="true"
           android:layout_alignParentBottom="true"
           android:text="@string/backNote"
-          android:layout_marginLeft="5dp"/>
+          android:layout_marginLeft="16dp"/>
       <Space
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
           android:layout_alignParentEnd="true"
           android:layout_alignParentBottom="true"
           android:text="@string/save"
-          android:layout_marginRight="5dp"/>
+          android:layout_marginRight="16dp"/>
 
 
 
