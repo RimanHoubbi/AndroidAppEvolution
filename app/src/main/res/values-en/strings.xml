@@ -77,7 +77,7 @@
     </string-array>
 
     <string-array name="answers">
-        <item>Nobody</item>
+        <item></item>
         <item>Partner</item>
         <item>Family</item>
         <item>Friend</item>
@@ -86,7 +86,7 @@
     </string-array>
 
     <string-array name="answers2">
-        <item>Nowhere</item>
+        <item></item>
         <item>Home</item>
         <item>Work</item>
         <item>Sport</item>
