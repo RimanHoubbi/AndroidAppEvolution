@@ -56,7 +56,7 @@ public class MoodThreeFragment extends Fragment {
 
         viewModel =new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
-        btnNextMoodThree.setOnClickListener(new View.OnClickListener() {
+        buttonNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -64,7 +64,7 @@ public class MoodThreeFragment extends Fragment {
             }
         });
 
-        buttonNo.setOnClickListener(new View.OnClickListener() {
+        btnNextMoodThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
