@@ -88,7 +88,7 @@
         <item>andere</item>
     </string-array>
     <string-array name="answers">
-        <item>Keine</item>
+        <item></item>
         <item>Lebenspartner*in</item>
         <item>Familie</item>
         <item>Freunde</item>
@@ -97,7 +97,7 @@
     </string-array>
 
     <string-array name="answers2">
-        <item>Keine</item>
+        <item></item>
         <item>Zuhause</item>
         <item>Arbeit</item>
         <item>Sport</item>
