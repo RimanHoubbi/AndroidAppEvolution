@@ -207,5 +207,6 @@
     <string name="clear">Clear</string>
     <string name="note1">Note</string>
     <string name="fertig">finish</string>
+    <string name="if_you_want_you_can_add_a_note_to_your_recrod"> Do you have any thing to add ?</string>
 
 </resources>

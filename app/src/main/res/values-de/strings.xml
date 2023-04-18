@@ -205,6 +205,7 @@
     <string name="clear">Löschen</string>
     <string name="note1">Notiz</string>
     <string name="fertig">Fertig</string>
+    <string name="if_you_want_you_can_add_a_note_to_your_recrod"> Möchten Sie etwas hinzufügen ?</string>
 
 
 </resources>
