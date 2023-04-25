@@ -14,6 +14,145 @@
         android:layout_height="wrap_content"
         tools:context=".view.fragments.MoodOneFragment">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="612dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/abbrechen1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cance1"
+                tools:layout_editor_absoluteX="206dp"
+                tools:layout_editor_absoluteY="451dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMoodOneNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="16dp"
+                android:text="@string/next" />
+
+
+
+
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarID1"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:max="100"
+            android:progressTint="#00000000"
+
+            android:scaleX="1"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/zufrieden"
+            app:layout_constraintTop_toBottomOf="@+id/zufrieden"
+            tools:targetApi="o" />
+
+        <SeekBar
+            android:id="@+id/seekBarID2"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:max="100"
+            android:progressTint="#00000000"
+            android:scaleX="1"
+            app:layout_constraintEnd_toEndOf="@+id/Ruhig"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/unruhig"
+            app:layout_constraintTop_toBottomOf="@+id/unruhig"
+            tools:targetApi="o" />
+
+        <SeekBar
+            android:id="@+id/seekBarID3"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:max="100"
+            android:progressTint="#00000000"
+            android:scaleX="1"
+
+            app:layout_constraintEnd_toEndOf="@+id/wohl"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/unwohl"
+            app:layout_constraintTop_toBottomOf="@+id/unwohl"
+            tools:targetApi="o" />
+
+        <SeekBar
+            android:id="@+id/seekBarID4"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:max="100"
+            android:progressTint="#00000000"
+            android:scaleX="1"
+            app:layout_constraintEnd_toEndOf="@+id/angespannt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/entspannt"
+            app:layout_constraintTop_toBottomOf="@+id/entspannt"
+            tools:targetApi="o" />
+
+        <SeekBar
+            android:id="@+id/seekBarID5"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:max="100"
+            android:progressTint="#00000000"
+            android:scaleX="1"
+            app:layout_constraintEnd_toEndOf="@+id/energielos"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/energiegeladen"
+            app:layout_constraintTop_toBottomOf="@+id/energiegeladen"
+            tools:targetApi="o" />
+
+        <SeekBar
+            android:id="@+id/seekBarID6"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:max="100"
+            android:progressTint="#00000000"
+            android:scaleX="1"
+            app:layout_constraintEnd_toEndOf="@+id/wach"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/müde"
+            app:layout_constraintTop_toBottomOf="@+id/müde"
+            tools:targetApi="o" />
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="0dp"
@@ -29,98 +168,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <SeekBar
-            android:id="@+id/seekBarID1"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
-            android:max="100"
-            android:progressTint="#00000000"
-
-            android:scaleX="1"
-            app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/zufrieden"
-            app:layout_constraintTop_toBottomOf="@+id/zufrieden"
-            tools:targetApi="o" />
-
-        <SeekBar
-            android:id="@+id/seekBarID2"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
-            android:max="100"
-            android:scaleX="1"
-            android:progressTint="#00000000"
-            app:layout_constraintEnd_toEndOf="@+id/Ruhig"
-            app:layout_constraintStart_toStartOf="@+id/unruhig"
-            app:layout_constraintTop_toBottomOf="@+id/unruhig"
-            tools:targetApi="o" />
-
-        <SeekBar
-            android:id="@+id/seekBarID3"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
-            android:max="100"
-            android:scaleX="1"
-            android:progressTint="#00000000"
-
-            app:layout_constraintEnd_toEndOf="@+id/wohl"
-            app:layout_constraintStart_toStartOf="@+id/unwohl"
-            app:layout_constraintTop_toBottomOf="@+id/unwohl"
-            tools:targetApi="o" />
-
-        <SeekBar
-            android:id="@+id/seekBarID4"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
-            android:max="100"
-            android:progressTint="#00000000"
-            android:scaleX="1"
-            app:layout_constraintEnd_toEndOf="@+id/angespannt"
-            app:layout_constraintStart_toStartOf="@+id/entspannt"
-            app:layout_constraintTop_toBottomOf="@+id/entspannt"
-            tools:targetApi="o" />
-
-        <SeekBar
-            android:id="@+id/seekBarID5"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
-            android:max="100"
-            android:progressTint="#00000000"
-            android:scaleX="1"
-            app:layout_constraintEnd_toEndOf="@+id/energielos"
-            app:layout_constraintStart_toStartOf="@+id/energiegeladen"
-            app:layout_constraintTop_toBottomOf="@+id/energiegeladen"
-            tools:targetApi="o" />
-
-        <SeekBar
-            android:id="@+id/seekBarID6"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:defaultFocusHighlightEnabled="false"
-            android:max="100"
-            android:scaleX="1"
-            android:progressTint="#00000000"
-            app:layout_constraintEnd_toEndOf="@+id/wach"
-            app:layout_constraintStart_toStartOf="@+id/müde"
-            app:layout_constraintTop_toBottomOf="@+id/müde"
-            tools:targetApi="o" />
-
         <TextView
             android:id="@+id/zufrieden"
             android:layout_width="78dp"
@@ -130,6 +177,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
 
         <TextView
             android:id="@+id/unzufrieden"
@@ -145,7 +193,6 @@
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/zufrieden"
             app:layout_constraintVertical_bias="1.0" />
-
 
         <TextView
             android:id="@+id/unruhig"
@@ -194,7 +241,7 @@
             android:text="@string/_relaxed"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/seekBarID3"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarID3"/>
+            app:layout_constraintTop_toBottomOf="@+id/seekBarID3" />
 
         <TextView
             android:id="@+id/angespannt"
@@ -203,7 +250,7 @@
             android:text="@string/_strained"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
-            app:layout_constraintTop_toTopOf="@+id/entspannt"/>
+            app:layout_constraintTop_toTopOf="@+id/entspannt" />
 
         <TextView
             android:id="@+id/energiegeladen"
@@ -245,102 +292,68 @@
 
         <TextView
             android:id="@+id/progress1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="0"
-            app:layout_constraintBottom_toBottomOf="@+id/unzufrieden"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID1"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID1"
-            app:layout_constraintTop_toTopOf="@+id/unzufrieden" />
+            android:layout_width="26dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/seekBarID1"
+            app:layout_constraintEnd_toStartOf="@+id/unzufrieden"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/progress2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="0"
-            app:layout_constraintBottom_toBottomOf="@+id/unruhig"
-            app:layout_constraintEnd_toEndOf="@+id/seekBarID2"
-            app:layout_constraintStart_toStartOf="@+id/seekBarID2"
-            app:layout_constraintTop_toTopOf="@+id/unruhig" />
+            android:layout_width="23dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="184dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarID2"
+            app:layout_constraintEnd_toStartOf="@+id/Ruhig"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/progress3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="0"
+            android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID3"
+            app:layout_constraintHorizontal_bias="0.479"
             app:layout_constraintStart_toStartOf="@+id/seekBarID3"
-            app:layout_constraintTop_toTopOf="@+id/unwohl" />
+            app:layout_constraintTop_toTopOf="@+id/unwohl"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/progress4"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            tools:text="0"
+            android:layout_marginTop="44dp"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID4"
+            app:layout_constraintHorizontal_bias="0.479"
             app:layout_constraintStart_toStartOf="@+id/seekBarID4"
-            app:layout_constraintTop_toTopOf="@+id/angespannt" />
+            app:layout_constraintTop_toTopOf="@+id/angespannt"
+            tools:text="0" />
+
 
         <TextView
             android:id="@+id/progress5"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            tools:text="0"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID5"
+            app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintStart_toStartOf="@+id/seekBarID5"
-            app:layout_constraintTop_toTopOf="@+id/energielos" />
+            app:layout_constraintTop_toTopOf="@+id/energielos"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/progress6"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            tools:text="0"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="@+id/seekBarID6"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.479"
             app:layout_constraintStart_toStartOf="@+id/seekBarID6"
-            app:layout_constraintTop_toTopOf="@+id/müde" />
-
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="556dp"
-
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-
-            <Button
-                android:id="@+id/abbrechen1"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cance1"
-                tools:layout_editor_absoluteX="206dp"
-                tools:layout_editor_absoluteY="451dp" />
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnMoodOneNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="16dp"
-                android:text="@string/next" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="@+id/müde"
+            tools:text="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
