@@ -58,7 +58,7 @@
     <string name="note">Note: this will set the alarms for the reminders automatically</string>
     <string name="cancel_all_alarms">Cancel all alarms</string>
     <string name="cancel_reminder">Cancel</string>
-    <string name="select_time">Select Time</string>
+    <string name="select_time">Reset</string>
      <string name="button_query">Set</string>
     <string name="query_question">How often would you like to receive the Daily Query?</string>
     <string name="add_reminder">Add</string>

@@ -71,7 +71,7 @@
     <string name="note">Hinweis: Diese Auswahl stellt die Alarme für die Erinnerungen automatisch ein </string>
     <string name="cancel_all_alarms">Alle Alarme löschen</string>
     <string name="cancel_reminder">Löschen</string>
-    <string name="select_time">Zeit auswählen</string>
+    <string name="select_time">Zurücksetzen</string>
     <string name="button_query">Einstellen</string>
     <string name="query_question">Wie oft möchtest Du die Tagesabfrage erhalten?</string>
     <string name="add_reminder">Hinzufügen</string>
